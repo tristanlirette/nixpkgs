@@ -108,7 +108,7 @@ stdenv.mkDerivation (finalAttrs: {
     maintainers = with lib.maintainers; [
       gepbird
     ];
-    license = lib.licenses.sustainableUse;
+    #license = lib.licenses.sustainableUse;
     mainProgram = "n8n";
     platforms = lib.platforms.unix;
   };
