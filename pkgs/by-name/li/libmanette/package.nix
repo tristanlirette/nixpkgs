@@ -12,16 +12,15 @@
   withIntrospection ?
     lib.meta.availableOn stdenv.hostPlatform gobject-introspection
     && stdenv.hostPlatform.emulatorAvailable buildPackages,
-  gtk-doc,
-  docbook-xsl-nons,
-  docbook_xml_dtd_43,
+  gi-docgen,
   glib,
   libgudev,
   libevdev,
+  hidapi,
   gnome,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "libmanette";
   version = "0.2.11";
 
@@ -31,7 +30,7 @@ stdenv.mkDerivation rec {
   ] ++ lib.optional withIntrospection "devdoc";
 
   src = fetchurl {
-    url = "mirror://gnome/sources/${pname}/${lib.versions.majorMinor version}/${pname}-${version}.tar.xz";
+    url = "mirror://gnome/sources/libmanette/${lib.versions.majorMinor finalAttrs.version}/libmanette-${finalAttrs.version}.tar.xz";
     hash = "sha256-uBK5TghjK6YqMJYKjeKSF6c6L/9dovEqzIpdR3GkmnA=";
   };
 
@@ -45,9 +44,7 @@ stdenv.mkDerivation rec {
     ++ lib.optionals withIntrospection [
       vala
       gobject-introspection
-      gtk-doc
-      docbook-xsl-nons
-      docbook_xml_dtd_43
+      gi-docgen
     ]
     ++ lib.optionals (withIntrospection && !stdenv.buildPlatform.canExecute stdenv.hostPlatform) [
       mesonEmulatorHook
@@ -57,6 +54,7 @@ stdenv.mkDerivation rec {
     [
       glib
       libevdev
+      hidapi
     ]
     ++ lib.optionals withIntrospection [
       libgudev
@@ -71,9 +69,14 @@ stdenv.mkDerivation rec {
 
   doCheck = true;
 
+  postFixup = ''
+    # Cannot be in postInstall, otherwise _multioutDocs hook in preFixup will move right back.
+    moveToOutput "share/doc" "$devdoc"
+  '';
+
   passthru = {
     updateScript = gnome.updateScript {
-      packageName = pname;
+      packageName = "libmanette";
       versionPolicy = "odd-unstable";
     };
   };
@@ -86,4 +89,4 @@ stdenv.mkDerivation rec {
     maintainers = teams.gnome.members;
     platforms = platforms.unix;
   };
-}
+})
