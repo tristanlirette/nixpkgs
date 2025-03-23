@@ -129,9 +129,6 @@ stdenv.mkDerivation (finalAttrs: {
     # Meson does not support using different directories during build and
     # for installation like Autotools did with flags passed to make install.
     ./fix-install-paths.patch
-
-    # For some reason it cannot see GIRepository 2.0
-    ./fix-gir-docs-build.patch
   ];
 
   buildInputs = [
