@@ -65,6 +65,7 @@
   tzdata,
   udisks2,
   upower,
+  wayland-scanner,
   libepoxy,
   gnome-user-share,
   gnome-remote-desktop,
@@ -98,6 +99,7 @@ stdenv.mkDerivation (finalAttrs: {
     pkg-config
     python3
     shared-mime-info
+    wayland-scanner
     wrapGAppsHook4
   ];
 
