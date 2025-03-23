@@ -36,7 +36,9 @@ buildPythonPackage rec {
     # https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/8653
     (fetchpatch {
       url = "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/e430b469451d264169eaff57c3291c0c2f1295c2.patch";
-      hash = "sha256-suYiaFfgBoTYt7F4BpaaJNfMZqkeIVn/AS1e8W6FLvo=";
+      stripLen = 3;
+      extraPrefix = "";
+      hash = "sha256-keBZk9Unoqc9w+0RZJbiQq0T7rEaO3c7RMr2Kqy2mno=";
     })
   ];
 
