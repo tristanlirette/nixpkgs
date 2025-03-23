@@ -104,9 +104,7 @@ stdenv.mkDerivation (finalAttrs: {
       "-Dprofiler=disabled"
     ];
 
-  # Currently broken: https://gitlab.gnome.org/GNOME/gjs/-/issues/681
-  # Possibly breaking other packages too, e.g. https://gitlab.gnome.org/GNOME/gnome-shell/-/issues/8189
-  doCheck = false;
+  doCheck = !stdenv.hostPlatform.isDarwin;
 
   postPatch =
     ''
