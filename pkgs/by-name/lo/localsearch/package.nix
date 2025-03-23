@@ -75,6 +75,7 @@ stdenv.mkDerivation (finalAttrs: {
       pkg-config
       vala
       wrapGAppsNoGuiHook
+    ]
     ++ lib.optionals (!stdenv.buildPlatform.canExecute stdenv.hostPlatform) [
       mesonEmulatorHook
     ];
@@ -85,7 +86,6 @@ stdenv.mkDerivation (finalAttrs: {
       bzip2
       dbus
       exempi
-    ]
       ffmpeg
       giflib
       gexiv2
