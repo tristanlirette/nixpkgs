@@ -19,7 +19,7 @@
 
 buildPythonPackage rec {
   pname = "pygobject";
-  version = "3.52.2";
+  version = "3.52.3";
 
   outputs = [
     "out"
@@ -32,7 +32,7 @@ buildPythonPackage rec {
 
   src = fetchurl {
     url = "mirror://gnome/sources/pygobject/${lib.versions.majorMinor version}/pygobject-${version}.tar.gz";
-    hash = "sha256-hp9C7nDc9t5QvOJnBy4sNc7n/NLjLqGvOjqZqIkBhQo=";
+    hash = "sha256-AOQn0pHpV0Yqj61lmp+ci+d2/4Kot2vfQC8eruwIbYI=";
   };
 
   patches = [ 
