@@ -23,7 +23,7 @@
 
 stdenv.mkDerivation rec {
   pname = "libmanette";
-  version = "0.2.9";
+  version = "0.2.11";
 
   outputs = [
     "out"
@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "mirror://gnome/sources/${pname}/${lib.versions.majorMinor version}/${pname}-${version}.tar.xz";
-    hash = "sha256-KTZr5UUvYKdMZfxk/+LXTt3U5uaCTCzvpWekO9kraI8=";
+    hash = "sha256-uBK5TghjK6YqMJYKjeKSF6c6L/9dovEqzIpdR3GkmnA=";
   };
 
   nativeBuildInputs =
