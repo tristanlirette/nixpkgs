@@ -2,6 +2,7 @@
   stdenv,
   lib,
   fetchurl,
+  fetchpatch,
   glib,
   flex,
   bison,
@@ -66,6 +67,13 @@ stdenv.mkDerivation (finalAttrs: {
       # with LD_LIBRARY_PATH environment variable.
       (replaceVars ./absolute_shlib_path.patch {
         inherit nixStoreDir;
+      })
+
+      # Fix getter heuristics regression
+      # https://gitlab.gnome.org/GNOME/gobject-introspection/-/merge_requests/529
+      (fetchpatch {
+        url = "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/7b2d3699ad117199bc316c7007cc5984c3b09368.patch";
+        hash = "sha256-xFvTanSYg01Kog+nKP84QqDIFCsItNTFqVm14CYRFQs=";
       })
     ]
     ++ lib.optionals x11Support [
