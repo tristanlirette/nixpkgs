@@ -5,15 +5,19 @@
   gettext,
   meson,
   ninja,
+  rustc,
+  rustPlatform,
+  cargo,
   fetchurl,
   apacheHttpdPackages,
   pkg-config,
   glib,
   libxml2,
-  systemd,
   wrapGAppsNoGuiHook,
   itstool,
   gnome,
+  _experimental-update-script-combinators,
+  common-updater-scripts,
 }:
 
 let
@@ -29,11 +33,21 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-tVgFBwGVwvZYQVuc0shbLNFOqYHWGCOlANTWK4v4OAE=";
   };
 
+  cargoDeps = rustPlatform.fetchCargoVendor {
+    inherit (finalAttrs) src;
+    name = "gnome-user-share-${finalAttrs.version}";
+    hash = "sha256-tQoP0yBOCesj2kwgBUoqmcVtFttwML2N+wfSULtfC4w=";
+  };
+
   preConfigure =
     ''
-      sed -e 's,^LoadModule dnssd_module.\+,LoadModule dnssd_module ${mod_dnssd}/modules/mod_dnssd.so,' \
-        -e 's,''${HTTP_MODULES_PATH},${apacheHttpd}/modules,' \
-        -i data/dav_user_2.4.conf
+      substituteInPlace data/dav_user_2.4.conf \
+        --replace-fail \
+          'LoadModule dnssd_module ''${HTTP_MODULES_PATH}/mod_dnssd.so' \
+          'LoadModule dnssd_module ${mod_dnssd}/modules/mod_dnssd.so' \
+        --replace-fail \
+          '${"$"}{HTTP_MODULES_PATH}' \
+          '${apacheHttpd}/modules'
     ''
     + lib.optionalString (!stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
       substituteInPlace meson.build --replace-fail \
@@ -51,6 +65,9 @@ stdenv.mkDerivation (finalAttrs: {
     pkg-config
     meson
     ninja
+    rustc
+    rustPlatform.cargoSetupHook
+    cargo
     gettext
     glib # for glib-compile-schemas
     itstool
@@ -60,16 +77,39 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     glib
-    systemd
   ];
 
   doCheck = true;
   strictDeps = true;
 
   passthru = {
-    updateScript = gnome.updateScript {
-      packageName = "gnome-user-share";
-    };
+    updateScript =
+      let
+        updateSource = gnome.updateScript {
+          packageName = "gnome-user-share";
+        };
+
+        updateLockfile = {
+          command = [
+            "sh"
+            "-c"
+            ''
+              PATH=${
+                lib.makeBinPath [
+                  common-updater-scripts
+                ]
+              }
+              update-source-version gnome-user-share --ignore-same-version --source-key=cargoDeps.vendorStaging > /dev/null
+            ''
+          ];
+          # Experimental feature: do not copy!
+          supportedFeatures = [ "silent" ];
+        };
+      in
+      _experimental-update-script-combinators.sequence [
+        updateSource
+        updateLockfile
+      ];
   };
 
   meta = with lib; {
