@@ -1,6 +1,7 @@
 { lib
 , stdenv
 , fetchurl
+, fetchpatch
 , replaceVars
 , gettext
 , pkg-config
@@ -119,6 +120,13 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   patches = [
+    # Fix docs build with pygobject 3.52
+    # https://gitlab.freedesktop.org/NetworkManager/NetworkManager/-/merge_requests/2164
+    (fetchpatch {
+      url = "https://gitlab.freedesktop.org/NetworkManager/NetworkManager/-/commit/723d6ccdc22a83ae88046a310e2ae09e3234678e.patch";
+      hash = "sha256-E9AOV1mjpFQF7MGMoTQnArnrlCrWmBern5lHPaWBh8U=";
+    })
+
     (replaceVars ./fix-paths.patch {
       inherit iputils openconnect ethtool gnused;
       inherit runtimeShell;
