@@ -3,7 +3,6 @@
 , buildPackages
 , replaceVars
 , fetchurl
-, fetchpatch
 , pkg-config
 , docutils
 , gettext
@@ -82,15 +81,6 @@ stdenv.mkDerivation (finalAttrs: {
     url = with finalAttrs; "mirror://gnome/sources/gtk/${lib.versions.majorMinor version}/gtk-${version}.tar.xz";
     hash = "sha256-zKVne+TD5QG0nxxQvK+suo3PS9Oi0BY4j4NO/ydNwVk=";
   };
-
-  patches = [
-    # Fix rendering glitches on vulkan drivers which do not support mipmaps for VK_IMAGE_TILING_LINEAR (Asahi Honeykrisp)
-    # https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/8058
-    (fetchpatch {
-      url = "https://gitlab.gnome.org/GNOME/gtk/-/commit/c9a3cdd396c5646382612ed25e93bb5f9664d043.patch";
-      hash = "sha256-K774FFu6eyyjnxBTy7oTDygkh8+7qp5/KssHkyEwRR8=";
-    })
-  ];
 
   depsBuildBuild = [
     pkg-config
