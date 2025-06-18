@@ -20,6 +20,7 @@
   autoconf,
   automake,
   libtool,
+  xorg,
 }:
 
 stdenv.mkDerivation rec {
@@ -29,7 +30,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "love2d";
     repo = "love";
-    tag = version;
+    rev = version;
     sha256 = "sha256-wZktNh4UB3QH2wAIIlnYUlNoXbjEDwUmPnT4vesZNm0=";
   };
 
@@ -40,6 +41,7 @@ stdenv.mkDerivation rec {
   ];
   buildInputs = [
     SDL2
+    xorg.libX11 # SDl2 optional depend, for SDL_syswm.h
     libGLU
     libGL
     openal

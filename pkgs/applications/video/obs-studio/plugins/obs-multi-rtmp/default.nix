@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "sorayuki";
     repo = "obs-multi-rtmp";
-    tag = version;
+    rev = version;
     sha256 = "sha256-MRBQY9m6rj8HVdn58mK/Vh07FSm0EglRUaP20P3FFO4=";
   };
 
@@ -50,12 +50,12 @@ stdenv.mkDerivation rec {
     rm -rf $out/dist
   '';
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/sorayuki/obs-multi-rtmp/";
     changelog = "https://github.com/sorayuki/obs-multi-rtmp/releases/tag/${version}";
     description = "Multi-site simultaneous broadcast plugin for OBS Studio";
-    license = licenses.gpl2Only;
-    maintainers = with maintainers; [ jk ];
+    license = lib.licenses.gpl2Only;
+    maintainers = with lib.maintainers; [ jk ];
     platforms = [
       "x86_64-linux"
       "i686-linux"

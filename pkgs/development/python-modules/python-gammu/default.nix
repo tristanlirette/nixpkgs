@@ -17,8 +17,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "gammu";
-    repo = pname;
-    tag = version;
+    repo = "python-gammu";
+    rev = version;
     hash = "sha256-lFQBrKWwdvUScwsBva08izZVeVDn1u+ldzixtL9YTpA=";
   };
 

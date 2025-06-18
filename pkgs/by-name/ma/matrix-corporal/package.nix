@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "devture";
-    repo = pname;
-    tag = version;
+    repo = "matrix-corporal";
+    rev = version;
     sha256 = "sha256-KSKPTbF1hhzLyD+iL4+hW9EuV+xFYzSzHu1DSGXWm90=";
   };
 

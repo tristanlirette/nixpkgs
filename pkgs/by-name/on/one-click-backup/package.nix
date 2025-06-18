@@ -15,19 +15,19 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "dev-nis";
     repo = "nis-one-click-backup-qt";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-F+gA+Z4gZoNJYdy28uIjqiJcwcNsyUzl6BXsiIZO0gE=";
   };
 
   nativeBuildInputs = [
     cmake
+    extra-cmake-modules
     ninja
     qt6.wrapQtAppsHook
   ];
 
   buildInputs = [
     qt6.qtdeclarative
-    extra-cmake-modules
   ];
 
   meta = with lib; {

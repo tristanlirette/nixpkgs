@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "dbry";
     repo = "WavPack";
-    tag = version;
+    rev = version;
     hash = "sha256-V9jRIuDpZYIBohJRouGr2TI32BZMXSNVfavqPl56YO0=";
   };
 
@@ -33,12 +33,12 @@ stdenv.mkDerivation rec {
     "man"
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Hybrid audio compression format";
     homepage = "https://www.wavpack.com/";
     changelog = "https://github.com/dbry/WavPack/releases/tag/${version}";
-    license = licenses.bsd3;
-    platforms = platforms.unix;
-    maintainers = with maintainers; [ codyopel ];
+    license = lib.licenses.bsd3;
+    platforms = lib.platforms.unix;
+    maintainers = with lib.maintainers; [ codyopel ];
   };
 }

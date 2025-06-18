@@ -15,7 +15,7 @@ buildKodiAddon rec {
   src = fetchFromGitHub {
     owner = "s0faking";
     repo = namespace;
-    tag = version;
+    rev = version;
     sha256 = "sha256-bCVsR7lH0REJmG3OKU8mRRvw/PhSrLfhufmVBmw05+k=";
   };
 
@@ -30,6 +30,6 @@ buildKodiAddon rec {
     homepage = "https://github.com/s0faking/plugin.video.orftvthek";
     description = "Addon for accessing the Austrian ORF ON streaming service";
     license = licenses.gpl2Only;
-    maintainers = teams.kodi.members;
+    teams = [ teams.kodi ];
   };
 }

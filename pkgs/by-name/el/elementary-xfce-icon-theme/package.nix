@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "shimmerproject";
     repo = "elementary-xfce";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-ncPL76HCC9n4wTciGeqb+YAUcCE9EeOpWGM5DRYUCYg=";
   };
 
@@ -55,6 +55,6 @@ stdenv.mkDerivation rec {
     license = licenses.gpl3Plus;
     # darwin cannot deal with file names differing only in case
     platforms = platforms.linux;
-    maintainers = with maintainers; [ ] ++ teams.xfce.members;
+    teams = [ teams.xfce ];
   };
 }

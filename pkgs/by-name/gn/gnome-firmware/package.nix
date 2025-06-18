@@ -27,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
     domain = "gitlab.gnome.org";
     owner = "World";
     repo = "gnome-firmware";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     sha256 = "sha256-dI9tE/I+14IhYZ+IDLErPunlT4L29AudbZXh0at4jKQ=";
   };
 
@@ -64,7 +64,7 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Tool for installing firmware on devices";
     mainProgram = "gnome-firmware";
     license = licenses.gpl2Plus;
-    maintainers = teams.gnome.members;
+    teams = [ teams.gnome ];
     platforms = platforms.linux;
   };
 })

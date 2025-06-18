@@ -19,7 +19,6 @@
   pyxdg,
 
   withQuartz ? stdenv.hostPlatform.isDarwin,
-  ApplicationServices,
   withRandr ? stdenv.hostPlatform.isLinux,
   libxcb,
   withDrm ? stdenv.hostPlatform.isLinux,
@@ -29,9 +28,6 @@
 
   withGeolocation ? true,
   withCoreLocation ? withGeolocation && stdenv.hostPlatform.isDarwin,
-  CoreLocation,
-  Foundation,
-  Cocoa,
   withGeoclue ? withGeolocation && stdenv.hostPlatform.isLinux,
   geoclue,
   withAppIndicator ? stdenv.hostPlatform.isLinux,
@@ -99,12 +95,6 @@ let
         ++ lib.optional withGeoclue geoclue
         ++ lib.optional withDrm libdrm
         ++ lib.optional withVidmode libXxf86vm
-        ++ lib.optional withQuartz ApplicationServices
-        ++ lib.optionals withCoreLocation [
-          CoreLocation
-          Foundation
-          Cocoa
-        ]
         ++ lib.optional withAppIndicator (
           if (pname != "gammastep") then libappindicator else libayatana-appindicator
         );
@@ -156,7 +146,7 @@ rec {
     src = fetchFromGitHub {
       owner = "jonls";
       repo = "redshift";
-      tag = "v${version}";
+      rev = "v${version}";
       sha256 = "12cb4gaqkybp4bkkns8pam378izr2mwhr2iy04wkprs2v92j7bz6";
     };
 
@@ -180,13 +170,13 @@ rec {
 
   gammastep = mkRedshift rec {
     pname = "gammastep";
-    version = "2.0.9";
+    version = "2.0.11";
 
     src = fetchFromGitLab {
       owner = "chinstrap";
       repo = pname;
-      tag = "v${version}";
-      hash = "sha256-EdVLBBIEjMu+yy9rmcxQf4zdW47spUz5SbBDbhmLjOU=";
+      rev = "v${version}";
+      hash = "sha256-c8JpQLHHLYuzSC9bdymzRTF6dNqOLwYqgwUOpKcgAEU=";
     };
 
     meta = redshift.meta // {

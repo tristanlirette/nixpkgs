@@ -15,6 +15,7 @@
   libpng,
   libvlc,
   libvorbis,
+  libX11,
   openal,
   python3,
   zlib,
@@ -33,7 +34,7 @@ let
   src = fetchFromGitHub {
     owner = "gemrb";
     repo = "gemrb";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-+aPnOJQGRblqcrblVU5ZwA8CZqeT19rxEtn3GLuofYU=";
   };
 
@@ -60,6 +61,7 @@ stdenv.mkDerivation (finalAttrs: {
     libpng
     libvlc
     libvorbis
+    libX11
     openal
     python3
     zlib

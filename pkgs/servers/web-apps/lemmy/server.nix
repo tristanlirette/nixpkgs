@@ -6,8 +6,6 @@
   openssl,
   libpq,
   libiconv,
-  Security,
-  SystemConfiguration,
   protobuf,
   rustfmt,
   nixosTests,
@@ -23,7 +21,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "LemmyNet";
     repo = "lemmy";
-    tag = version;
+    rev = version;
     hash = pinData.serverHash;
     fetchSubmodules = true;
   };
@@ -39,8 +37,6 @@ rustPlatform.buildRustPackage rec {
     [ libpq ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
       libiconv
-      Security
-      SystemConfiguration
     ];
 
   # Using OPENSSL_NO_VENDOR is not an option on darwin

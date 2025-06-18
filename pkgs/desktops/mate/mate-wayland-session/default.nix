@@ -19,7 +19,7 @@ stdenvNoCC.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "mate-desktop";
     repo = "mate-wayland-session";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-sUAq2BylsvjYn8Lt+nm4yIfVhzIEefxKZYnhJnuxjs0=";
   };
 
@@ -54,6 +54,6 @@ stdenvNoCC.mkDerivation rec {
     homepage = "https://mate-desktop.org";
     license = licenses.gpl2Plus;
     platforms = platforms.unix;
-    maintainers = teams.mate.members;
+    teams = [ teams.mate ];
   };
 }

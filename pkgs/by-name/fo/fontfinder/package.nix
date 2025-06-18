@@ -20,13 +20,12 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "mmstick";
     repo = "fontfinder";
-    tag = version;
+    rev = version;
     hash = "sha256-C4KqEdqToVnPXFPWvNkl/md9L2W4NxRd5jvZ4E7CtfA=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit src;
-    name = "${pname}-${version}";
+    inherit pname version src;
     hash = "sha256-g6PRGHrkHA0JTekKaQs+8mtyOCj99m0zPbgP8AnP7GU=";
   };
 

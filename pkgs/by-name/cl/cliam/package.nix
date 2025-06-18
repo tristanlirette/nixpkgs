@@ -11,8 +11,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "securisec";
-    repo = pname;
-    tag = version;
+    repo = "cliam";
+    rev = version;
     hash = "sha256-59nPoH0+k1umMwFg95hQHOr/SRGKqr1URFG7xtVRiTs=";
   };
 

@@ -6,6 +6,7 @@
   fetchFromGitHub,
   pkg-config,
   txt2tags,
+  udevCheckHook,
 }:
 
 stdenv.mkDerivation rec {
@@ -14,7 +15,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "01org";
     repo = "thunderbolt-software-user-space";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "02w1bfm7xvq0dzkhwqiq0camkzz9kvciyhnsis61c8vzp39cwx0x";
   };
 
@@ -22,6 +23,7 @@ stdenv.mkDerivation rec {
     cmake
     pkg-config
     txt2tags
+    udevCheckHook
   ];
   buildInputs = [ boost ];
 
@@ -29,6 +31,8 @@ stdenv.mkDerivation rec {
     "-DUDEV_BIN_DIR=${placeholder "out"}/bin"
     "-DUDEV_RULES_DIR=${placeholder "out"}/etc/udev/rules.d"
   ];
+
+  doInstallCheck = true;
 
   meta = {
     description = "Thunderbolt(TM) user-space components";

@@ -26,8 +26,6 @@
   sndio,
   systemd,
   systemdSupport ? lib.meta.availableOn stdenv.hostPlatform systemd,
-  # Darwin Dependencies
-  darwin,
   coreaudioSupport ? stdenv.hostPlatform.isDarwin,
 }:
 
@@ -41,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "clangen";
     repo = "musikcube";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha512-ibpSrzbn2yGNgWnjAh4sG9ZRFImxjE2sq6tu9k0w1QAAr/OWSTwtaIuK71ClT6yt4HKyRk1KSaXa+/IzOHI6Kg==";
   };
 
@@ -76,14 +74,6 @@ stdenv.mkDerivation (finalAttrs: {
       alsa-lib
       pulseaudio
     ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin (
-      with darwin.apple_sdk.frameworks;
-      [
-        Cocoa
-        SystemConfiguration
-      ]
-    )
-    ++ lib.optionals coreaudioSupport (with darwin.apple_sdk.frameworks; [ CoreAudio ])
     ++ lib.optionals sndioSupport [ sndio ]
     ++ lib.optionals pipewireSupport [ pipewire ];
 

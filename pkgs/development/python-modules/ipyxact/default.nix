@@ -20,8 +20,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "olofk";
-    repo = pname;
-    tag = "v${version}";
+    repo = "ipyxact";
+    rev = "v${version}";
     hash = "sha256-myD+NnqcxxaSAV7qZa8xqeciaiFqFePqIzd7sb/2GXA=";
   };
 

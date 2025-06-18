@@ -16,7 +16,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "gawel";
     repo = "WSGIProxy2";
-    tag = version;
+    rev = version;
     hash = "sha256-ouofw3cBQzBwSh3Pdtdl7KI2pg/T/z3qoh8zoeiKiSs=";
   };
 
@@ -31,6 +31,6 @@ buildPythonPackage rec {
     description = "HTTP proxying tools for WSGI apps";
     homepage = "https://wsgiproxy2.readthedocs.io/";
     license = licenses.mit;
-    maintainers = with maintainers; [ domenkozar ];
+    maintainers = with maintainers; [ ];
   };
 }

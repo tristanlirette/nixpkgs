@@ -1,14 +1,17 @@
 {
   mkKdeDerivation,
+  qtmultimedia,
   qtsvg,
-  phonon,
 }:
 mkKdeDerivation {
   pname = "klettres";
 
+  extraNativeBuildInputs = [ qtmultimedia ];
+
   extraBuildInputs = [
+    qtmultimedia
     qtsvg
-    phonon
   ];
+
   meta.mainProgram = "klettres";
 }

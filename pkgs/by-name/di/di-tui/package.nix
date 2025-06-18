@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "acaloiaro";
     repo = "di-tui";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-jX+2wdnkJPEtCWoMNbwgn3c+LsEktYa5lIfSXY0Wsew=";
   };
 
@@ -20,7 +20,7 @@ buildGoModule rec {
   passthru.updateScript = nix-update-script { };
 
   meta = {
-    description = "A simple terminal UI player for di.fm";
+    description = "Simple terminal UI player for di.fm";
     homepage = "https://github.com/acaloiaro/di-tui";
     license = lib.licenses.bsd2;
     maintainers = [ lib.maintainers.acaloiaro ];

@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "ydlr";
     repo = "mix2nix";
-    tag = version;
+    rev = version;
     hash = "sha256-hD4lpP8GPkNXuMMDOOTEmy+rOwOSCxQwR0Mjq8i4oDM=";
   };
 
@@ -27,6 +27,7 @@ stdenv.mkDerivation rec {
     description = "Generate nix expressions from mix.lock file";
     mainProgram = "mix2nix";
     license = licenses.mit;
-    maintainers = with maintainers; [ ydlr ] ++ teams.beam.members;
+    maintainers = with maintainers; [ ydlr ];
+    teams = [ teams.beam ];
   };
 }

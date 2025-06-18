@@ -1,11 +1,8 @@
 {
   lib,
-  stdenv,
   buildDunePackage,
   fetchFromGitHub,
   dune-configurator,
-  AppKit,
-  Foundation,
   pkg-config,
   glib,
   gst_all_1,
@@ -18,17 +15,12 @@ buildDunePackage rec {
   src = fetchFromGitHub {
     owner = "savonet";
     repo = "ocaml-gstreamer";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "0y8xi1q0ld4hrk96bn6jfh9slyjrxmnlhm662ynacp3yzalp8jji";
   };
 
   nativeBuildInputs = [ pkg-config ];
-  buildInputs =
-    [ dune-configurator ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      AppKit
-      Foundation
-    ];
+  buildInputs = [ dune-configurator ];
   propagatedBuildInputs = [
     glib.dev
     gst_all_1.gstreamer.dev

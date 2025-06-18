@@ -6,9 +6,6 @@
   ncurses,
   pkg-config,
   libiconv,
-  CoreAudio,
-  AudioUnit,
-  VideoToolbox,
 
   alsaSupport ? stdenv.hostPlatform.isLinux,
   alsa-lib ? null,
@@ -143,7 +140,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "cmus";
     repo = "cmus";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-8hgibGtkiwzenMI9YImIApRmw2EzTwE6RhglALpUkp4=";
   };
 
@@ -152,9 +149,6 @@ stdenv.mkDerivation rec {
     [ ncurses ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
       libiconv
-      CoreAudio
-      AudioUnit
-      VideoToolbox
     ]
     ++ lib.flatten (lib.concatMap (a: a.deps) opts);
 

@@ -11,7 +11,6 @@
   avrlibc,
   libGLU,
   libGL,
-  GLUT,
 }:
 
 let
@@ -30,7 +29,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "buserror";
     repo = "simavr";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "0njz03lkw5374x1lxrq08irz4b86lzj2hibx46ssp7zv712pq55q";
   };
 
@@ -52,7 +51,7 @@ stdenv.mkDerivation rec {
     libglut
     libGLU
     libGL
-  ] ++ lib.optional stdenv.hostPlatform.isDarwin GLUT;
+  ];
 
   # remove forbidden references to $TMPDIR
   preFixup = lib.optionalString stdenv.hostPlatform.isLinux ''

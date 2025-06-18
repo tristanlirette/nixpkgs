@@ -1,14 +1,17 @@
 {
   mkKdeDerivation,
+  qtmultimedia,
   qtsvg,
-  phonon,
 }:
 mkKdeDerivation {
   pname = "blinken";
 
+  extraNativeBuildInputs = [ qtmultimedia ];
+
   extraBuildInputs = [
+    qtmultimedia
     qtsvg
-    phonon
   ];
+
   meta.mainProgram = "blinken";
 }

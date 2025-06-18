@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "FWDekker";
     repo = "mommy";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-ZxGHoBRWeGdUelykDdR51HigB85IrvNyswWjCTaOLvg=";
   };
 
@@ -46,13 +46,13 @@ stdenv.mkDerivation rec {
     ''}
   '';
 
-  meta = with lib; {
+  meta = {
     description = "mommy's here to support you, in any shell, on any system~ ❤️";
     homepage = "https://github.com/FWDekker/mommy";
     changelog = "https://github.com/FWDekker/mommy/blob/v${version}/CHANGELOG.md";
-    license = licenses.unlicense;
-    platforms = platforms.all;
-    maintainers = [ ];
+    license = lib.licenses.unlicense;
+    platforms = lib.platforms.all;
+    maintainers = with lib.maintainers; [ ];
     mainProgram = "mommy";
   };
 }

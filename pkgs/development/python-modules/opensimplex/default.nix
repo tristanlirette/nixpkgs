@@ -13,8 +13,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "lmas";
-    repo = pname;
-    tag = "v${version}";
+    repo = "opensimplex";
+    rev = "v${version}";
     sha256 = "C/MTKTHjxMsOgzuXvokw039Kv6N/PgBoOqKleWPLpw0=";
   };
 

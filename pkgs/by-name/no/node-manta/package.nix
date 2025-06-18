@@ -14,7 +14,7 @@ buildNpmPackage rec {
   src = fetchFromGitHub {
     owner = "TritonDataCenter";
     repo = "node-manta";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-Uj3fNzeERiO++sW2uyAbtfN/1Ed6uRVBBvCecncq/QY=";
   };
 
@@ -48,12 +48,12 @@ buildNpmPackage rec {
     };
   };
 
-  meta = with lib; {
+  meta = {
     description = "Manta Object-Storage Client CLIs and Node.js SDK";
     homepage = "https://github.com/TritonDataCenter/node-manta";
     changelog = "https://github.com/TritonDataCenter/node-manta/blob/v${version}/CHANGES.md";
-    license = licenses.mit;
-    maintainers = with maintainers; [ teutat3s ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ teutat3s ];
     mainProgram = "mls";
   };
 }

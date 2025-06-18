@@ -15,7 +15,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "freifunkMUC";
     repo = "wg-access-server";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-AhFqEmHrx9MCdjnB/YA3qU7KsaMyLO+vo53VWUrcL8I=";
   };
 
@@ -66,7 +66,7 @@ buildGoModule rec {
   };
 
   meta = with lib; {
-    description = "An all-in-one WireGuard VPN solution with a web ui for connecting devices";
+    description = "All-in-one WireGuard VPN solution with a web ui for connecting devices";
     homepage = "https://github.com/freifunkMUC/wg-access-server";
     license = licenses.mit;
     maintainers = with maintainers; [ xanderio ];

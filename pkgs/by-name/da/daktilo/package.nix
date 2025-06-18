@@ -3,8 +3,6 @@
   rustPlatform,
   fetchFromGitHub,
   installShellFiles,
-  stdenv,
-  darwin,
   unixtools,
   pkg-config,
   alsa-lib,
@@ -18,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "orhun";
     repo = "daktilo";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-gIBWonJGX6IpxyBeMulcfQEExsG1GrBVQLZbBBA1ruc=";
   };
 
@@ -30,16 +28,12 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    [
-      alsa-lib
-      xorg.libX11
-      xorg.libXi
-      xorg.libXtst
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-    ];
+  buildInputs = [
+    alsa-lib
+    xorg.libX11
+    xorg.libXi
+    xorg.libXtst
+  ];
 
   nativeCheckInputs = [
     unixtools.script

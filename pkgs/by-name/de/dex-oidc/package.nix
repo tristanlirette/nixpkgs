@@ -13,8 +13,8 @@ buildGo124Module rec {
 
   src = fetchFromGitHub {
     owner = "dexidp";
-    repo = pname;
-    tag = "v${version}";
+    repo = "dex";
+    rev = "v${version}";
     sha256 = "sha256-FbjNOyECgf26+Z48YwF9uMN8C3zMRshD3VOjoRbA0ys=";
   };
 

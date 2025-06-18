@@ -27,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "rafaelmardojai";
     repo = "webfont-kit-generator";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-ZfyF1Didce88/HaLeMNTw0nGzj3EZnC7V9OzsN21L40=";
   };
 
@@ -73,7 +73,8 @@ stdenv.mkDerivation (finalAttrs: {
     mainProgram = "webfontkitgenerator";
     homepage = "https://apps.gnome.org/app/com.rafaelmardojai.WebfontKitGenerator";
     license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ benediktbroich ] ++ lib.teams.gnome-circle.members;
+    maintainers = with maintainers; [ benediktbroich ];
+    teams = [ teams.gnome-circle ];
     platforms = platforms.unix;
   };
 })

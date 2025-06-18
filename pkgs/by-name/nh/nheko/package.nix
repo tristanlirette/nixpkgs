@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Nheko-Reborn";
     repo = "nheko";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-hQb+K8ogNj/s6ZO2kgS/sZZ35y4CwMeS3lVeMYNucYQ=";
   };
 
@@ -80,7 +80,12 @@ stdenv.mkDerivation rec {
 
   preFixup = ''
     # add gstreamer plugins path to the wrapper
-    qtWrapperArgs+=(--prefix GST_PLUGIN_SYSTEM_PATH_1_0 : "$GST_PLUGIN_SYSTEM_PATH_1_0")
+    # unset QT_STYLE_OVERRIDE to avoid showing a blank window when started
+    # https://github.com/NixOS/nixpkgs/issues/333009
+    qtWrapperArgs+=(
+      --prefix GST_PLUGIN_SYSTEM_PATH_1_0 : "$GST_PLUGIN_SYSTEM_PATH_1_0"
+      --unset QT_STYLE_OVERRIDE
+    )
   '';
 
   meta = with lib; {

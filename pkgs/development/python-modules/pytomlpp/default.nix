@@ -19,8 +19,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "bobfang1992";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pytomlpp";
+    rev = "v${version}";
     fetchSubmodules = true;
     hash = "sha256-QJeXvj1M3Vq5ctmx7RhczONsPRXAecv3WhJgKWtNK+M=";
   };

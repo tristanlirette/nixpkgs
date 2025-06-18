@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "timewarrior-synchronize";
-    repo = pname;
-    tag = "v${version}";
+    repo = "timew-sync-server";
+    rev = "v${version}";
     hash = "sha256-3THRP+hydvq/dnxzUOFGeuu8//qL7pFN0RHJVxzgibI=";
   };
 

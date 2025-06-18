@@ -13,8 +13,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "jsdelivr";
-    repo = pname;
-    tag = "v${version}";
+    repo = "globalping-cli";
+    rev = "v${version}";
     hash = "sha256-UB2vYdyJ2+H8rFyJn1KBNnWoGUlRjwYorWXqoB9WDu0=";
   };
 

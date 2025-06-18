@@ -12,7 +12,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "prometheus-community";
     repo = "postgres_exporter";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-F7nLz6NkvWSeZTzjo1/wNWCPn3Veo9/SkJdlFRwdlo4=";
   };
 
@@ -44,7 +44,6 @@ buildGoModule rec {
     maintainers = with maintainers; [
       fpletz
       globin
-      willibutz
       ma27
     ];
   };

@@ -11,8 +11,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "tjko";
-    repo = pname;
-    tag = "v${version}";
+    repo = "jpegoptim";
+    rev = "v${version}";
     sha256 = "sha256-3p3kcUur1u09ROdKXG5H8eilu463Rzbn2yfYo5o6+KM=";
   };
 

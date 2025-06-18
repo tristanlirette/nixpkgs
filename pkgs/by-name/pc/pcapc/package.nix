@@ -11,8 +11,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitLab {
     owner = "post-factum";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pcapc";
+    rev = "v${version}";
     hash = "sha256-oDg9OSvi9aQsZ2SQm02NKAcppE0w5SGZaI13gdp7gv4=";
   };
 

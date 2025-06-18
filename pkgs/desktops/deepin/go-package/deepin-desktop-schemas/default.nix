@@ -13,7 +13,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-Zp80Yz0qkFAwpQJPgs/gcfCG2DMtvpKdVKRlqOTmaCk=";
   };
 
@@ -52,6 +52,6 @@ buildGoModule rec {
     homepage = "https://github.com/linuxdeepin/deepin-desktop-schemas";
     license = lib.licenses.gpl3Plus;
     platforms = lib.platforms.linux;
-    maintainers = lib.teams.deepin.members;
+    teams = [ lib.teams.deepin ];
   };
 }

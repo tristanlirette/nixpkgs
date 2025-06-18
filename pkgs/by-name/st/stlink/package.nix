@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "stlink-org";
     repo = "stlink";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-hlFI2xpZ4ldMcxZbg/T5/4JuFFdO9THLcU0DQKSFqrw=";
   };
 
@@ -55,6 +55,8 @@ stdenv.mkDerivation rec {
       pkg-config
       wrapGAppsHook3
     ];
+
+  doInstallCheck = true;
 
   cmakeFlags = [
     "-DSTLINK_MODPROBED_DIR=${placeholder "out"}/etc/modprobe.d"

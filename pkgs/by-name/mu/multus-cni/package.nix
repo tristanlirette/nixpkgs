@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "k8snetworkplumbingwg";
-    repo = pname;
-    tag = "v${version}";
+    repo = "multus-cni";
+    rev = "v${version}";
     sha256 = "sha256-Q6ACXOv1E3Ouki4ksdlUZFbWcDgo9xbCiTfEiVG5l18=";
   };
 

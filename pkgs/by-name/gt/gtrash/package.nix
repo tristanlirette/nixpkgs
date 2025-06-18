@@ -12,7 +12,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "umlx5h";
     repo = "gtrash";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-odvj0YY18aishVWz5jWcLDvkYJLQ97ZSGpumxvxui4Y=";
   };
 
@@ -40,12 +40,12 @@ buildGoModule rec {
       --zsh <($out/bin/gtrash completion zsh)
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Trash CLI manager written in Go";
     homepage = "https://github.com/umlx5h/gtrash";
     changelog = "https://github.com/umlx5h/gtrash/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ umlx5h ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ umlx5h ];
     mainProgram = "gtrash";
   };
 }

@@ -17,7 +17,7 @@ stdenvNoCC.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxmint";
     repo = "mint-x-icons";
-    tag = version;
+    rev = version;
     hash = "sha256-9oXMMLVjirzRVJ0Pmd/1LjeeNUgYMKaGeih3eQA7k5U=";
   };
 
@@ -53,6 +53,6 @@ stdenvNoCC.mkDerivation rec {
     description = "Mint/metal theme based on mintified versions of Clearlooks Revamp, Elementary and Faenza";
     license = licenses.gpl3Plus; # from debian/copyright
     platforms = platforms.linux;
-    maintainers = teams.cinnamon.members;
+    teams = [ teams.cinnamon ];
   };
 }

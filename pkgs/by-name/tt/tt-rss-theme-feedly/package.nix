@@ -1,5 +1,6 @@
 {
   lib,
+  nixosTests,
   stdenv,
   fetchFromGitHub,
 }:
@@ -11,7 +12,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "levito";
     repo = "tt-rss-feedly-theme";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-3mD1aY7gjdvucRzY7sLmZ1RsHtraAg1RGE/3uDp6/o4=";
   };
 
@@ -22,6 +23,10 @@ stdenv.mkDerivation rec {
 
     cp -ra feedly *.css $out
   '';
+
+  passthru = {
+    tests = { inherit (nixosTests) tt-rss; };
+  };
 
   meta = with lib; {
     description = "Feedly theme for Tiny Tiny RSS";

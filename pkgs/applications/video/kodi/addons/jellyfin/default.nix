@@ -22,7 +22,7 @@ buildKodiAddon rec {
   src = fetchFromGitHub {
     owner = "jellyfin";
     repo = "jellyfin-kodi";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-7PgE1KrKmSBWzzi6tZp1Pou/82P1mPX8iE/IQlBi1Cc=";
   };
 
@@ -52,6 +52,6 @@ buildKodiAddon rec {
     homepage = "https://jellyfin.org/";
     description = "Whole new way to manage and view your media library";
     license = licenses.gpl3Only;
-    maintainers = teams.kodi.members;
+    teams = [ teams.kodi ];
   };
 }

@@ -32,13 +32,16 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "dns-stats";
     repo = "compactor";
-    tag = version;
+    rev = version;
     fetchSubmodules = true;
     hash = "sha256-5Z14suhO5ghhmZsSj4DsSoKm+ct2gQFO6qxhjmx4Xm4=";
   };
 
   patches = [
     ./patches/add-a-space-after-type-in-check-response-opt-sh.patch
+
+    # https://github.com/dns-stats/compactor/pull/91
+    ./patches/update-golden-cbor2diag-output.patch
   ];
 
   nativeBuildInputs = [
@@ -87,12 +90,12 @@ stdenv.mkDerivation rec {
     wireshark-cli
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Tools to capture DNS traffic and record it in C-DNS files";
     homepage = "https://dns-stats.org/";
     changelog = "https://github.com/dns-stats/compactor/raw/${version}/ChangeLog.txt";
-    license = licenses.mpl20;
-    maintainers = with maintainers; [ fdns ];
-    platforms = platforms.unix;
+    license = lib.licenses.mpl20;
+    maintainers = with lib.maintainers; [ fdns ];
+    platforms = lib.platforms.unix;
   };
 }

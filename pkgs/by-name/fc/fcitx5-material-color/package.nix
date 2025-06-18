@@ -11,7 +11,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "hosxy";
     repo = "Fcitx5-Material-Color";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-i9JHIJ+cHLTBZUNzj9Ujl3LIdkCllTWpO1Ta4OT1LTc=";
   };
 
@@ -19,7 +19,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook preInstall
 
     # https://gitlab.archlinux.org/archlinux/packaging/packages/fcitx5-material-color/-/blob/main/PKGBUILD?ref_type=heads#L16
-    install -Dm644 arrow.png radio.png -t $out/share/${finalAttrs.pname}/
+    install -Dm644 arrow.png radio.png -t $out/share/fcitx5-material-color/
     for _variant in black blue brown deepPurple indigo orange pink red sakuraPink teal; do
       _variant_name=Material-Color-$_variant
       install -dm755 $_variant_name $out/share/fcitx5/themes/$_variant_name

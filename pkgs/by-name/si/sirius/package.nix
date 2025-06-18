@@ -6,6 +6,7 @@
   pkg-config,
   mpi,
   mpiCheckPhaseHook,
+  ctestCheckHook,
   gfortran,
   blas,
   lapack,
@@ -51,7 +52,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "electronic-structure";
     repo = "SIRIUS";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-A3WiEzo2ianxdF9HMZN9cT0lFosToGEHh0o6uBSAYqU=";
   };
 
@@ -152,16 +153,14 @@ stdenv.mkDerivation rec {
   # Can not run parallel checks generally as it requires exactly multiples of 4 MPI ranks
   # Even cpu_serial tests had to be disabled as they require scalapack routines in the sandbox
   # and run into the same problem as MPI tests
-  checkPhase = ''
-    runHook preCheck
-
-    ctest --output-on-failure --label-exclude integration_test
-
-    runHook postCheck
-  '';
+  checkFlags = [
+    "--label-exclude"
+    "integration_test"
+  ];
 
   nativeCheckInputs = [
     mpiCheckPhaseHook
+    ctestCheckHook
   ];
 
   meta = with lib; {

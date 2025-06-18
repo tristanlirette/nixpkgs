@@ -12,7 +12,6 @@
   jackSupport ? true,
   jack,
   coreaudioSupport ? stdenv.hostPlatform.isDarwin,
-  CoreAudio,
 }:
 
 stdenv.mkDerivation rec {
@@ -23,7 +22,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "thestk";
     repo = "rtaudio";
-    tag = version;
+    rev = version;
     sha256 = "0xvahlfj3ysgsjsp53q81hayzw7f99n1g214gh7dwdr52kv2l987";
   };
 
@@ -35,8 +34,7 @@ stdenv.mkDerivation rec {
   buildInputs =
     lib.optional alsaSupport alsa-lib
     ++ lib.optional pulseaudioSupport libpulseaudio
-    ++ lib.optional jackSupport jack
-    ++ lib.optional coreaudioSupport CoreAudio;
+    ++ lib.optional jackSupport jack;
 
   cmakeFlags = [
     "-DRTAUDIO_API_ALSA=${if alsaSupport then "ON" else "OFF"}"

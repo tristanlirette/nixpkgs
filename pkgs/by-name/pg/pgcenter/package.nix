@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "lesovsky";
     repo = "pgcenter";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-xaY01T12/5Peww9scRgfc5yHj7QA8BEwOK5l6OedziY=";
   };
 
@@ -33,12 +33,12 @@ buildGoModule rec {
 
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     homepage = "https://pgcenter.org/";
     changelog = "https://github.com/lesovsky/pgcenter/raw/v${version}/doc/Changelog";
     description = "Command-line admin tool for observing and troubleshooting PostgreSQL";
-    license = licenses.bsd3;
-    maintainers = [ ];
+    license = lib.licenses.bsd3;
+    maintainers = with lib.maintainers; [ ];
     mainProgram = "pgcenter";
   };
 }

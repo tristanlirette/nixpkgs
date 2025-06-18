@@ -6,13 +6,14 @@
 
 python3.pkgs.buildPythonApplication rec {
   pname = "offensive-azure";
+  # nixpkgs-update: no auto update
   version = "0.4.10";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "blacklanternsecurity";
-    repo = pname;
-    tag = "v${version}";
+    repo = "offensive-azure";
+    rev = "v${version}";
     hash = "sha256-5JHix+/uGGhXM89VLimI81g4evci5ZUtNV1c1xopjuI=";
   };
 

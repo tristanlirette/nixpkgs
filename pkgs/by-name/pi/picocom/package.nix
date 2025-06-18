@@ -7,7 +7,6 @@
   go-md2man,
   installShellFiles,
   linenoise,
-  darwin,
   lrzsz,
 }:
 
@@ -18,7 +17,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "wsakernel";
     repo = "picocom";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-cQoEfi75iltjeAm26NvXgfrL7d1Hm+1veQ4dVe0S1q8=";
   };
 
@@ -35,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     linenoise
-  ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ darwin.apple_sdk.frameworks.IOKit ];
+  ];
 
   makeFlags = [
     "HISTFILE=.cache/picocom_history"

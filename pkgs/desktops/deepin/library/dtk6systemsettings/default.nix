@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-b/iI2OKQQoFj3vWatfGdDP9z+SEsK5XBra9KqjlGzqs=";
   };
 
@@ -62,6 +62,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/dtk6systemsettings";
     license = lib.licenses.lgpl3Plus;
     platforms = lib.platforms.linux;
-    maintainers = lib.teams.deepin.members;
+    teams = [ lib.teams.deepin ];
   };
 }

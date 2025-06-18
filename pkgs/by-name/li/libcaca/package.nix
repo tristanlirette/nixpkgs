@@ -17,8 +17,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "cacalabs";
-    repo = pname;
-    tag = "v${version}";
+    repo = "libcaca";
+    rev = "v${version}";
     hash = "sha256-N0Lfi0d4kjxirEbIjdeearYWvStkKMyV6lgeyNKXcVw=";
   };
 

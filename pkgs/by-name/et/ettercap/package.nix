@@ -8,7 +8,7 @@
   libnet,
   zlib,
   curl,
-  pcre,
+  pcre2,
   openssl,
   ncurses,
   glib,
@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Ettercap";
     repo = "ettercap";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "1sdf1ssa81ib6k0mc5m2jzbjl4jd1yv6ahv5dwx2x9w4b2pyqg1c";
   };
 
@@ -53,7 +53,7 @@ stdenv.mkDerivation rec {
     libnet
     zlib
     curl
-    pcre
+    pcre2
     openssl
     ncurses
     glib

@@ -26,7 +26,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "LibreArp";
     repo = "LibreArp";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-jEpES68NuHhelUq/L46CxEeadk3LbuPZ72JaGDbw8fg=";
     fetchSubmodules = true;
   };
@@ -63,7 +63,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   meta = with lib; {
-    description = "A pattern-based arpeggio generator plugin";
+    description = "Pattern-based arpeggio generator plugin";
     homepage = "https://librearp.gitlab.io/";
     license = licenses.gpl3Plus;
     platforms = [ "x86_64-linux" ];

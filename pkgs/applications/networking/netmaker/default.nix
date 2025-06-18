@@ -18,7 +18,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "gravitl";
     repo = pname;
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-/7tj3SuTa2lSMgN4f2/OutzoPvAN7ARK1RKTLlMw13Y=";
   };
 
@@ -37,12 +37,12 @@ buildGoModule rec {
     xorg.libXrandr
   ];
 
-  meta = with lib; {
+  meta = {
     description = "WireGuard automation from homelab to enterprise";
     homepage = "https://netmaker.io";
     changelog = "https://github.com/gravitl/netmaker/-/releases/v${version}";
-    license = licenses.asl20;
-    maintainers = with maintainers; [
+    license = lib.licenses.asl20;
+    maintainers = with lib.maintainers; [
       urandom
       qjoly
     ];

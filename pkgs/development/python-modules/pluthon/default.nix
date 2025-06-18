@@ -12,15 +12,15 @@
 
 buildPythonPackage rec {
   pname = "pluthon";
-  version = "1.0.0";
+  version = "1.1.0";
 
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "OpShin";
     repo = "pluthon";
-    tag = version;
-    hash = "sha256-IYpkb/RXRu53HoeVKik7Jog5FyXwrWItrxSla9dN0s4=";
+    rev = version;
+    hash = "sha256-t8KWm2eBq6CzFPAWN9pgbpF62hvNNZWCpphJsY5T2OQ=";
   };
 
   propagatedBuildInputs = [

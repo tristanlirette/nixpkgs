@@ -243,9 +243,12 @@ let
           };
           cargoRoot = "src/_bcrypt";
           cargoDeps = rustPlatform.fetchCargoVendor {
-            inherit src;
-            sourceRoot = "${pname}-${version}/${cargoRoot}";
-            name = "${pname}-${version}";
+            inherit
+              pname
+              version
+              src
+              cargoRoot
+              ;
             hash = "sha256-8PyCgh/rUO8uynzGdgylAsb5k55dP9fCnf40UOTCR/M=";
           };
         });
@@ -297,7 +300,7 @@ let
           src = fetchFromGitHub {
             owner = "kubernetes-client";
             repo = "python";
-            tag = "v${version}";
+            rev = "v${version}";
             sha256 = "1sawp62j7h0yksmg9jlv4ik9b9i1a1w9syywc9mv8x89wibf5ql1";
             fetchSubmodules = true;
           };
@@ -356,10 +359,10 @@ let
   );
   inherit (ceph-python-env.python) sitePackages;
 
-  version = "19.2.1";
+  version = "19.2.2";
   src = fetchurl {
     url = "https://download.ceph.com/tarballs/ceph-${version}.tar.gz";
-    hash = "sha256-QEX3LHxySVgLBg21iQga1DnyQsXFi6593e+WSjgT/h8=";
+    hash = "sha256-7FD9LJs25VzUCRIBm01Cm3ss1YLTN9YLwPZnHSMd8rs=";
   };
 in
 rec {

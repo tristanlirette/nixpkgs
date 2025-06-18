@@ -3,18 +3,20 @@
   buildPythonPackage,
   fetchFromGitHub,
   fetchpatch,
+  setuptools,
+  standard-cgi,
   pytestCheckHook,
 }:
 
 buildPythonPackage rec {
   pname = "vat-moss";
   version = "0.11.0";
-  format = "setuptools";
+  pyproject = true;
 
   src = fetchFromGitHub {
     owner = "raphaelm";
     repo = "vat_moss-python";
-    tag = version;
+    rev = version;
     hash = "sha256-c0lcyeW8IUhWKcfn3BmsbNmHyAzm8T0sdYp0Zp0FbFw=";
   };
 
@@ -25,6 +27,10 @@ buildPythonPackage rec {
       hash = "sha256-GpxaQ6/1LdFdxzXT/p4HS7FHU0WeM0i3LbdRFeqnFdw=";
     })
   ];
+
+  build-system = [ setuptools ];
+
+  dependencies = [ standard-cgi ];
 
   pythonImportsCheck = [ "vat_moss" ];
 

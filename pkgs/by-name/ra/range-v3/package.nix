@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "ericniebler";
     repo = "range-v3";
-    tag = version;
+    rev = version;
     hash = "sha256-bRSX91+ROqG1C3nB9HSQaKgLzOHEFy9mrD2WW3PRBWU=";
   };
 
@@ -31,12 +31,12 @@ stdenv.mkDerivation rec {
     NIX_CFLAGS_COMPILE = "-std=c++17";
   };
 
-  meta = with lib; {
+  meta = {
     description = "Experimental range library for C++11/14/17";
     homepage = "https://github.com/ericniebler/range-v3";
     changelog = "https://github.com/ericniebler/range-v3/releases/tag/${version}";
-    license = licenses.boost;
-    platforms = platforms.all;
-    maintainers = [ ];
+    license = lib.licenses.boost;
+    platforms = lib.platforms.all;
+    maintainers = with lib.maintainers; [ ];
   };
 }

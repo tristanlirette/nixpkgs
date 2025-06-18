@@ -25,7 +25,6 @@
   enableDbus ? false,
   libintl,
   libiconv,
-  Foundation,
   bash,
   python3,
   argp-standalone,
@@ -46,7 +45,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "mchehab";
     repo = "zbar";
-    tag = version;
+    rev = version;
     sha256 = "sha256-6gOqMsmlYy6TK+iYPIBsCPAk8tYDliZYMYeTOidl4XQ=";
   };
 
@@ -84,7 +83,6 @@ stdenv.mkDerivation rec {
     ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
       libiconv
-      Foundation
     ]
     ++ lib.optionals enableDbus [
       dbus

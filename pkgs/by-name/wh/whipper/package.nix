@@ -34,7 +34,7 @@ python3.pkgs.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "whipper-team";
     repo = "whipper";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "00cq03cy5dyghmibsdsq5sdqv3bzkzhshsng74bpnb5lasxp3ia5";
   };
 
@@ -123,5 +123,6 @@ python3.pkgs.buildPythonApplication rec {
     maintainers = with maintainers; [ emily ];
     license = licenses.gpl3Plus;
     platforms = platforms.unix;
+    mainProgram = "whipper";
   };
 }

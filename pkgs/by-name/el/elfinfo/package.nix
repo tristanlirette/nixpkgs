@@ -11,18 +11,18 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "xyproto";
     repo = "elfinfo";
-    tag = version;
+    rev = version;
     sha256 = "sha256-HnjHOjanStqmDXnc6Z9w0beCMJFf/ndWbYxoDEaOws4=";
   };
 
   vendorHash = null;
 
-  meta = with lib; {
+  meta = {
     description = "Small utility for showing information about ELF files";
     mainProgram = "elfinfo";
     homepage = "https://elfinfo.roboticoverlords.org/";
     changelog = "https://github.com/xyproto/elfinfo/releases/tag/${version}";
-    license = licenses.bsd3;
-    maintainers = [ ];
+    license = lib.licenses.bsd3;
+    maintainers = with lib.maintainers; [ ];
   };
 }

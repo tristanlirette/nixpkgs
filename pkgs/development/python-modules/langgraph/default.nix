@@ -23,7 +23,6 @@
   langgraph-checkpoint-sqlite,
   langsmith,
   psycopg,
-  psycopg-pool,
   pydantic,
   pytest-asyncio,
   pytest-mock,
@@ -33,17 +32,20 @@
   syrupy,
   postgresql,
   postgresqlTestHook,
+
+  # passthru
+  nix-update-script,
 }:
 buildPythonPackage rec {
   pname = "langgraph";
-  version = "0.3.24";
+  version = "0.4.1";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "langchain-ai";
     repo = "langgraph";
-    tag = "${version}";
-    hash = "sha256-NlTpBXBeADlIHQDlt0muJEuoKOgXiAtAo8GoU5CsvZo=";
+    tag = version;
+    hash = "sha256-bTxtfduuuyRITZqhk15aWwxNwiZ7TMTgBOEPat6zVIc=";
   };
 
   postgresqlTestSetupPost = ''
@@ -111,25 +113,33 @@ buildPythonPackage rec {
     "test_no_modifier"
     "test_pending_writes_resume"
     "test_remove_message_via_state_update"
+
+    # pydantic.errors.PydanticForbiddenQualifier,
+    # see https://github.com/langchain-ai/langgraph/issues/4360
+    "test_state_schema_optional_values"
   ];
 
   disabledTestPaths = [
     # psycopg.errors.InsufficientPrivilege: permission denied to create database
-    "tests/test_pregel_async.py"
-    "tests/test_pregel.py"
+    "tests/test_checkpoint_migration.py"
     "tests/test_large_cases.py"
     "tests/test_large_cases_async.py"
+    "tests/test_pregel.py"
+    "tests/test_pregel_async.py"
   ];
 
-  passthru = {
-    inherit (langgraph-sdk) updateScript;
-    skipBulkUpdate = true; # Broken, see https://github.com/NixOS/nixpkgs/issues/379898
+  # Since `langgraph` is the only unprefixed package, we have to use an explicit match
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version-regex"
+      "([0-9.]+)"
+    ];
   };
 
   meta = {
     description = "Build resilient language agents as graphs";
     homepage = "https://github.com/langchain-ai/langgraph";
-    changelog = "https://github.com/langchain-ai/langgraph/releases/tag/${version}";
+    changelog = "https://github.com/langchain-ai/langgraph/releases/tag/${src.tag}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ sarahec ];
   };

@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "aruiz";
     repo = "webp-pixbuf-loader";
-    tag = version;
+    rev = version;
     sha256 = "sha256-2GDH5+YCwb2mPdMfEscmWDOzdGnWRcppE+4rcDCZog4=";
   };
 
@@ -70,6 +70,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/aruiz/webp-pixbuf-loader";
     license = licenses.lgpl2Plus;
     platforms = platforms.unix;
-    maintainers = teams.gnome.members ++ [ maintainers.cwyc ];
+    maintainers = [ maintainers.cwyc ];
+    teams = [ teams.gnome ];
   };
 }

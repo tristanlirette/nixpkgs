@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "adedayo";
-    repo = pname;
-    tag = "v${version}";
+    repo = "checkmate";
+    rev = "v${version}";
     hash = "sha256-XzzN4oIG6E4NsMGl4HzFlgAGhkRieRn+jyA0bT8fcrg=";
   };
 
@@ -19,12 +19,12 @@ buildGoModule rec {
 
   subPackages = [ "." ];
 
-  meta = with lib; {
+  meta = {
     description = "Pluggable code security analysis tool";
     mainProgram = "checkmate";
     homepage = "https://github.com/adedayo/checkmate";
     changelog = "https://github.com/adedayo/checkmate/releases/tag/v${version}";
-    license = licenses.bsd3;
-    maintainers = with maintainers; [ fab ];
+    license = lib.licenses.bsd3;
+    maintainers = with lib.maintainers; [ fab ];
   };
 }

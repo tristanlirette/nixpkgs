@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "glebarez";
     repo = "cero";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-t2u6Q8CatUIQKk146uor367vr85O6KU8Gf8LZFZTESU=";
   };
 
@@ -25,12 +25,12 @@ buildGoModule rec {
   # Tests are comparing output
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     description = "Scrape domain names from SSL certificates of arbitrary hosts";
     homepage = "https://github.com/glebarez/cero";
     changelog = "https://github.com/glebarez/cero/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ fab ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ fab ];
     mainProgram = "cero";
   };
 }

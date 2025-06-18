@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "orhun";
     repo = "pkgtop";
-    tag = version;
+    rev = version;
     hash = "sha256-NY8nx4BKAUq1nGBlzRzm2OH1k01TV6qs2IcoErhuxTc=";
   };
 
@@ -21,12 +21,12 @@ buildGoModule rec {
     mv $out/bin/{cmd,pkgtop}
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Interactive package manager and resource monitor designed for the GNU/Linux";
     homepage = "https://github.com/orhun/pkgtop";
     changelog = "https://github.com/orhun/pkgtop/releases/tag/${version}";
-    license = licenses.gpl3Only;
-    maintainers = with maintainers; [ figsoda ];
+    license = lib.licenses.gpl3Only;
+    maintainers = with lib.maintainers; [ figsoda ];
     mainProgram = "pkgtop";
   };
 }

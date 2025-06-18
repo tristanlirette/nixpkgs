@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-SyoahSdGPkWitDek4RD5M2hTR78GFpuijryteKVAx6k=";
   };
 
@@ -46,6 +46,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/dpa-ext-gnomekeyring";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.deepin.members;
+    teams = [ teams.deepin ];
   };
 }

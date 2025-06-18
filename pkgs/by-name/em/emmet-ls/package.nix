@@ -12,7 +12,7 @@ buildNpmPackage rec {
   src = fetchFromGitHub {
     owner = "aca";
     repo = "emmet-ls";
-    tag = version;
+    rev = version;
     hash = "sha256-TmsJpVLF9FZf/6uOM9LZBKC6S3bMPjA3QMiRMPaY9Dg=";
   };
 
@@ -27,12 +27,12 @@ buildNpmPackage rec {
     })
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Emmet support based on LSP";
     homepage = "https://github.com/aca/emmet-ls";
     changelog = "https://github.com/aca/emmet-ls/releases/tag/${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ figsoda ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ figsoda ];
     mainProgram = "emmet-ls";
   };
 }

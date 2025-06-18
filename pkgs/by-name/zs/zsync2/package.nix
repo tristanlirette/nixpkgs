@@ -17,7 +17,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "AppImageCommunity";
     repo = "zsync2";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-OCeMEXQmbc34MZ1NyOfAASdrUyeSQqqfvWqAszJN4x0=";
   };
 
@@ -52,6 +52,8 @@ stdenv.mkDerivation (finalAttrs: {
     (lib.cmakeBool "USE_SYSTEM_CPR" true)
     (lib.cmakeBool "USE_SYSTEM_ARGS" true)
   ];
+
+  env.NIX_CFLAGS_COMPILE = "-Wno-error=incompatible-pointer-types";
 
   meta = {
     description = "Rewrite of the advanced file download/sync tool zsync";

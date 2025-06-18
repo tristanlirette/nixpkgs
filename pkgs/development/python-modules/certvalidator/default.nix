@@ -14,8 +14,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "wbond";
-    repo = pname;
-    tag = version;
+    repo = "certvalidator";
+    rev = version;
     hash = "sha256-yVF7t4FuU3C9fDg67JeM7LWZZh/mv5F4EKmjlO4AuBY=";
   };
 

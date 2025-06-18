@@ -17,8 +17,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "slaypni";
-    repo = pname;
-    tag = "v${version}";
+    repo = "fastdtw";
+    rev = "v${version}";
     sha256 = "0irc5x4ahfp7f7q4ic97qa898s2awi0vdjznahxrfjirn8b157dw";
   };
 

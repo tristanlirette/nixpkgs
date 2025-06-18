@@ -15,7 +15,7 @@ buildPecl {
   src = fetchFromGitHub {
     repo = "phpredis";
     owner = "phpredis";
-    tag = version;
+    rev = version;
     hash = "sha256-uUnH+AS4PgIm+uias5T5+W7X5Pzq4hx4c6zAl4OYk1g=";
   };
 
@@ -26,6 +26,6 @@ buildPecl {
     description = "PHP extension for interfacing with Redis";
     license = licenses.php301;
     homepage = "https://github.com/phpredis/phpredis/";
-    maintainers = teams.php.members;
+    teams = [ teams.php ];
   };
 }

@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "norouter";
-    repo = pname;
-    tag = "v${version}";
+    repo = "norouter";
+    rev = "v${version}";
     sha256 = "sha256-EY/Yfyaz2DeQKHJ4awpQDbrVkse9crIZlLzfviPy3Tk=";
   };
 

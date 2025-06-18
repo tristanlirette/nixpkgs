@@ -21,8 +21,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "tmontaigu";
-    repo = pname;
-    tag = version;
+    repo = "laszip-python";
+    rev = version;
     hash = "sha256-MiPzL9TDCf1xnCv7apwdfcpkFnBRi4PO/atTQxqL8cw=";
   };
 

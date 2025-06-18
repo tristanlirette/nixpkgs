@@ -4,8 +4,6 @@
   pkg-config,
   rustPlatform,
   openssl,
-  darwin,
-  stdenv,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -15,22 +13,16 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "apollographql";
     repo = pname;
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-uyeePAHBDCzXzwIWrKcc9LHClwSI7DMBYod/o4LfK+Y=";
   };
 
   useFetchCargoVendor = true;
   cargoHash = "sha256-uR5XvkHUmZzCHZITKgScmzqjLOIvbPyrih/0B1OpsAc=";
 
-  buildInputs =
-    [
-      openssl
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-      darwin.apple_sdk.frameworks.CoreServices
-      darwin.apple_sdk.frameworks.SystemConfiguration
-    ];
+  buildInputs = [
+    openssl
+  ];
 
   nativeBuildInputs = [
     pkg-config

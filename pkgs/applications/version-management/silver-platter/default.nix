@@ -26,13 +26,12 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "jelmer";
     repo = "silver-platter";
-    tag = version;
+    rev = version;
     hash = "sha256-k+C4jrC4FO/yy9Eb6x4lv1zyyp/eGkpMcDqZ0KoxfBs=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit src;
-    name = "${pname}-${version}";
+    inherit pname version src;
     hash = "sha256-hZQfzaLvHSN/hGR5vn+/2TRH6GwDTTp+UcnePXY7JlM=";
   };
 

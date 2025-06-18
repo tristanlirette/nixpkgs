@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "complexlogic";
     repo = "rsgain";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-dqvaPLVpNnbN2W0TOphS7QU6MDh5pxFJoUDGvkat164=";
   };
 
@@ -36,13 +36,13 @@ stdenv.mkDerivation rec {
     zlib
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Simple, but powerful ReplayGain 2.0 tagging utility";
     mainProgram = "rsgain";
     homepage = "https://github.com/complexlogic/rsgain";
     changelog = "https://github.com/complexlogic/rsgain/blob/v${version}/CHANGELOG";
-    license = licenses.bsd2;
-    platforms = platforms.all;
-    maintainers = [ maintainers.felipeqq2 ];
+    license = lib.licenses.bsd2;
+    platforms = lib.platforms.all;
+    maintainers = [ lib.maintainers.felipeqq2 ];
   };
 }

@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-qDkkLqGsrw+otUy3/iZJJZ2RtpNYPGc/wktdVpw2weg=";
   };
 
@@ -57,6 +57,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/gio-qt";
     license = licenses.lgpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.deepin.members;
+    teams = [ teams.deepin ];
   };
 }

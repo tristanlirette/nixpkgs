@@ -13,7 +13,7 @@ python3.pkgs.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "gorilla-llm";
     repo = "gorilla-cli";
-    tag = version;
+    rev = version;
     hash = "sha256-3h3QtBDKswTDL7zNM2C4VWiGCqknm/bxhP9sw4ieIcQ=";
   };
 
@@ -30,12 +30,12 @@ python3.pkgs.buildPythonApplication rec {
   # no tests
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     description = "LLMs for your CLI";
     homepage = "https://github.com/gorilla-llm/gorilla-cli";
     changelog = "https://github.com/gorilla-llm/gorilla-cli/releases/tag/${version}";
-    license = licenses.asl20;
-    maintainers = with maintainers; [ happysalada ];
+    license = lib.licenses.asl20;
+    maintainers = with lib.maintainers; [ happysalada ];
     mainProgram = "gorilla";
   };
 }

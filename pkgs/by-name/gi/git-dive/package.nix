@@ -6,8 +6,6 @@
   libgit2,
   oniguruma,
   zlib,
-  stdenv,
-  darwin,
   gitMinimal,
 }:
 
@@ -18,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "gitext-rs";
     repo = "git-dive";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-sy2qNFn8JLE173HVWfFXBx21jcx4kpFMwi9a0m38lso=";
   };
 
@@ -29,15 +27,11 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    [
-      libgit2
-      oniguruma
-      zlib
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-    ];
+  buildInputs = [
+    libgit2
+    oniguruma
+    zlib
+  ];
 
   nativeCheckInputs = [
     gitMinimal

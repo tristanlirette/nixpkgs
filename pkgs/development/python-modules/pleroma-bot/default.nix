@@ -20,8 +20,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "robertoszek";
-    repo = pname;
-    tag = version;
+    repo = "pleroma-bot";
+    rev = version;
     hash = "sha256-vJxblpf3NMSyYMHeWG7vHP5AeluTtMtVxOsHgvGDHeA=";
   };
 

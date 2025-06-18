@@ -12,7 +12,6 @@
   libXcursor,
   libXi,
   stdenv,
-  darwin,
   makeWrapper,
   zenity,
 }:
@@ -23,7 +22,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitLab {
     owner = "surfer-project";
     repo = "surfer";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-mvHyljAEVi1FMkEbKsPmCNx2Cg0/Ydw3ZQCZsowEKGc=";
     fetchSubmodules = true;
   };
@@ -34,12 +33,10 @@ rustPlatform.buildRustPackage rec {
     makeWrapper
   ];
 
-  buildInputs =
-    lib.optionals stdenv.hostPlatform.isLinux [
-      openssl
-      (lib.getLib stdenv.cc.cc)
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [ darwin.apple_sdk.frameworks.AppKit ];
+  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [
+    openssl
+    (lib.getLib stdenv.cc.cc)
+  ];
 
   # Wayland and X11 libs are required at runtime since winit uses dlopen
   runtimeDependencies = lib.optionals stdenv.hostPlatform.isLinux [

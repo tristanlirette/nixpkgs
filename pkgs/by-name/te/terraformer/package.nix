@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "GoogleCloudPlatform";
-    repo = pname;
-    tag = version;
+    repo = "terraformer";
+    rev = version;
     sha256 = "sha256-xbZm0FOa/W6/qXMnJHuGgJhgu2NWtKrMoP0Ttd+hhdw=";
   };
 

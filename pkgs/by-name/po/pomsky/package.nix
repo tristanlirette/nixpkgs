@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "pomsky-lang";
     repo = "pomsky";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-BoA59P0jzV08hlFO7NPB9E+fdpYB9G50dNggFkexc/c=";
   };
 
@@ -36,15 +36,15 @@ rustPlatform.buildRustPackage rec {
   # thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: invalid option '--test-threads''
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     description = "Portable, modern regular expression language";
     mainProgram = "pomsky";
     homepage = "https://pomsky-lang.org";
     changelog = "https://github.com/pomsky-lang/pomsky/blob/v${version}/CHANGELOG.md";
-    license = with licenses; [
+    license = with lib.licenses; [
       mit # or
       asl20
     ];
-    maintainers = with maintainers; [ figsoda ];
+    maintainers = with lib.maintainers; [ figsoda ];
   };
 }

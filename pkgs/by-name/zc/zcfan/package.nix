@@ -12,7 +12,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "cdown";
     repo = "zcfan";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-/q9jDqjG4g211CTb4ahagpxux2BsZWTEyoAY8kRRTB8=";
   };
 
@@ -26,7 +26,7 @@ stdenv.mkDerivation (finalAttrs: {
   installCheckPhase = ''
     runHook preInstallCheck
 
-    $out/bin/${finalAttrs.pname} -h
+    $out/bin/zcfan -h
 
     runHook postInstallCheck
   '';

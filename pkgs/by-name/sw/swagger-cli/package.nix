@@ -11,7 +11,7 @@ buildNpmPackage rec {
   src = fetchFromGitHub {
     owner = "APIDevTools";
     repo = "swagger-cli";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-WgzfSd57vRwa1HrSgNxD0F5ckczBkOaVmrEZ9tMAcRA=";
   };
 
@@ -19,6 +19,10 @@ buildNpmPackage rec {
 
   buildPhase = ''
     npm run bump
+  '';
+
+  postInstall = ''
+    find $out/lib/node_modules -xtype l -delete
   '';
 
   meta = with lib; {

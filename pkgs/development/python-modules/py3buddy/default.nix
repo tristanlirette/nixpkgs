@@ -4,6 +4,7 @@
   fetchFromGitHub,
   python,
   pyusb,
+  udevCheckHook,
 }:
 
 buildPythonPackage rec {
@@ -14,11 +15,13 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "armijnhemel";
     repo = "py3buddy";
-    tag = version;
+    rev = version;
     hash = "sha256-KJ0xGEXHY6o2074WFZ0u7gATS+wrrjyzanYretckWYk=";
   };
 
   dependencies = [ pyusb ];
+
+  nativeBuildInputs = [ udevCheckHook ];
 
   dontConfigure = true;
   dontBuild = true;

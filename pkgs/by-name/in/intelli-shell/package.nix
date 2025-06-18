@@ -7,8 +7,6 @@
   openssl,
   sqlite,
   zlib,
-  stdenv,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -18,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "lasantosr";
     repo = "intelli-shell";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-D7hB1vKi54L7hU3TqTvzxXIr6XohfYLUTidR6wFJmfo=";
   };
 
@@ -29,16 +27,12 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    [
-      libgit2
-      openssl
-      sqlite
-      zlib
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-    ];
+  buildInputs = [
+    libgit2
+    openssl
+    sqlite
+    zlib
+  ];
 
   env = {
     OPENSSL_NO_VENDOR = true;

@@ -19,8 +19,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "RIPE-NCC";
-    repo = pname;
-    tag = "v${version}";
+    repo = "ripe-atlas-sagan";
+    rev = "v${version}";
     hash = "sha256-xIBIKsQvDmVBa/C8/7Wr3WKeepHaGhoXlgatXSUtWLA=";
   };
 

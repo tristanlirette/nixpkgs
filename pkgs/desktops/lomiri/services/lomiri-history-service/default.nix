@@ -36,7 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/history-service";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-pcTYuumywTarW+ZciwwvmmBQQH6aq4+FdVjV62VzSZU=";
   };
 
@@ -162,7 +162,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://gitlab.com/ubports/development/core/lomiri-history-service";
     changelog = "https://gitlab.com/ubports/development/core/lomiri-history-service/-/blob/${finalAttrs.version}/ChangeLog";
     license = lib.licenses.gpl3Only;
-    maintainers = lib.teams.lomiri.members;
+    teams = [ lib.teams.lomiri ];
     platforms = lib.platforms.linux;
     pkgConfigModules = [ "lomiri-history-service" ];
   };

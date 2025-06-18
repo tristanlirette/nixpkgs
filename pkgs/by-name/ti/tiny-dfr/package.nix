@@ -10,6 +10,7 @@
   libxml2,
   pango,
   udev,
+  udevCheckHook,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -19,14 +20,17 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "WhatAmISupposedToPutHere";
     repo = "tiny-dfr";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-5u5jyoDEt7aMs8/8QrhrUrUzFJJCNayqbN2WrMhUCV4=";
   };
 
   useFetchCargoVendor = true;
   cargoHash = "sha256-9UlH2W8wNzdZJxIgOafGylliS2RjaBlpirxSWHJ/SIQ=";
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [
+    pkg-config
+    udevCheckHook
+  ];
   buildInputs = [
     cairo
     gdk-pixbuf
@@ -47,6 +51,8 @@ rustPlatform.buildRustPackage rec {
     cp -R etc $out/lib
     cp -R share $out
   '';
+
+  doInstallCheck = true;
 
   meta = with lib; {
     homepage = "https://github.com/WhatAmISupposedToPutHere/tiny-dfr";

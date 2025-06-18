@@ -83,7 +83,7 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "buildbot";
     repo = "buildbot";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-Kf8sxZE2cQDQSVSMpRTokJU4f3/M6OJq6bXzGonrRLU=";
   };
 
@@ -171,7 +171,7 @@ buildPythonApplication rec {
     description = "Open-source continuous integration framework for automating software build, test, and release processes";
     homepage = "https://buildbot.net/";
     changelog = "https://github.com/buildbot/buildbot/releases/tag/v${version}";
-    maintainers = teams.buildbot.members;
+    teams = [ teams.buildbot ];
     license = licenses.gpl2Only;
   };
 }

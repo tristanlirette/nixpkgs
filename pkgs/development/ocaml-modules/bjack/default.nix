@@ -1,10 +1,7 @@
 {
   lib,
-  stdenv,
   buildDunePackage,
   fetchFromGitHub,
-  Accelerate,
-  CoreAudio,
   dune-configurator,
   libsamplerate,
   libjack2,
@@ -17,16 +14,11 @@ buildDunePackage rec {
   src = fetchFromGitHub {
     owner = "savonet";
     repo = "ocaml-bjack";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-jIxxqBVWphWYyLh+24rTxk4WWfPPdGCvNdevFJEKw70=";
   };
 
-  buildInputs =
-    [ dune-configurator ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      Accelerate
-      CoreAudio
-    ];
+  buildInputs = [ dune-configurator ];
   propagatedBuildInputs = [
     libsamplerate
     libjack2

@@ -13,8 +13,8 @@ rustPlatform.buildRustPackage rec {
 
   src = fetchFromGitHub {
     owner = "edeneast";
-    repo = pname;
-    tag = "v${version}";
+    repo = "tuxmux";
+    rev = "v${version}";
     hash = "sha256-WcHsFKpYexBEg382837NqGgNMTKzVUG3XIER9aa1zK8=";
   };
 

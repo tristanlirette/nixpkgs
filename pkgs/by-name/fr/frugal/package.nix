@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "Workiva";
-    repo = pname;
-    tag = "v${version}";
+    repo = "frugal";
+    rev = "v${version}";
     sha256 = "sha256-giPlv3pf0hz2zlQ/9o12SGfwFLCtpN96tfQwP9AaPNo=";
   };
 

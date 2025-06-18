@@ -12,7 +12,7 @@ stdenvNoCC.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Icinga";
     repo = "icinga-php-thirdparty";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-T67DcsHVf3yDQveNtSPqLoOOPuT4ThkUSCJ9aCSVaIc=";
   };
 
@@ -28,6 +28,6 @@ stdenvNoCC.mkDerivation rec {
     homepage = "https://github.com/Icinga/icinga-php-thirdparty";
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
-    maintainers = lib.teams.helsinki-systems.members;
+    teams = [ lib.teams.helsinki-systems ];
   };
 }

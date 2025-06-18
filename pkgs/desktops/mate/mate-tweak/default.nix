@@ -20,7 +20,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "ubuntu-mate";
     repo = pname;
-    tag = version;
+    rev = version;
     sha256 = "emeNgCzMhHMeLOyUkXe+8OzQMEWuwNdD4xkGXIFgbh4=";
   };
 
@@ -82,6 +82,6 @@ python3Packages.buildPythonApplication rec {
     changelog = "https://github.com/ubuntu-mate/mate-tweak/releases/tag/${version}";
     license = [ licenses.gpl2Plus ];
     platforms = platforms.linux;
-    maintainers = teams.mate.members;
+    teams = [ teams.mate ];
   };
 }

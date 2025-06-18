@@ -22,8 +22,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "ajmarks";
-    repo = pname;
-    tag = "v${version}";
+    repo = "gekitchen";
+    rev = "v${version}";
     hash = "sha256-eKGundh7j9LqFd71bx86rNBVu2iAcgLN25JfFa39+VA=";
   };
 

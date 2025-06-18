@@ -21,7 +21,7 @@ buildPecl {
   src = fetchFromGitHub {
     owner = "php";
     repo = "pecl-mail-imap";
-    tag = version;
+    rev = version;
     hash = "sha256-QVeimxm3rfWMvMpSgadhMKd24yPdDGVuhXIOs8668do=";
   };
 
@@ -55,6 +55,6 @@ buildPecl {
     description = "PHP extension for checking the spelling of a word";
     homepage = "https://pecl.php.net/package/imap";
     license = licenses.php301;
-    maintainers = teams.php.members;
+    teams = [ teams.php ];
   };
 }

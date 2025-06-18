@@ -28,7 +28,6 @@
   tpm2-tss,
   enableNetworkManager ? false,
   networkmanager,
-  darwin,
   nixosTests,
 }:
 
@@ -43,7 +42,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "strongswan";
     repo = "strongswan";
-    tag = version;
+    rev = version;
     hash = "sha256-qFM7ErfqiDlUsZdGXJQVW3nJoh+I6tEdKRwzrKteRVY=";
   };
 
@@ -78,9 +77,6 @@ stdenv.mkDerivation rec {
       pam
       iptables
     ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin (
-      with darwin.apple_sdk.frameworks; [ SystemConfiguration ]
-    )
     ++ lib.optionals enableNetworkManager [
       networkmanager
       glib

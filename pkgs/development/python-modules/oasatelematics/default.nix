@@ -15,8 +15,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "panosmz";
-    repo = pname;
-    tag = "v${version}";
+    repo = "oasatelematics";
+    rev = "v${version}";
     hash = "sha256-3O7XbNVj1S3ZwheklEhm0ivw16Tj7drML/xYC9383Kg=";
   };
 

@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elementary";
     repo = "fonts";
-    tag = version;
+    rev = version;
     sha256 = "sha256-YiE7yaH0ZrF1/Cp+3bcJYm2cExQjFcat6JLMJPjhops=";
   };
 
@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
     description = "Font for concealing text";
     homepage = "https://github.com/elementary/fonts";
     license = licenses.ofl;
-    maintainers = teams.pantheon.members;
+    teams = [ teams.pantheon ];
     platforms = platforms.linux;
   };
 }

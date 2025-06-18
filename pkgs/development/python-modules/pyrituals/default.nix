@@ -15,8 +15,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "milanmeu";
-    repo = pname;
-    tag = version;
+    repo = "pyrituals";
+    rev = version;
     sha256 = "0ynjz7khp67bwxjp580w3zijxr9yn44nmnbvkxjxq9scyb2mjf6g";
   };
 

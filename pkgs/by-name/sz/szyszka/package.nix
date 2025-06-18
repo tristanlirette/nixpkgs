@@ -1,6 +1,5 @@
 {
   lib,
-  stdenv,
   rustPlatform,
   fetchFromGitHub,
   pkg-config,
@@ -11,7 +10,6 @@
   gdk-pixbuf,
   gtk4,
   wrapGAppsHook4,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -21,7 +19,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "qarmin";
     repo = "szyszka";
-    tag = version;
+    rev = version;
     hash = "sha256-LkXGKDFKaY+mg53ZEO4h2br/4eRle/QbSQJTVEMpAoY=";
   };
 
@@ -33,21 +31,14 @@ rustPlatform.buildRustPackage rec {
     wrapGAppsHook4
   ];
 
-  buildInputs =
-    [
-      glib
-      cairo
-      pango
-      atk
-      gdk-pixbuf
-      gtk4
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin (
-      with darwin.apple_sdk.frameworks;
-      [
-        Foundation
-      ]
-    );
+  buildInputs = [
+    glib
+    cairo
+    pango
+    atk
+    gdk-pixbuf
+    gtk4
+  ];
 
   postInstall = ''
     install -m 444 \

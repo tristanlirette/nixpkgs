@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "thesephist";
-    repo = pname;
-    tag = "v${version}";
+    repo = "oak";
+    rev = "v${version}";
     sha256 = "sha256-DK5n8xK57CQiukyBt9+CFK1j8+nphP//T2jTXq64VH8=";
   };
 

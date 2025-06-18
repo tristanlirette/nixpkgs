@@ -1,12 +1,12 @@
 {
   lib,
-  stdenv,
   rustPlatform,
   fetchFromGitHub,
   pkg-config,
   libgit2,
-  darwin,
   nix-update-script,
+  zlib,
+  stdenv,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "Piturnah";
     repo = "gex";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-Xer7a3UtFIv3idchI7DfZ5u6qgDW/XFWi5ihtcREXqo=";
   };
 
@@ -24,13 +24,9 @@ rustPlatform.buildRustPackage rec {
 
   passthru.updateScript = nix-update-script { };
 
-  buildInputs =
-    [
-      libgit2
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-    ];
+  buildInputs = [
+    libgit2
+  ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ zlib ];
 
   env = {
     LIBGIT2_NO_VENDOR = 1;

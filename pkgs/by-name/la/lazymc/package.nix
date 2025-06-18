@@ -2,8 +2,6 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
-  stdenv,
-  darwin,
   nix-update-script,
 }:
 
@@ -14,16 +12,12 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "timvisee";
     repo = "lazymc";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-uMjM3w78qWnB/sNXRcxl30KJRm0I3BPEOr5IRU8FI0s=";
   };
 
   useFetchCargoVendor = true;
   cargoHash = "sha256-jqqqWZKO1HgwxLBGMz9rlFQ5xmZTycfUZjqHf+uVTBQ=";
-
-  buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
-    darwin.apple_sdk.frameworks.CoreServices
-  ];
 
   passthru.updateScript = nix-update-script { };
 

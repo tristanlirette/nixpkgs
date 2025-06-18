@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "niklasfasching";
-    repo = pname;
-    tag = "v${version}";
+    repo = "go-org";
+    rev = "v${version}";
     hash = "sha256-BPCQxl0aJ9PrEC5o5dc5uBbX8eYAxqB+qMLXo1LwCoA=";
   };
 

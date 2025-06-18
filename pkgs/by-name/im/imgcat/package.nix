@@ -23,8 +23,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "eddieantonio";
-    repo = pname;
-    tag = "v${version}";
+    repo = "imgcat";
+    rev = "v${version}";
     sha256 = "sha256-miFjlahTI0GDpgsjnA/K1R4R5654M8AoK78CycoLTqA=";
   };
 

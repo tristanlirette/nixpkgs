@@ -18,7 +18,7 @@ mkDerivation rec {
   src = fetchFromGitHub {
     owner = "OpenHantek";
     repo = "OpenHantek6022";
-    tag = version;
+    rev = version;
     sha256 = "sha256-FT+DyfD5WHBblRXWXFnyB2xwoIgoh84oB+QN32wx78c=";
   };
 
@@ -40,6 +40,8 @@ mkDerivation rec {
     sed -i 's#/lib/udev#lib/udev#g' CMakeLists.txt
     sed -i 's#/usr/share#share#g' CMakeLists.txt
   '';
+
+  doInstallCheck = true;
 
   meta = with lib; {
     description = "Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes";

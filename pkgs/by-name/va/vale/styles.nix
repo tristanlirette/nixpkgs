@@ -49,7 +49,7 @@ in
     src = fetchFromGitHub {
       owner = "errata-ai";
       repo = "alex";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-p0CQg6ZLusSKr57SugwlnoDEoPNVY3UIM8rHHxOL2l0=";
     };
     meta = {
@@ -61,12 +61,12 @@ in
 
   google = buildStyle rec {
     name = "Google";
-    version = "0.6.2";
+    version = "0.6.3";
     src = fetchFromGitHub {
       owner = "errata-ai";
       repo = "Google";
-      tag = "v${version}";
-      hash = "sha256-ldwK9tMA04H/jTd3dQeRX/sZOwZcyPb+I56cDg0vZDg=";
+      rev = "v${version}";
+      hash = "sha256-1aN7wCdShhMsBN83u7l+5Ffm2WKC8ltZyT3hPZCNWYo=";
     };
     meta = {
       description = "Vale-compatible implementation of the Google Developer Documentation Style Guide";
@@ -81,7 +81,7 @@ in
     src = fetchFromGitHub {
       owner = "errata-ai";
       repo = "Joblint";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-zRz5ThOg5RLTZj3dYPe0PDvOF5DjO31lduSpi2Us87U=";
     };
     meta = {
@@ -93,12 +93,12 @@ in
 
   microsoft = buildStyle rec {
     name = "Microsoft";
-    version = "0.14.1";
+    version = "0.14.2";
     src = fetchFromGitHub {
       owner = "errata-ai";
       repo = "Microsoft";
-      tag = "v${version}";
-      hash = "sha256-4j05bIGAVEy6untUqtrUxdLKlhyOcJsbcsow8OxRp1A=";
+      rev = "v${version}";
+      hash = "sha256-Sie4bBeKPOFOJhgd+mLbiz4vG+xpKL0LnwnRQHzOw+Q=";
     };
     meta = {
       description = "Vale-compatible implementation of the Microsoft Writing Style Guide";
@@ -113,7 +113,7 @@ in
     src = fetchFromGitHub {
       owner = "errata-ai";
       repo = "proselint";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-ryKJDX1JrvDWVKLC5qQGctweDf74yuwEXxl/IqumM4s=";
     };
     meta = {
@@ -129,7 +129,7 @@ in
     src = fetchFromGitHub {
       owner = "errata-ai";
       repo = "readability";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-5Y9v8QsZjC2w3/pGIcL5nBdhpogyJznO5IFa0s8VOOI=";
     };
     meta = {
@@ -145,7 +145,7 @@ in
     src = fetchFromGitHub {
       owner = "errata-ai";
       repo = "write-good";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-W/eHlXklAVlAnY8nLPi/SIKsg8UUnH8UkH99BDo5yKk=";
     };
     meta = {

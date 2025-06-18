@@ -10,8 +10,8 @@ rustPlatform.buildRustPackage rec {
 
   src = fetchFromGitHub {
     owner = "mufeedvh";
-    repo = pname;
-    tag = "v${version}";
+    repo = "binserve";
+    rev = "v${version}";
     hash = "sha256-Chm2xPB0BrLXSZslg9wnbDyHSJRQAvOtpH0Rw6w1q1s=";
   };
 

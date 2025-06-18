@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
 
   src = fetchgit {
     url = "https://codeberg.org/solver-orgz/treedome";
-    tag = version;
+    rev = version;
     hash = "sha256-fJnrM9I11JKqzrprXa51mJiz9oO5hDp6u69FqJs5l8o=";
     fetchLFS = true;
   };
@@ -72,13 +72,13 @@ rustPlatform.buildRustPackage rec {
       --set WEBKIT_DISABLE_COMPOSITING_MODE 1
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Local-first, encrypted, note taking application organized in tree-like structures";
     homepage = " https://codeberg.org/solver-orgz/treedome";
-    license = licenses.agpl3Plus;
+    license = lib.licenses.agpl3Plus;
     platforms = [ "x86_64-linux" ];
     mainProgram = "treedome";
-    maintainers = with maintainers; [ tengkuizdihar ];
+    maintainers = with lib.maintainers; [ tengkuizdihar ];
     changelog = "https://codeberg.org/solver-orgz/treedome/releases/tag/${version}";
   };
 }

@@ -22,7 +22,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "mobian1";
     repo = "eg25-manager";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-Zna+JplmYrxPYsXToJ3vKOPzPMZYB3bEdfT8GIAHATs=";
   };
 
@@ -51,6 +51,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   strictDeps = true;
+  doInstallCheck = true;
 
   meta = {
     description = "Manager daemon for the Quectel EG25 mobile broadband modem found on the Pine64 PinePhone and PinePhone Pro";

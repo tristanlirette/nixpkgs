@@ -4,6 +4,7 @@
   faker,
   fetchFromGitHub,
   mock,
+  pytest-cov-stub,
   pytestCheckHook,
   python-memcached,
   pythonOlder,
@@ -22,7 +23,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "pinterest";
     repo = "pymemcache";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-WgtHhp7lE6StoOBfSy9+v3ODe/+zUC7lGrc2S4M68+M=";
   };
 
@@ -31,14 +32,11 @@ buildPythonPackage rec {
   nativeCheckInputs = [
     faker
     mock
+    pytest-cov-stub
     pytestCheckHook
     python-memcached
     zstd
   ];
-
-  postPatch = ''
-    sed -i "/--cov/d" setup.cfg
-  '';
 
   disabledTests = lib.optionals stdenv.hostPlatform.is32bit [
     # test_compressed_complex is broken on 32-bit platforms

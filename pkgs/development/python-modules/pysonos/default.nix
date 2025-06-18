@@ -23,8 +23,8 @@ buildPythonPackage rec {
   # pypi package is missing test fixtures
   src = fetchFromGitHub {
     owner = "amelchio";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pysonos";
+    rev = "v${version}";
     hash = "sha256-gBOknYHL5nQWFVhCbLN0Ah+1fovcNY4P2myryZnUadk=";
   };
 

@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "juliosueiras";
-    repo = pname;
-    tag = "v${version}";
+    repo = "terraform-lsp";
+    rev = "v${version}";
     sha256 = "111350jbq0dp0qhk48j12hrlisd1fwzqpcv357igrbqf6ki7r78q";
   };
 

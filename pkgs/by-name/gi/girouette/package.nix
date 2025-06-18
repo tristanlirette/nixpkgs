@@ -5,8 +5,6 @@
   pkg-config,
   dbus,
   openssl,
-  stdenv,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -16,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "gourlaysama";
     repo = "girouette";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-CROd44lCCXlWF8X/9HyjtTjSlCUFkyke+BjkD4uUqXo=";
   };
 
@@ -27,14 +25,10 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    [
-      dbus
-      openssl
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-    ];
+  buildInputs = [
+    dbus
+    openssl
+  ];
 
   meta = with lib; {
     description = "Show the weather in the terminal, in style";

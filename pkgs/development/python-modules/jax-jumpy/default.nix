@@ -12,8 +12,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "Farama-Foundation";
-    repo = pname;
-    tag = version;
+    repo = "jumpy";
+    rev = version;
     hash = "sha256-tPQ/v2AVnAEC+08BVAvvgJ8Pj89nXZSn2tQ6nxXuSfA=";
   };
 

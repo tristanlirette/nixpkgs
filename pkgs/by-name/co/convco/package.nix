@@ -7,7 +7,6 @@
   libiconv,
   openssl,
   pkg-config,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -17,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "convco";
     repo = "convco";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-s0rcSekJLe99oxi6JD8VL1S6nqQTUFTn5pdgxnknbaY=";
   };
 
@@ -33,7 +32,6 @@ rustPlatform.buildRustPackage rec {
     [ openssl ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
       libiconv
-      darwin.apple_sdk.frameworks.Security
     ];
 
   checkFlags = [

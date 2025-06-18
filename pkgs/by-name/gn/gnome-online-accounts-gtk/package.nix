@@ -20,7 +20,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "xapp-project";
     repo = "gnome-online-accounts-gtk";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-/d6ezujW/yeZV95zv/12ttUEUliZARtEGFoCXe6Dp/I=";
   };
 
@@ -44,6 +44,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/xapp-project/gnome-online-accounts-gtk";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.cinnamon.members;
+    teams = [ teams.cinnamon ];
   };
 })

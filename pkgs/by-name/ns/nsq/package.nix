@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "nsqio";
     repo = "nsq";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-qoAp8yAc4lJmlnHHcZskRzkleZ3Q5Gu3Lhk9u1jMR4g=";
   };
 
@@ -24,11 +24,11 @@ buildGoModule rec {
     "-w"
   ];
 
-  meta = with lib; {
+  meta = {
     homepage = "https://nsq.io/";
     description = "Realtime distributed messaging platform";
     changelog = "https://github.com/nsqio/nsq/raw/v${version}/ChangeLog.md";
-    license = licenses.mit;
-    maintainers = with maintainers; [ blakesmith ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ blakesmith ];
   };
 }

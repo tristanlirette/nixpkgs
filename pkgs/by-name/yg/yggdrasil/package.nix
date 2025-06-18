@@ -12,7 +12,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "yggdrasil-network";
     repo = "yggdrasil-go";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-NlNQnYmK//p35pj2MInD6RVsajM/bGDhOuzOZZYoWRw=";
   };
 
@@ -35,7 +35,7 @@ buildGoModule rec {
   passthru.tests.basic = nixosTests.yggdrasil;
 
   meta = with lib; {
-    description = "An experiment in scalable routing as an encrypted IPv6 overlay network";
+    description = "Experiment in scalable routing as an encrypted IPv6 overlay network";
     homepage = "https://yggdrasil-network.github.io/";
     license = licenses.lgpl3;
     maintainers = with maintainers; [

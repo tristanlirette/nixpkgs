@@ -17,7 +17,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = "dtklog";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-8c3KL6pjAFPC4jRpOpPEbEDRBMWnDptwBSbEtcQcf5E=";
   };
 
@@ -45,6 +45,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/linuxdeepin/dtklog";
     license = lib.licenses.lgpl21Plus;
     platforms = lib.platforms.linux;
-    maintainers = lib.teams.deepin.members;
+    teams = [ lib.teams.deepin ];
   };
 })

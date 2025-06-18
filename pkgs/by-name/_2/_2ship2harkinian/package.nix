@@ -74,7 +74,7 @@ let
     src = fetchFromGitHub {
       owner = "ladislav-zezula";
       repo = "StormLib";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-HTi2FKzKCbRaP13XERUmHkJgw8IfKaRJvsK3+YxFFdc=";
     };
     nativeBuildInputs = prev.nativeBuildInputs ++ [ pkg-config ];
@@ -199,7 +199,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     homepage = "https://github.com/HarbourMasters/2ship2harkinian";
-    description = "A PC port of Majora's Mask with modern controls, widescreen, high-resolution, and more";
+    description = "PC port of Majora's Mask with modern controls, widescreen, high-resolution, and more";
     mainProgram = "2s2h";
     platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ qubitnano ];

@@ -9,7 +9,6 @@
   wayland-scanner,
 
   capstone,
-  darwin,
   dbus,
   freetype,
   glfw,
@@ -35,7 +34,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "wolfpld";
     repo = "tracy";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-HofqYJT1srDJ6Y1f18h7xtAbI/Gvvz0t9f0wBNnOZK8=";
   };
 
@@ -68,11 +67,7 @@ stdenv.mkDerivation rec {
     ]
     ++ lib.optionals (stdenv.hostPlatform.isDarwin || (stdenv.hostPlatform.isLinux && !withWayland)) [
       glfw
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [ darwin.apple_sdk.frameworks.AppKit ]
-    ++ lib.optionals (
-      stdenv.hostPlatform.isDarwin && lib.versionAtLeast stdenv.hostPlatform.darwinMinVersion "11"
-    ) [ darwin.apple_sdk.frameworks.UniformTypeIdentifiers ];
+    ];
 
   cmakeFlags =
     [

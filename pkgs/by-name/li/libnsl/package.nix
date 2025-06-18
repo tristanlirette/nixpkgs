@@ -13,8 +13,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "thkukuk";
-    repo = pname;
-    tag = "v${version}";
+    repo = "libnsl";
+    rev = "v${version}";
     sha256 = "sha256-bCToqXVE4RZcoZ2eTNZcVHyzKlWyIpSAssQCOZcfmEA=";
   };
 

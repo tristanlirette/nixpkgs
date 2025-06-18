@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "jaeles-project";
-    repo = pname;
-    tag = "v${version}";
+    repo = "gospider";
+    rev = "v${version}";
     sha256 = "sha256-1EnKheHaS1kxw0cjxCahT3rUWBXiqxjKefrDBI2xIvY=";
   };
 

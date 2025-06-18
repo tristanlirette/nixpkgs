@@ -10,8 +10,8 @@ python3.pkgs.buildPythonApplication rec {
 
   src = fetchFromGitHub {
     owner = "Sarcasm";
-    repo = pname;
-    tag = "v${version}";
+    repo = "compdb";
+    rev = "v${version}";
     sha256 = "sha256-nFAgTrup6V5oE+LP4UWDOCgTVCv2v9HbQbkGW+oDnTg=";
   };
 

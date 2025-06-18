@@ -3,9 +3,7 @@
   stdenv,
   fetchFromGitHub,
   fetchpatch,
-  qmake,
-  wrapQtAppsHook,
-  qtbase,
+  libsForQt5,
   exiv2,
 }:
 
@@ -16,7 +14,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "oferkv";
     repo = "phototonic";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-BxJgTKblOKIwt88+PT7XZE0mk0t2B4SfsdXpQHttUTM=";
   };
 
@@ -29,11 +27,11 @@ stdenv.mkDerivation rec {
   ];
 
   nativeBuildInputs = [
-    qmake
-    wrapQtAppsHook
+    libsForQt5.qmake
+    libsForQt5.wrapQtAppsHook
   ];
   buildInputs = [
-    qtbase
+    libsForQt5.qtbase
     exiv2
   ];
 

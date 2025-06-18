@@ -2,6 +2,7 @@
   stdenv,
   lib,
   fetchFromGitHub,
+  udevCheckHook,
 }:
 
 stdenv.mkDerivation rec {
@@ -11,9 +12,15 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "free-pdk";
     repo = "easy-pdk-programmer-software";
-    tag = version;
+    rev = version;
     sha256 = "0hc3gdmn6l01z63hzzwdhbdyy288gh5v219bsfm8fb1498vpnd6f";
   };
+
+  nativeBuildInputs = [
+    udevCheckHook
+  ];
+
+  doInstallCheck = true;
 
   installPhase =
     ''

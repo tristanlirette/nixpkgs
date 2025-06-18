@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "runpod";
     repo = "runpodctl";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-QU2gujECzT5mPkZi6siMO7IZRXNZHS0TchYxnG4Snj8=";
   };
 
@@ -21,12 +21,12 @@ buildGoModule rec {
     rm $out/bin/docs # remove the docs binary
   '';
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/runpod/runpodctl";
     description = "CLI tool to automate / manage GPU pods for runpod.io";
     changelog = "https://github.com/runpod/runpodctl/raw/v${version}/CHANGELOG.md";
-    license = licenses.gpl3;
-    maintainers = [ maintainers.georgewhewell ];
+    license = lib.licenses.gpl3;
+    maintainers = [ lib.maintainers.georgewhewell ];
     mainProgram = "runpodctl";
   };
 }

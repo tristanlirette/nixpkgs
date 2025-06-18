@@ -15,8 +15,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "common-fate";
-    repo = pname;
-    tag = "v${version}";
+    repo = "granted";
+    rev = "v${version}";
     sha256 = "sha256-xHpYtHG0fJ/VvJ/4lJ90ept3yGzJRnmtFQFbYxJtxwY=";
   };
 
@@ -85,12 +85,12 @@ buildGoModule rec {
 
   passthru.updateScript = nix-update-script { };
 
-  meta = with lib; {
+  meta = {
     description = "Easiest way to access your cloud";
     homepage = "https://github.com/common-fate/granted";
     changelog = "https://github.com/common-fate/granted/releases/tag/${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [
       jlbribeiro
     ];
   };

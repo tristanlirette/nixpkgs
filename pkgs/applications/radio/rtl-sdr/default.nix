@@ -28,6 +28,8 @@ let
         "-DWITH_RPC=ON"
       ];
 
+      doInstallCheck = true;
+
       postPatch = ''
         substituteInPlace CMakeLists.txt \
           --replace '/etc/udev/rules.d' "$out/etc/udev/rules.d" \
@@ -76,7 +78,7 @@ in
     src = fetchFromGitHub {
       owner = "librtlsdr";
       repo = "librtlsdr";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-I1rbywQ0ZBw26wZdtMBkfpj7+kv09XKrrcoDuhIkRmw=";
     };
     meta = {
@@ -95,7 +97,7 @@ in
     src = fetchFromGitHub {
       owner = "rtlsdrblog";
       repo = "rtl-sdr-blog";
-      tag = version;
+      rev = version;
       hash = "sha256-7FpT+BoQ2U8KiKwX4NfEwrO3lMBti7RX8uKtT5dFH8M=";
     };
     meta = {

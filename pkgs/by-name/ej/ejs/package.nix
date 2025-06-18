@@ -13,7 +13,7 @@ buildNpmPackage {
   src = fetchFromGitHub {
     owner = "mde";
     repo = "ejs";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-3Rq+7oiYJlIY7sGPasx728sz2zj0ndAvKpHGsQX4tlc=";
   };
 
@@ -29,7 +29,7 @@ buildNpmPackage {
 
   meta = {
     description = "Embedded JavaScript templates";
-    homepage = "http://ejs.co";
+    homepage = "https://ejs.co";
     license = lib.licenses.asl20;
     mainProgram = "ejs";
     maintainers = with lib.maintainers; [ momeemt ];

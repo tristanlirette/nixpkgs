@@ -6,7 +6,6 @@
   libxkbcommon,
   openssl,
   stdenv,
-  darwin,
   wayland,
 }:
 
@@ -17,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "reemus-dev";
     repo = "gitnr";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-9vx+bGfYuJuafZUY2ZT4SAgrNcSXuMe1kHH/lrpItvM=";
   };
 
@@ -31,9 +30,6 @@ rustPlatform.buildRustPackage rec {
   buildInputs =
     [
       openssl
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.AppKit
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
       libxkbcommon

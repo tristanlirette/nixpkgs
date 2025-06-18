@@ -10,8 +10,8 @@ rustPlatform.buildRustPackage rec {
 
   src = fetchFromGitHub {
     owner = "YodaEmbedding";
-    repo = pname;
-    tag = "v${version}";
+    repo = "frece";
+    rev = "v${version}";
     sha256 = "sha256-CAiIqT5KuzrqbV9FVK3nZUe8MDs2KDdsKplJMI7rN9w=";
   };
 

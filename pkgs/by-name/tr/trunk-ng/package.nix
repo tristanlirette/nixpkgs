@@ -6,9 +6,6 @@
   pkg-config,
   openssl,
   libiconv,
-  CoreServices,
-  Security,
-  SystemConfiguration,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -18,7 +15,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "ctron";
     repo = "trunk";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-SnE0z9Wa4gtX/ts0vG9pYnnxumILHTSV9/tVYkCHFck=";
   };
 
@@ -27,9 +24,6 @@ rustPlatform.buildRustPackage rec {
     if stdenv.hostPlatform.isDarwin then
       [
         libiconv
-        CoreServices
-        Security
-        SystemConfiguration
       ]
     else
       [ openssl ];

@@ -4,8 +4,6 @@
   fetchFromGitHub,
   pkg-config,
   alsa-lib,
-  stdenv,
-  darwin,
   testers,
   porsmo,
 }:
@@ -17,7 +15,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "ColorCookie-dev";
     repo = "porsmo";
-    tag = version;
+    rev = version;
     hash = "sha256-bYPUSrGJKoNLFkIiGuXraYoaYn/HKSP8IiH3gtyWfmw=";
   };
 
@@ -29,14 +27,9 @@ rustPlatform.buildRustPackage rec {
     rustPlatform.bindgenHook
   ];
 
-  buildInputs =
-    [
-      alsa-lib
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.CoreAudio
-      darwin.apple_sdk.frameworks.CoreFoundation
-    ];
+  buildInputs = [
+    alsa-lib
+  ];
 
   passthru.tests.version = testers.testVersion {
     package = porsmo;

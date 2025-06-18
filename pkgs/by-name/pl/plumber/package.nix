@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "streamdal";
-    repo = pname;
-    tag = "v${version}";
+    repo = "plumber";
+    rev = "v${version}";
     hash = "sha256-0pyeCTkmS7gG51Xm4Gc62p+I5DRUA2F9tPHaZjO+/WE=";
   };
 

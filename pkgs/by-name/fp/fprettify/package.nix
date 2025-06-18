@@ -10,8 +10,8 @@ python3Packages.buildPythonApplication rec {
 
   src = fetchFromGitHub {
     owner = "pseewald";
-    repo = pname;
-    tag = "v${version}";
+    repo = "fprettify";
+    rev = "v${version}";
     sha256 = "17v52rylmsy3m3j5fcb972flazykz2rvczqfh8mxvikvd6454zyj";
   };
 

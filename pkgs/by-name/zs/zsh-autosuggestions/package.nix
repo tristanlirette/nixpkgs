@@ -2,7 +2,6 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  zsh,
 }:
 
 # To make use of this derivation, use the `programs.zsh.autosuggestions.enable` option
@@ -14,12 +13,11 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "zsh-users";
     repo = "zsh-autosuggestions";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-vpTyYq9ZgfgdDsWzjxVAE7FZH4MALMNZIFyEOBLm5Qo=";
   };
 
   strictDeps = true;
-  buildInputs = [ zsh ];
 
   installPhase = ''
     install -D zsh-autosuggestions.zsh \

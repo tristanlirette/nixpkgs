@@ -35,7 +35,7 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "sway-unwrapped";
-  version = "1.10.1";
+  version = "1.11";
 
   inherit
     enableXWayland
@@ -46,8 +46,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "swaywm";
     repo = "sway";
-    tag = finalAttrs.version;
-    hash = "sha256-uBtQk8uhW/i8lSbv6zwsRyiiImFBw1YCQHVWQ8jot5w=";
+    rev = finalAttrs.version;
+    hash = "sha256-xMrexVDpgkGnvAAglshsh7HjvcbU2/Q6JLUd5J487qg=";
   };
 
   patches =

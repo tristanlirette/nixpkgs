@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "square";
-    repo = pname;
-    tag = "v${version}";
+    repo = "certigo";
+    rev = "v${version}";
     sha256 = "sha256-+j1NeQJPDwQxXVYnHNmL49Li2IMH+9ehS0HSM3kqyxU=";
   };
 

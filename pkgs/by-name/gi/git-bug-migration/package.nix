@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "MichaelMure";
     repo = "git-bug-migration";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-IOBgrU3C0ZHD2wx9LRVgKEJzDlUj6z2UXlHGU3tdTdQ=";
   };
 
@@ -34,7 +34,10 @@ buildGoModule rec {
     description = "Tool for upgrading repositories using git-bug to new versions";
     homepage = "https://github.com/MichaelMure/git-bug-migration";
     license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ DeeUnderscore ];
+    maintainers = with maintainers; [
+      DeeUnderscore
+      sudoforge
+    ];
     mainProgram = "git-bug-migration";
   };
 }

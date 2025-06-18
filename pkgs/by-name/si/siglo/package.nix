@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "theironrobin";
     repo = "siglo";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-4jKsRpzuyHH31LXndC3Ua4TYcI0G0v9qqe0cbvLuCDA=";
   };
 
@@ -60,13 +60,13 @@ stdenv.mkDerivation rec {
     gappsWrapperArgs+=(--prefix PYTHONPATH : "$program_PYTHONPATH")
   '';
 
-  meta = with lib; {
+  meta = {
     description = "GTK app to sync InfiniTime watch with PinePhone";
     mainProgram = "siglo";
     homepage = "https://github.com/theironrobin/siglo";
     changelog = "https://github.com/theironrobin/siglo/tags/v${version}";
-    license = licenses.mpl20;
-    maintainers = [ ];
-    platforms = platforms.linux;
+    license = lib.licenses.mpl20;
+    maintainers = with lib.maintainers; [ ];
+    platforms = lib.platforms.linux;
   };
 }

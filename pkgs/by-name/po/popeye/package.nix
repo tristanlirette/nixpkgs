@@ -10,7 +10,7 @@ buildGoModule rec {
   version = "0.22.1";
 
   src = fetchFromGitHub {
-    tag = "v${version}";
+    rev = "v${version}";
     owner = "derailed";
     repo = "popeye";
     sha256 = "sha256-CbVYQIE7kjUah+SDEjs5Qz+n4+f3HriQNxYPqDcdr/I=";
@@ -39,12 +39,12 @@ buildGoModule rec {
     $out/bin/popeye version | grep ${version} > /dev/null
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Kubernetes cluster resource sanitizer";
     mainProgram = "popeye";
     homepage = "https://github.com/derailed/popeye";
     changelog = "https://github.com/derailed/popeye/releases/tag/v${version}";
-    license = licenses.asl20;
-    maintainers = [ maintainers.bryanasdev000 ];
+    license = lib.licenses.asl20;
+    maintainers = [ lib.maintainers.bryanasdev000 ];
   };
 }

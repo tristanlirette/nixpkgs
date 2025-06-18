@@ -4,7 +4,6 @@
   buildDunePackage,
   fetchFromGitHub,
   ctypes,
-  libcxx,
 }:
 
 buildDunePackage rec {
@@ -16,13 +15,13 @@ buildDunePackage rec {
   src = fetchFromGitHub {
     owner = "owlbarn";
     repo = pname;
-    tag = version;
+    rev = version;
     sha256 = "1zaw03as14hyvfpyj6bjrfbcxp2ljdbqcqqgm53kms244mig425f";
   };
 
   minimalOCamlVersion = "4.02";
 
-  env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isDarwin "-I${lib.getDev libcxx}/include/c++/v1";
+  env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isDarwin "-I${lib.getInclude stdenv.cc.libcxx}/include/c++/v1";
 
   propagatedBuildInputs = [ ctypes ];
 

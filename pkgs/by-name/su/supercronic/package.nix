@@ -13,8 +13,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "aptible";
-    repo = pname;
-    tag = "v${version}";
+    repo = "supercronic";
+    rev = "v${version}";
     hash = "sha256-tvDjjG8ym1wdQzQSO7T5BkbYbqD1M+EnPSPumbFKRhE=";
   };
 

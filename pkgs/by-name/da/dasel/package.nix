@@ -13,7 +13,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "TomWright";
     repo = "dasel";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-vq4lRCsqD2hmQw0yH84Wji5LeJ/aiMGJJIyCDvATA+I=";
   };
 
@@ -47,7 +47,7 @@ buildGoModule rec {
     runHook postInstallCheck
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Query and update data structures from the command line";
     longDescription = ''
       Dasel (short for data-selector) allows you to query and modify data structures using selector strings.
@@ -55,8 +55,8 @@ buildGoModule rec {
     '';
     homepage = "https://github.com/TomWright/dasel";
     changelog = "https://github.com/TomWright/dasel/blob/v${version}/CHANGELOG.md";
-    license = licenses.mit;
+    license = lib.licenses.mit;
     mainProgram = "dasel";
-    maintainers = with maintainers; [ _0x4A6F ];
+    maintainers = with lib.maintainers; [ _0x4A6F ];
   };
 }

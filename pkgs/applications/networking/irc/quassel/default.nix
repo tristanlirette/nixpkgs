@@ -52,7 +52,7 @@ in
   src = fetchFromGitHub {
     owner = "quassel";
     repo = "quassel";
-    tag = version;
+    rev = version;
     sha256 = "sha256-eulhNcyCmy9ryietOhT2yVJeJH+MMZRbTUo2XuTy9qU=";
   };
 
@@ -124,6 +124,13 @@ in
     '';
     license = licenses.gpl3;
     maintainers = with maintainers; [ ttuegel ];
+    mainProgram =
+      if monolithic then
+        "quassel"
+      else if buildClient then
+        "quasselclient"
+      else
+        "quasselcore";
     inherit (qtbase.meta) platforms;
   };
 }

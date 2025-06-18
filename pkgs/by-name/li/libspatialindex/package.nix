@@ -12,7 +12,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "libspatialindex";
     repo = "libspatialindex";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-a2CzRLHdQMnVhHZhwYsye4X644r8gp1m6vU2CJpSRpU=";
   };
 
@@ -44,7 +44,7 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Extensible spatial index library in C++";
     homepage = "https://libspatialindex.org";
     license = lib.licenses.mit;
-    maintainers = lib.teams.geospatial.members;
+    teams = [ lib.teams.geospatial ];
     platforms = lib.platforms.unix;
   };
 })

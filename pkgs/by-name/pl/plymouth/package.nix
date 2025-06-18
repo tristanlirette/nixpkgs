@@ -34,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
     domain = "gitlab.freedesktop.org";
     owner = "plymouth";
     repo = "plymouth";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-9JmZCm8bjteJTQrMSJeL4x2CAI6RpKowFUDSCcMS4MM=";
   };
 
@@ -126,7 +126,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://www.freedesktop.org/wiki/Software/Plymouth/";
     description = "Boot splash and boot logger";
     license = licenses.gpl2Plus;
-    maintainers = teams.gnome.members;
+    teams = [ teams.gnome ];
     platforms = platforms.linux;
   };
 })

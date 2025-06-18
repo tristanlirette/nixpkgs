@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "YaLTeR";
     repo = "wl-clipboard-rs";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-jGTWcVR6atkEeEUunystJ4B6I3GzYiCOMs0MC6pvPfI=";
   };
 
@@ -75,17 +75,17 @@ rustPlatform.buildRustPackage rec {
       --zsh target/completions/_wl-paste
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Command-line copy/paste utilities for Wayland, written in Rust";
     homepage = "https://github.com/YaLTeR/wl-clipboard-rs";
     changelog = "https://github.com/YaLTeR/wl-clipboard-rs/blob/v${version}/CHANGELOG.md";
-    platforms = platforms.linux;
-    license = with licenses; [
+    platforms = lib.platforms.linux;
+    license = with lib.licenses; [
       asl20
       mit
     ];
     mainProgram = "wl-clip";
-    maintainers = with maintainers; [
+    maintainers = with lib.maintainers; [
       thiagokokada
       donovanglover
     ];

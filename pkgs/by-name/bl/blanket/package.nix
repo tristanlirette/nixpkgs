@@ -23,7 +23,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "rafaelmardojai";
     repo = "blanket";
-    tag = version;
+    rev = version;
     hash = "sha256-mY7c5i0me7mMbD8c6eGJeaZpR8XI5QVL4n3M+j15Z1c=";
   };
 
@@ -72,12 +72,10 @@ python3Packages.buildPythonApplication rec {
     homepage = "https://github.com/rafaelmardojai/blanket";
     license = lib.licenses.gpl3Plus;
     mainProgram = "blanket";
-    maintainers =
-      with lib.maintainers;
-      [
-        onny
-      ]
-      ++ lib.teams.gnome-circle.members;
+    maintainers = with lib.maintainers; [
+      onny
+    ];
+    teams = [ lib.teams.gnome-circle ];
     platforms = lib.platforms.linux;
   };
 }

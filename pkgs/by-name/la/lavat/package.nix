@@ -4,7 +4,7 @@
   fetchFromGitHub,
 }:
 let
-  version = "2.1.0";
+  version = "2.2.0";
 in
 stdenv.mkDerivation {
   pname = "lavat";
@@ -13,8 +13,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "AngelJumbo";
     repo = "lavat";
-    tag = "v${version}";
-    hash = "sha256-wGtuYgZS03gXYgdNdugGu/UlROQTrQ3C1inJ/aTUBKk=";
+    rev = "v${version}";
+    hash = "sha256-SNRhel2RmaAPqoYpcq7F9e/FcbCJ0E3VJN/G9Ya4TeY=";
   };
 
   installPhase = ''

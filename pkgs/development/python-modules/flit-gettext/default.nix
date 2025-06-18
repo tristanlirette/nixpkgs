@@ -15,6 +15,7 @@
   # tests
   build,
   pytestCheckHook,
+  pytest-cov-stub,
 }:
 
 buildPythonPackage rec {
@@ -25,7 +26,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "codingjoe";
     repo = "flit-gettext";
-    tag = version;
+    rev = version;
     hash = "sha256-YsRfpciSrHmivEJKfzdp6UaPx2tSr3VdjU4ZIbYQX6c=";
   };
 
@@ -34,10 +35,6 @@ buildPythonPackage rec {
       msgfmt = lib.getExe' gettext "msgfmt";
     })
   ];
-
-  postPatch = ''
-    sed -i "s/--cov//" pyproject.toml
-  '';
 
   nativeBuildInputs = [
     flit-scm
@@ -53,6 +50,7 @@ buildPythonPackage rec {
   nativeCheckInputs = [
     build
     pytestCheckHook
+    pytest-cov-stub
     wheel
   ] ++ optional-dependencies.scm;
 

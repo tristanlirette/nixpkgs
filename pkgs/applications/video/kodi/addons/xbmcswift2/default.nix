@@ -12,7 +12,7 @@ buildKodiAddon rec {
   src = fetchFromGitHub {
     owner = "XBMC-Addons";
     repo = namespace;
-    tag = version;
+    rev = version;
     sha256 = "sha256-Z+rHz3wncoNvV1pwhRzJFB/X0H6wdfwg88otVh27wg8=";
   };
 
@@ -24,6 +24,6 @@ buildKodiAddon rec {
     homepage = "https://github.com/XBMC-Addons/script.module.xbmcswift2";
     description = "Framework to ease development of Kodi addons";
     license = licenses.gpl3Only;
-    maintainers = teams.kodi.members;
+    teams = [ teams.kodi ];
   };
 }

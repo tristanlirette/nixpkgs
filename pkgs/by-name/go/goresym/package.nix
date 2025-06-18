@@ -12,7 +12,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "mandiant";
     repo = "goresym";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-tt13vHe6wE27kv+1HVXytY1hKmOt6rWJaMBgLRCvO2E=";
   };
 
@@ -30,12 +30,12 @@ buildGoModule rec {
 
   doCheck = true;
 
-  meta = with lib; {
+  meta = {
     description = "Go symbol recovery tool";
     mainProgram = "GoReSym";
     homepage = "https://github.com/mandiant/GoReSym";
     changelog = "https://github.com/mandiant/GoReSym/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ pyrox0 ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ pyrox0 ];
   };
 }

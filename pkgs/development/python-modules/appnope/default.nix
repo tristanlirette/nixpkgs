@@ -7,14 +7,14 @@
 
 buildPythonPackage rec {
   pname = "appnope";
-  version = "0.1.3";
+  version = "0.1.4";
   format = "setuptools";
 
   src = fetchFromGitHub {
     owner = "minrk";
     repo = "appnope";
-    tag = version;
-    hash = "sha256-JYzNOPD1ofOrtZK5TTKxbF1ausmczsltR7F1Vwss8Sw=";
+    rev = version;
+    hash = "sha256-We7sZKVbQFIMdZpS+VMdi0RH1O/qtFNrfJNg/98tO5A=";
   };
 
   checkInputs = [ pytestCheckHook ];

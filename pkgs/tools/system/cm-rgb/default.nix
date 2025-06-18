@@ -9,6 +9,8 @@
   hidapi,
   psutil,
   pygobject3,
+  udevCheckHook,
+  stdenv,
 }:
 
 buildPythonApplication rec {
@@ -18,7 +20,7 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "gfduszynski";
     repo = pname;
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-m0ZAjSLRzcjzygLEbvCiDd7krc1gRqTg1ZV4H/o2c68=";
   };
 
@@ -28,6 +30,7 @@ buildPythonApplication rec {
     # Populate GI_TYPELIB_PATH
     gobject-introspection
     wrapGAppsHook3
+    udevCheckHook
   ];
 
   propagatedBuildInputs = [

@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxmint";
     repo = "bulky";
-    tag = version;
+    rev = version;
     hash = "sha256-+mA8b1PEfp151hks4T/I+dMYlJa6yYz1wWnafe+w9y8=";
   };
 
@@ -70,6 +70,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxmint/bulky";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.cinnamon.members;
+    teams = [ teams.cinnamon ];
   };
 }

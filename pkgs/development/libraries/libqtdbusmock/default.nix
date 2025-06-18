@@ -23,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/libqtdbusmock";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-hVw2HnIHlA7vvt0Sr6F2qVhvBZ33aCeqb9vgbu3rgBo=";
   };
 
@@ -87,7 +87,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://launchpad.net/libqtdbusmock";
     license = licenses.lgpl3Only;
     platforms = platforms.unix;
-    maintainers = teams.lomiri.members;
+    teams = [ teams.lomiri ];
     pkgConfigModules = [
       "libqtdbusmock-1"
     ];

@@ -24,7 +24,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "ideveCore";
     repo = "Valuta";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-g2x+pqs7dXdTMSxzSU5TeQtE+Q+tdQ93xaMtUVEE5/U=";
   };
 
@@ -65,7 +65,8 @@ python3Packages.buildPythonApplication rec {
     description = "Simple application for converting currencies, with support for various APIs";
     homepage = "https://github.com/ideveCore/Valuta";
     license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ arthsmn ] ++ lib.teams.gnome-circle.members;
+    maintainers = with maintainers; [ arthsmn ];
+    teams = [ teams.gnome-circle ];
     mainProgram = "currencyconverter";
     platforms = platforms.linux;
   };

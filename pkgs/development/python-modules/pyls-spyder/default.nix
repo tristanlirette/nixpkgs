@@ -13,8 +13,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "spyder-ide";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pyls-spyder";
+    rev = "v${version}";
     sha256 = "11ajbsia60d4c9s6m6rbvaqp1d69fcdbq6a98lkzkkzv2b9pdhkk";
   };
 

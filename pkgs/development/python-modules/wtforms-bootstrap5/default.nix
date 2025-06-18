@@ -16,7 +16,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "LaunchPlatform";
     repo = "wtforms-bootstrap5";
-    tag = version;
+    rev = version;
     hash = "sha256-TJJ3KOeC9JXnxK0YpnfeBNq1KHwaAZ4+t9CXbc+85Ro=";
   };
 
@@ -34,6 +34,6 @@ buildPythonPackage rec {
     homepage = "https://github.com/LaunchPlatform/wtforms-bootstrap5";
     changelog = "https://github.com/LaunchPlatform/wtforms-bootstrap5/releases/tag/${version}";
     license = licenses.mit;
-    maintainers = teams.wdz.members;
+    teams = [ teams.wdz ];
   };
 }

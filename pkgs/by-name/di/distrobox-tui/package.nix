@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "phanirithvij";
     repo = "distrobox-tui";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-uOeJ9f2yXszGUYTxMLwvXCRkmT9Uo7mkZVhpf5HVhbg=";
   };
 
@@ -21,7 +21,7 @@ buildGoModule rec {
 
   meta = {
     changelog = "https://github.com/phanirithvij/distrobox-tui/releases/tag/v${version}";
-    description = "A TUI for DistroBox";
+    description = "TUI for DistroBox";
     homepage = "https://github.com/phanirithvij/distrobox-tui";
     license = lib.licenses.gpl3Plus;
     mainProgram = "distrobox-tui";

@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "connormanning";
     repo = "entwine";
-    tag = version;
+    rev = version;
     sha256 = "sha256-1dy5NafKX0E4MwFIggnr7bQIeB1KvqnNaQQUUAs6Bq8=";
   };
 
@@ -36,7 +36,8 @@ stdenv.mkDerivation rec {
     description = "Point cloud organization for massive datasets";
     homepage = "https://entwine.io/";
     license = licenses.lgpl2Only;
-    maintainers = with maintainers; teams.geospatial.members ++ [ matthewcroughan ];
+    maintainers = with maintainers; [ matthewcroughan ];
+    teams = [ teams.geospatial ];
     platforms = platforms.linux;
     mainProgram = "entwine";
   };

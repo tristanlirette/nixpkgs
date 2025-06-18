@@ -17,7 +17,7 @@
 }:
 let
   pname = "pymol";
-  description = "A Python-enhanced molecular graphics tool";
+  description = "Python-enhanced molecular graphics tool";
 
   desktopItem = makeDesktopItem {
     name = pname;
@@ -51,7 +51,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "schrodinger";
     repo = "pymol-open-source";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-2C9kUpNfK9g7ehmk83iUVqqz4gn4wKO3lW5rSduFP6U=";
   };
 

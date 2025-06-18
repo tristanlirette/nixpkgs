@@ -2,8 +2,6 @@
   lib,
   fetchFromGitHub,
   rustPlatform,
-  stdenv,
-  Security,
   nix-update-script,
 }:
 
@@ -14,13 +12,9 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "buildkite";
     repo = "test-collector-rust";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-PF2TFfzWmHXLgTopzJ04dfnzd3Sc/A6Hduffz2guxmU=";
   };
-
-  buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
-    Security
-  ];
 
   useFetchCargoVendor = true;
   cargoHash = "sha256-jymWM0DCR6jUE1Kyhbx6HHf6YlrGu1THKTyDHaPG+Vs=";

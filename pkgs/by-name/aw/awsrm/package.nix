@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "jckuester";
-    repo = pname;
-    tag = "v${version}";
+    repo = "awsrm";
+    rev = "v${version}";
     sha256 = "sha256-KAujqYDtZbCBRO5WK9b9mxqe84ZllbBoO2tLnDH/bdo=";
   };
 

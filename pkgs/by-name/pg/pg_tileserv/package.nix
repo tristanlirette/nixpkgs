@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "CrunchyData";
     repo = "pg_tileserv";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-xTIx39eLmHBUlaUjQy9KGpi5X4AU93DzX+Ofg5PMLWE=";
   };
 
@@ -50,6 +50,6 @@ buildGoModule rec {
     mainProgram = "pg_tileserv";
     homepage = "https://github.com/CrunchyData/pg_tileserv";
     license = licenses.asl20;
-    maintainers = teams.geospatial.members;
+    teams = [ teams.geospatial ];
   };
 }

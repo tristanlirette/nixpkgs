@@ -25,13 +25,12 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "ranfdev";
     repo = "notify";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-0p/XIGaawreGHbMRoHNmUEIxgwEgigtrubeJpndHsug=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit src;
-    name = "${pname}-${version}";
+    inherit pname version src;
     hash = "sha256-hnv4XXsx/kmhH4YUTdTvvxxjbguHBx3TnUKacGwnCTw=";
   };
 

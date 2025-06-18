@@ -14,7 +14,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "knadh";
     repo = "listmonk";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-eNX+2ens+mz2V8ZBHtFFHDVbi64AAiiREElMjh67Dd8=";
   };
 
@@ -57,12 +57,12 @@ buildGoModule rec {
     tests = { inherit (nixosTests) listmonk; };
   };
 
-  meta = with lib; {
+  meta = {
     description = "High performance, self-hosted, newsletter and mailing list manager with a modern dashboard";
     mainProgram = "listmonk";
     homepage = "https://github.com/knadh/listmonk";
     changelog = "https://github.com/knadh/listmonk/releases/tag/v${version}";
-    maintainers = with maintainers; [ raitobezarius ];
-    license = licenses.agpl3Only;
+    maintainers = with lib.maintainers; [ raitobezarius ];
+    license = lib.licenses.agpl3Only;
   };
 }

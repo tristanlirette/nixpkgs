@@ -15,7 +15,7 @@ buildKodiAddon rec {
   src = fetchFromGitHub {
     owner = "aanderse";
     repo = namespace;
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-LVdFih0n/lkjyaYf8jw0IFlcDiXXOtUH2N9OduV1H9Q=";
   };
 
@@ -29,6 +29,6 @@ buildKodiAddon rec {
     homepage = "https://github.com/aanderse/plugin.program.steam.library";
     description = "View your entire Steam library right from Kodi";
     license = licenses.gpl3Plus;
-    maintainers = teams.kodi.members;
+    teams = [ teams.kodi ];
   };
 }

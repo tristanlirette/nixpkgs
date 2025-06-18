@@ -3,7 +3,6 @@
   stdenv,
   rustPlatform,
   fetchFromGitHub,
-  darwin,
   just,
   pkg-config,
   wrapGAppsHook4,
@@ -26,7 +25,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "hwittenborn";
     repo = "celeste";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-Yj2PvAlAkwLaSE27KnzEmiRAD5K/YVGbF4+N3uhDVT8=";
   };
 
@@ -58,22 +57,17 @@ rustPlatform.buildRustPackage rec {
     wrapGAppsHook4
   ];
 
-  buildInputs =
-    [
-      cairo
-      dbus
-      gdk-pixbuf
-      glib
-      graphene
-      gtk4
-      libadwaita
-      librclone
-      pango
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Foundation
-      darwin.apple_sdk.frameworks.Security
-    ];
+  buildInputs = [
+    cairo
+    dbus
+    gdk-pixbuf
+    glib
+    graphene
+    gtk4
+    libadwaita
+    librclone
+    pango
+  ];
 
   env.NIX_CFLAGS_COMPILE = toString (
     lib.optionals stdenv.hostPlatform.isDarwin [

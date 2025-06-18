@@ -14,8 +14,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitLab {
     owner = "sebholt";
-    repo = pname;
-    tag = "v${version}";
+    repo = "qastools";
+    rev = "v${version}";
     hash = "sha256-mJjhM1y50f44kvxMidM7uqlkkXx1sbJC21vIMEDenoU=";
   };
 

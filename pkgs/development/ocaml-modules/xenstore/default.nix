@@ -13,7 +13,7 @@ buildDunePackage rec {
   src = fetchFromGitHub {
     owner = "mirage";
     repo = "ocaml-xenstore";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-LaynsbCE/+2QfbQCOLZi8nw1rqmZtgrwAov9cSxYZw8=";
   };
 
@@ -25,7 +25,8 @@ buildDunePackage rec {
   meta = with lib; {
     description = "Xenstore protocol in pure OCaml";
     license = licenses.lgpl21Only;
-    maintainers = teams.xen.members ++ [ maintainers.sternenseemann ];
+    maintainers = [ maintainers.sternenseemann ];
+    teams = [ teams.xen ];
     homepage = "https://github.com/mirage/ocaml-xenstore";
   };
 }

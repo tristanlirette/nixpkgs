@@ -10,8 +10,8 @@
 
   sqlite,
   readline,
-  SDL,
-  SDL_gfx,
+  SDL2,
+  SDL2_gfx,
   openssl,
 
   SDLSupport ? true,
@@ -24,7 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "msteveb";
     repo = "jimtcl";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     sha256 = "sha256-CDjjrxpoTbLESAbCiCjQ8+E/oJP87gDv9SedQOzH3QY=";
   };
 
@@ -41,8 +41,8 @@ stdenv.mkDerivation (finalAttrs: {
       openssl
     ]
     ++ (lib.optionals SDLSupport [
-      SDL
-      SDL_gfx
+      SDL2
+      SDL2_gfx
     ]);
 
   configureFlags = [

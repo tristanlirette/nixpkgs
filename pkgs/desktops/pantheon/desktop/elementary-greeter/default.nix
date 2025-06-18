@@ -15,6 +15,7 @@
   granite,
   libgee,
   libhandy,
+  gala,
   gnome-desktop,
   gnome-settings-daemon,
   mutter,
@@ -37,7 +38,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elementary";
     repo = "greeter";
-    tag = version;
+    rev = version;
     sha256 = "sha256-T/tI8WRVbTLdolDYa98M2Vm26p0xhGiai74lXAlpQ8k=";
   };
 
@@ -64,6 +65,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     accountsservice
     elementary-icon-theme
+    gala # for io.elementary.desktop.background
     gnome-desktop
     gnome-settings-daemon
     gdk-pixbuf
@@ -128,7 +130,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/elementary/greeter";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.pantheon.members;
+    teams = [ teams.pantheon ];
     mainProgram = "io.elementary.greeter";
   };
 }

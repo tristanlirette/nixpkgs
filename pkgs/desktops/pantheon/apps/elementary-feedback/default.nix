@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elementary";
     repo = "feedback";
-    tag = version;
+    rev = version;
     sha256 = "sha256-D0x0jKYEB6Bo8ETgVCjgdOItc+VJYlrr8N9lI/Z3eXU=";
   };
 
@@ -61,7 +61,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/elementary/feedback";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.pantheon.members;
+    teams = [ teams.pantheon ];
     mainProgram = "io.elementary.feedback";
   };
 }

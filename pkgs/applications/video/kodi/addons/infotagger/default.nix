@@ -12,7 +12,7 @@ buildKodiAddon rec {
   src = fetchFromGitHub {
     owner = "jurialmunkey";
     repo = namespace;
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-Ns1OjrYLKz4znXRxqUErDLcmC0HBjBFVYI9GFqDVurY=";
   };
 
@@ -28,6 +28,6 @@ buildKodiAddon rec {
     homepage = "https://github.com/jurialmunkey/script.module.infotagger";
     description = "Wrapper for new Nexus InfoTagVideo ListItem methods to maintain backwards compatibility";
     license = licenses.gpl3Plus;
-    maintainers = teams.kodi.members;
+    teams = [ teams.kodi ];
   };
 }

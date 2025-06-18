@@ -27,7 +27,7 @@ python3.pkgs.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "hugolabe";
     repo = "Wike";
-    tag = version;
+    rev = version;
     hash = "sha256-Unw+r8NlfaSn/UCtdnkCCsC6xM33Qy6hQdUg/4bIG+I=";
   };
 
@@ -73,7 +73,8 @@ python3.pkgs.buildPythonApplication rec {
     homepage = "https://github.com/hugolabe/Wike";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = with maintainers; [ samalws ] ++ lib.teams.gnome-circle.members;
+    maintainers = with maintainers; [ samalws ];
+    teams = [ teams.gnome-circle ];
     mainProgram = "wike";
   };
 }

@@ -5,6 +5,7 @@
   bash,
   makeWrapper,
   kanjidraw,
+  installShellFiles,
   pcre,
   sqlite,
   nodejs,
@@ -17,14 +18,14 @@ python3.pkgs.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "obfusk";
     repo = "jiten";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "13bdx136sirbhxdhvpq5kf0r6q1xvm5zyzp454z51gy0v6rn0qrp";
   };
 
   nonFreeData = fetchFromGitHub {
     owner = "obfusk";
     repo = "jiten-nonfree-data";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "16sz8i0sw7ggy6kijcx4qyl2zr6xj789x4iav0yyllx12dfgp5b1";
   };
 
@@ -34,7 +35,10 @@ python3.pkgs.buildPythonApplication rec {
     ./cookie-fix.patch
   ];
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [
+    makeWrapper
+    installShellFiles
+  ];
   buildInputs = [
     pcre
     sqlite
@@ -66,6 +70,11 @@ python3.pkgs.buildPythonApplication rec {
   postInstall = ''
     # requires pywebview
     rm $out/bin/jiten-gui
+
+    installShellCompletion --cmd jiten \
+      --bash <(_JITEN_COMPLETE=bash_source $out/bin/jiten) \
+      --zsh <(_JITEN_COMPLETE=zsh_source $out/bin/jiten) \
+      --fish <(env _JITEN_COMPLETE=fish_source $out/bin/jiten)
   '';
 
   meta = with lib; {

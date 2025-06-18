@@ -7,6 +7,7 @@
   qtbase,
   qtgraphicaleffects,
   wrapQtAppsHook,
+  udevCheckHook,
 }:
 
 mkDerivation rec {
@@ -16,7 +17,7 @@ mkDerivation rec {
   src = fetchFromGitHub {
     owner = "jahnf";
     repo = "Projecteur";
-    tag = "v${version}";
+    rev = "v${version}";
     fetchSubmodules = false;
     hash = "sha256-F7o93rBjrDTmArTIz8RB/uGBOYE6ny/U7ppk+jEhM5A=";
   };
@@ -34,7 +35,10 @@ mkDerivation rec {
     cmake
     pkg-config
     wrapQtAppsHook
+    udevCheckHook
   ];
+
+  doInstallCheck = true;
 
   cmakeFlags = [
     "-DCMAKE_INSTALL_PREFIX:PATH=${placeholder "out"}"

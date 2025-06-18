@@ -22,7 +22,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "linuxmint";
     repo = "python-xapp";
-    tag = version;
+    rev = version;
     hash = "sha256-Gbm4YT9ZyrROOAbKz5xYd9J9YG9cUL2Oo6dDCPciaBs=";
   };
 
@@ -58,6 +58,6 @@ buildPythonPackage rec {
     description = "Cross-desktop libraries and common resources for python";
     license = licenses.lgpl2Plus;
     platforms = platforms.linux;
-    maintainers = teams.cinnamon.members;
+    teams = [ teams.cinnamon ];
   };
 }

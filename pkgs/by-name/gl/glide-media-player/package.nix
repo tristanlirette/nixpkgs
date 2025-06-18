@@ -23,13 +23,12 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "philn";
     repo = "glide";
-    tag = version;
+    rev = version;
     hash = "sha256-gmBXUj6LxC7VDH/ni8neYivysagqcbI/UCUq9Ly3D24=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit src;
-    name = "${pname}-${version}";
+    inherit pname version src;
     hash = "sha256-5cohhm8/QP+vYzVf8iz3hLtu0ej7lQiHpDAC9I52+ME=";
   };
 

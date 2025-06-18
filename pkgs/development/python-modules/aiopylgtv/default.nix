@@ -16,8 +16,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "bendavid";
-    repo = pname;
-    tag = version;
+    repo = "aiopylgtv";
+    rev = version;
     hash = "sha256-NkWJGy5QUrhpbARoscrXy/ilCjAz01YxeVTH0I+IjNM=";
   };
 

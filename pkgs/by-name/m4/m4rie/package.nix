@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "malb";
     repo = "m4rie";
-    tag = version;
+    rev = version;
     hash = "sha256-tw6ZX8hKfr9wQLF2nuO1dSkkTYZX6pzNWMlWfzLqQNE=";
   };
 
@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
       It uses the M4RI library, implementing the same operations over the finite field F2.
     '';
     license = licenses.gpl2Plus;
-    maintainers = teams.sage.members;
+    teams = [ teams.sage ];
     platforms = platforms.unix;
   };
 }

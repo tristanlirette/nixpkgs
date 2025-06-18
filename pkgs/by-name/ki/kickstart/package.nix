@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "Keats";
     repo = "kickstart";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-4POxv6fIrp+wKb9V+6Y2YPx3FXp3hpnkq+62H9TwGII=";
   };
 
@@ -36,12 +36,12 @@ rustPlatform.buildRustPackage rec {
     };
   };
 
-  meta = with lib; {
+  meta = {
     description = "Scaffolding tool to get new projects up and running quickly";
     homepage = "https://github.com/Keats/kickstart";
     changelog = "https://github.com/Keats/kickstart/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ gaelreyrol ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ gaelreyrol ];
     mainProgram = "kickstart";
   };
 }

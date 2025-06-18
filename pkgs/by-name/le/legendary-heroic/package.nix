@@ -5,7 +5,7 @@
   python3Packages,
 }:
 let
-  version = "0.20.36";
+  version = "0.20.37";
 in
 python3Packages.buildPythonApplication {
   pname = "legendary-heroic";
@@ -14,8 +14,8 @@ python3Packages.buildPythonApplication {
   src = fetchFromGitHub {
     owner = "Heroic-Games-Launcher";
     repo = "legendary";
-    tag = version;
-    sha256 = "sha256-+aywgd5RZfkmVuA0MaF2/Ie4a5If/zQxvVCcTfGpQpE=";
+    rev = version;
+    sha256 = "sha256-mOys7lOPrrzBUBMIM/JvKygFQ/qIGD68BDNigk5BCIo=";
   };
 
   propagatedBuildInputs = with python3Packages; [

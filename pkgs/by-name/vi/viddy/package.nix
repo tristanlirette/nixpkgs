@@ -11,15 +11,12 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "sachaos";
     repo = "viddy";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-ZdDe0ymPkj0ZGiPLo1Y0qMDk2SsUcPsSStay+Tuf4p0=";
   };
 
   useFetchCargoVendor = true;
   cargoHash = "sha256-Bp3t/fjaFeouIoKlRvQPVDlc46Ggitfx6HUXE+RZN0A=";
-
-  # requires nightly features
-  env.RUSTC_BOOTSTRAP = 1;
 
   env.VERGEN_BUILD_DATE = "2024-11-28"; # managed via the update script
   env.VERGEN_GIT_DESCRIBE = "Nixpkgs";

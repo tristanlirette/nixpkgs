@@ -37,7 +37,7 @@ mkDerivation {
   src = fetchFromGitHub {
     owner = "flipperdevices";
     repo = "qFlipper";
-    tag = version;
+    rev = version;
     fetchSubmodules = true;
     inherit hash;
   };
@@ -94,6 +94,8 @@ mkDerivation {
     mkdir -p $out/etc/udev/rules.d
     cp installer-assets/udev/42-flipperzero.rules $out/etc/udev/rules.d/
   '';
+
+  doInstallCheck = true;
 
   passthru.updateScript = nix-update-script { };
 

@@ -5,6 +5,7 @@
   fetchFromGitHub,
   btrfs-progs,
   python3,
+  udevCheckHook,
 }:
 
 let
@@ -30,7 +31,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "lakshmipathi";
     repo = "dduper";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "09ncdawxkffldadqhfblqlkdl05q2qmywxyg6p61fv3dr2f2v5wm";
   };
 
@@ -38,6 +39,12 @@ stdenv.mkDerivation rec {
     btrfsProgsPatched
     py3
   ];
+
+  nativeBuildInputs = [
+    udevCheckHook
+  ];
+
+  doInstallCheck = true;
 
   patchPhase = ''
     substituteInPlace ./dduper --replace "/usr/sbin/btrfs.static" "${btrfsProgsPatched}/bin/btrfs"

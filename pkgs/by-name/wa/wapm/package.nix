@@ -5,8 +5,6 @@
   libiconv,
   openssl,
   rustPlatform,
-  stdenv,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -16,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "wasmerio";
     repo = "wapm-cli";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-T7YEe8xg5iwI/npisW0m+6FLi+eaAQVgYNe6TvMlhAs=";
   };
 
@@ -25,18 +23,10 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ perl ];
 
-  buildInputs =
-    [
-      libiconv
-      openssl
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin (
-      with darwin.apple_sdk.frameworks;
-      [
-        Security
-        SystemConfiguration
-      ]
-    );
+  buildInputs = [
+    libiconv
+    openssl
+  ];
 
   doCheck = false;
 

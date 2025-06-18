@@ -12,8 +12,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "fancybits";
-    repo = pname;
-    tag = version;
+    repo = "pychannels";
+    rev = version;
     hash = "sha256-E+VL4mJ2KxS5bJZc3Va+wvyVjT55LJz+1wHkxDRa85s=";
   };
 

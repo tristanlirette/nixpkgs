@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-aeWQdWi1mMche7AJhAvchRXu89hiZ+CM/RR9HvvbXTw=";
   };
 
@@ -43,6 +43,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/dde-widgets";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.deepin.members;
+    teams = [ teams.deepin ];
   };
 }

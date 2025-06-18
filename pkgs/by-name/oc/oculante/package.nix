@@ -16,7 +16,6 @@
   wayland,
   stdenv,
   gtk3,
-  darwin,
   perl,
   wrapGAppsHook3,
 }:
@@ -28,7 +27,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "woelper";
     repo = "oculante";
-    tag = version;
+    rev = version;
     hash = "sha256-3kDrsD24/TNcA7NkwwCHN4ez1bC5MP7g28H3jaO/M7E=";
   };
 
@@ -57,9 +56,6 @@ rustPlatform.buildRustPackage rec {
       gtk3
       libxkbcommon
       wayland
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.libobjc
     ];
 
   checkFlags = [

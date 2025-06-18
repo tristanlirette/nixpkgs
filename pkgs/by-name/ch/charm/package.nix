@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "charmbracelet";
     repo = "charm";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-RtUHJIMbodICEDIhjH/QZlAS7dxBsL/uNYA2IoObAg0=";
   };
 
@@ -23,12 +23,12 @@ buildGoModule rec {
     "-X=main.Version=${version}"
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Manage your charm account on the CLI";
     homepage = "https://github.com/charmbracelet/charm";
     changelog = "https://github.com/charmbracelet/charm/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ penguwin ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ penguwin ];
     mainProgram = "charm";
   };
 }

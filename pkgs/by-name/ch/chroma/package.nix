@@ -16,8 +16,8 @@ buildGoModule rec {
   # nix-prefetch-git --rev v${version} https://github.com/alecthomas/chroma.git > src.json
   src = fetchFromGitHub {
     owner = "alecthomas";
-    repo = pname;
-    tag = "v${version}";
+    repo = "chroma";
+    rev = "v${version}";
     inherit (srcInfo) sha256;
   };
 

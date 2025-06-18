@@ -4,8 +4,6 @@
   fetchFromGitHub,
   protobuf,
   rustfmt,
-  stdenv,
-  darwin,
   pkg-config,
   openssl,
 }:
@@ -16,7 +14,7 @@ let
   src = fetchFromGitHub {
     owner = "talaia-labs";
     repo = "rust-teos";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-UrzH9xmhVq12TcSUQ1AihCG1sNGcy/N8LDsZINVKFkY=";
   };
 
@@ -40,10 +38,6 @@ in
     nativeBuildInputs = [
       protobuf
       rustfmt
-    ];
-
-    buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Security
     ];
 
     passthru.updateScript = updateScript;
@@ -70,13 +64,9 @@ in
       rustfmt
     ];
 
-    buildInputs =
-      [
-        openssl
-      ]
-      ++ lib.optionals stdenv.hostPlatform.isDarwin [
-        darwin.apple_sdk.frameworks.SystemConfiguration
-      ];
+    buildInputs = [
+      openssl
+    ];
 
     passthru.updateScript = updateScript;
 

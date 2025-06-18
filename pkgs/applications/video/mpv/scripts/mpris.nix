@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "hoyon";
     repo = "mpv-mpris";
-    tag = version;
+    rev = version;
     hash = "sha256-vZIO6ILatIWa9nJYOp4AMKwvaZLahqYWRLMDOizyBI0=";
   };
   passthru.updateScript = gitUpdater { };
@@ -40,12 +40,12 @@ stdenv.mkDerivation rec {
   stripDebugList = [ "share/mpv/scripts" ];
   passthru.scriptName = "mpris.so";
 
-  meta = with lib; {
+  meta = {
     description = "MPRIS plugin for mpv";
     homepage = "https://github.com/hoyon/mpv-mpris";
-    license = licenses.mit;
-    platforms = platforms.linux;
-    maintainers = with maintainers; [ ajs124 ];
+    license = lib.licenses.mit;
+    platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [ ajs124 ];
     changelog = "https://github.com/hoyon/mpv-mpris/releases/tag/${version}";
   };
 }

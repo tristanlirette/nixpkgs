@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elementary";
     repo = "camera";
-    tag = version;
+    rev = version;
     sha256 = "sha256-PSUav16aU9TFX9Zb0TkqLxgn+yed86Qft0rQvbjbXtA=";
   };
 
@@ -60,7 +60,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/elementary/camera";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.pantheon.members;
+    teams = [ teams.pantheon ];
     mainProgram = "io.elementary.camera";
   };
 }

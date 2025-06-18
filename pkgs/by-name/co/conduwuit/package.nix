@@ -15,7 +15,6 @@
   rust-jemalloc-sys,
   enableLiburing ? stdenv.hostPlatform.isLinux,
   liburing,
-  nixosTests,
 }:
 let
   rust-jemalloc-sys' = rust-jemalloc-sys.override {
@@ -35,7 +34,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "girlbossceo";
     repo = "conduwuit";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-ut3IWEueNR/hT7NyGfuK5IYtppC6ArSoJdEfFuD/0vE=";
   };
 
@@ -81,16 +80,12 @@ rustPlatform.buildRustPackage rec {
 
   passthru = {
     updateScript = nix-update-script { };
-    tests =
-      {
-        version = testers.testVersion {
-          inherit version;
-          package = conduwuit;
-        };
-      }
-      // lib.optionalAttrs stdenv.hostPlatform.isLinux {
-        inherit (nixosTests) conduwuit;
+    tests = {
+      version = testers.testVersion {
+        inherit version;
+        package = conduwuit;
       };
+    };
   };
 
   meta = {
@@ -98,6 +93,9 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://conduwuit.puppyirl.gay/";
     changelog = "https://github.com/girlbossceo/conduwuit/releases/tag/v${version}";
     license = lib.licenses.asl20;
+    knownVulnerabilities = [
+      "On April 11, 2025, the conduwuit project officially ceased development"
+    ];
     maintainers = with lib.maintainers; [ niklaskorz ];
     # Not a typo, conduwuit is a drop-in replacement for conduit.
     mainProgram = "conduit";

@@ -23,7 +23,7 @@ let
 in
 with python3.pkgs;
 buildPythonApplication rec {
-  version = "4.8";
+  version = "5.0";
   pname = "buku";
   pyproject = true;
 
@@ -31,7 +31,7 @@ buildPythonApplication rec {
     owner = "jarun";
     repo = "buku";
     tag = "v${version}";
-    sha256 = "sha256-kPVlfTYUusf5CZnKB53WZcCHo3MEnA2bLUHTRPGPn+8=";
+    sha256 = "sha256-b3j3WLMXl4sXZpIObC+F7RRpo07cwJpAK7lQ7+yIzro=";
   };
 
   nativeBuildInputs = [

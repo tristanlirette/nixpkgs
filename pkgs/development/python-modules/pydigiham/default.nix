@@ -16,7 +16,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "jketterl";
     repo = "pydigiham";
-    tag = version;
+    rev = version;
     hash = "sha256-QenoMyVFs8MEDPoMV6TT6XfzktfN/gAMIHR0Scq11wk=";
   };
 
@@ -38,6 +38,6 @@ buildPythonPackage rec {
     homepage = "https://github.com/jketterl/pydigiham";
     description = "bindings for the csdr library";
     license = lib.licenses.gpl3Only;
-    maintainers = lib.teams.c3d2.members;
+    teams = [ lib.teams.c3d2 ];
   };
 }

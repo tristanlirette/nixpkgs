@@ -5,7 +5,7 @@
   ...
 }:
 let
-  version = "0.6.1";
+  version = "0.6.2";
 in
 buildGoModule {
   pname = "ardugotools";
@@ -14,11 +14,11 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "randomouscrap98";
     repo = "ardugotools";
-    tag = "v${version}";
-    hash = "sha256-SqeUcYa8XscwaJaCSIoZ9lEtRJ0hN01XJDyCJFX2dTc=";
+    rev = "v${version}";
+    hash = "sha256-kqFXJIHyPvm3Fq/qsojdltS99Wb4Qc/wPc6tw4n9pKs=";
   };
 
-  vendorHash = "sha256-Z9ObsS+GwVsz6ZlXCgN0WlShHzbmx4WLa/1/XLSSAAs=";
+  vendorHash = "sha256-sC47I3dKmQrF1ux+yYRyl6xB+cU1Yve/K+9wh3HQyik=";
 
   checkFlags =
     let

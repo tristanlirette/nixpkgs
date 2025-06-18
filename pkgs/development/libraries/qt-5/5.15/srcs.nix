@@ -5,7 +5,7 @@
 }:
 
 let
-  version = "5.15.16";
+  version = "5.15.17";
 
   mk = name: args: {
     inherit version;
@@ -38,7 +38,7 @@ lib.mapAttrs mk (lib.importJSON ./srcs-generated.json)
     src = fetchFromGitHub {
       owner = "qt";
       repo = "qtpositioning";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-L/P+yAQItm3taPpCNoOOm7PNdOFZiIwJJYflk6JDWvU=";
     };
   };
@@ -49,7 +49,7 @@ lib.mapAttrs mk (lib.importJSON ./srcs-generated.json)
     src = fetchFromGitHub {
       owner = "qt";
       repo = "qtwebkit";
-      tag = "v${version}";
+      rev = "v${version}";
       sha256 = "0x8rng96h19xirn7qkz3lydal6v4vn00bcl0s3brz36dfs0z8wpg";
     };
     version = "5.212.0-alpha4";
@@ -67,24 +67,24 @@ lib.mapAttrs mk (lib.importJSON ./srcs-generated.json)
   };
 
   qtscript = rec {
-    version = "5.15.18";
+    version = "5.15.19";
 
     src = fetchFromGitHub {
       owner = "qt";
       repo = "qtscript";
       rev = "v${version}-lts";
-      hash = "sha256-tq9dH76ArLO4avFCl8h0vCWDOPyJuV+z4geikCZM7J8=";
+      hash = "sha256-kUY8uSEoHqQVPd4s5BoAW6n1hGXQOQcberqWF6rK60w=";
     };
   };
 
   qtwebengine = rec {
-    version = "5.15.18";
+    version = "5.15.19";
 
     src = fetchFromGitHub {
       owner = "qt";
       repo = "qtwebengine";
       rev = "v${version}-lts";
-      hash = "sha256-l5sE+9I5H6XLJXUoPfrq2ImTtL8TZhtun5O97AhdLO4=";
+      hash = "sha256-/R4dF1nu40uH8POmx+7xnwaLNZZVgOSY3mSZLMbtvF4=";
       fetchSubmodules = true;
     };
   };

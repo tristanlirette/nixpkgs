@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "juicedata";
-    repo = pname;
-    tag = "v${version}";
+    repo = "juicefs";
+    rev = "v${version}";
     hash = "sha256-qe8uhSSLeOsr0FmgoOVeZeIpP4Bv5/Viz5N90PGdc9o=";
   };
 

@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "PandorasFox";
     repo = "i3lock-color";
-    tag = version;
+    rev = version;
     sha256 = "sha256-fuLeglRif2bruyQRqiL3nm3q6qxoHcPdVdL+QjGBR/k=";
   };
 
@@ -88,6 +88,7 @@ stdenv.mkDerivation rec {
     '';
     homepage = "https://github.com/PandorasFox/i3lock-color";
     maintainers = with maintainers; [ malyn ];
+    mainProgram = "i3lock-color";
     license = licenses.bsd3;
 
     platforms = platforms.all;

@@ -17,8 +17,8 @@ rustPlatform.buildRustPackage rec {
 
   src = fetchFromGitHub {
     owner = "marin-m";
-    repo = pname;
-    tag = version;
+    repo = "songrec";
+    rev = version;
     hash = "sha256-pTonrxlYvfuLRKMXW0Lao4KCoNFlMzE9rH+hwpa60JY=";
   };
 

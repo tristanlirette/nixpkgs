@@ -8,7 +8,7 @@
   libX11,
   libXt,
   libGL,
-  openimageio,
+  openimageio_2,
   imath,
   python,
   apple-sdk_14,
@@ -24,7 +24,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "AcademySoftwareFoundation";
     repo = "MaterialX";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-/kMHmW2dptZNtjuhE5s+jvPRIdtY+FRiVtMU+tiBgQo=";
   };
 
@@ -37,7 +37,7 @@ buildPythonPackage rec {
 
   buildInputs =
     [
-      openimageio
+      openimageio_2
       imath
     ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [

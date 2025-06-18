@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "lanrat";
-    repo = pname;
-    tag = version;
+    repo = "certgraph";
+    rev = version;
     sha256 = "sha256-7tvPiJHZE9X7I79DFNF1ZAQiaAkrtrXiD2fY7AkbWMk=";
   };
 

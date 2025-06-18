@@ -15,7 +15,7 @@ buildPecl {
   src = fetchFromGitHub {
     owner = "krakjoe";
     repo = "apcu";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-g+Oo6y+24VOWHaDZ23iItkGwOa5bTtKMAjZOmAi6EOo=";
   };
 
@@ -32,6 +32,6 @@ buildPecl {
     description = "Userland cache for PHP";
     homepage = "https://pecl.php.net/package/APCu";
     license = licenses.php301;
-    maintainers = teams.php.members;
+    teams = [ teams.php ];
   };
 }

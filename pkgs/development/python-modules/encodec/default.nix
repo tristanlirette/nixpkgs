@@ -6,8 +6,8 @@
   # dependencies
   einops,
   numpy,
-  torch-bin,
-  torchaudio-bin,
+  torch,
+  torchaudio,
 }:
 
 buildPythonPackage rec {
@@ -18,15 +18,15 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "facebookresearch";
     repo = "encodec";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-+iJZkX1HoyuNFu9VRxMO6aAzNQybkH9lrQJ5Ao9+/CY=";
   };
 
   propagatedBuildInputs = [
     einops
     numpy
-    torch-bin
-    torchaudio-bin
+    torch
+    torchaudio
   ];
 
   pythonImportsCheck = [ "encodec" ];
@@ -39,6 +39,6 @@ buildPythonPackage rec {
     homepage = "https://github.com/facebookresearch/encodec";
     changelog = "https://github.com/facebookresearch/encodec/blob/${src.rev}/CHANGELOG.md";
     license = licenses.mit;
-    maintainers = teams.tts.members;
+    teams = [ teams.tts ];
   };
 }

@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "solusipse";
     repo = "fiche";
-    tag = version;
+    rev = version;
     sha256 = "1102r39xw17kip7mjp987jy8na333gw9vxv31f7v8q05cr7d7kfb";
   };
 
@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
 
   doCheck = true;
 
-  meta = with lib; {
+  meta = {
     description = "Command line pastebin for sharing terminal output";
     longDescription = ''
       Fiche is a command line pastebin server for sharing terminal output.
@@ -34,9 +34,9 @@ stdenv.mkDerivation rec {
 
     homepage = "https://github.com/solusipse/fiche";
     changelog = "https://github.com/solusipse/fiche/releases/tag/${version}";
-    license = licenses.mit;
-    maintainers = [ maintainers.pinpox ];
-    platforms = platforms.all;
+    license = lib.licenses.mit;
+    maintainers = [ lib.maintainers.pinpox ];
+    platforms = lib.platforms.all;
     mainProgram = "fiche";
   };
 }

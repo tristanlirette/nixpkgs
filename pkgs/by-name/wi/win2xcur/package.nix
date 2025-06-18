@@ -11,7 +11,7 @@ python3Packages.buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "quantum5";
     repo = "win2xcur";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-OjLj+QYg8YOJzDq3Y6/uyEXlNWbPm8VA/b1yP9jT6Jo=";
   };
 
@@ -20,11 +20,11 @@ python3Packages.buildPythonPackage rec {
     wand
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Tools that convert cursors between the Windows (*.cur, *.ani) and Xcursor format";
     homepage = "https://github.com/quantum5/win2xcur";
     changelog = "https://github.com/quantum5/win2xcur/releases/tag/v${version}";
-    license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ teatwig ];
+    license = lib.licenses.gpl3Plus;
+    maintainers = with lib.maintainers; [ teatwig ];
   };
 }

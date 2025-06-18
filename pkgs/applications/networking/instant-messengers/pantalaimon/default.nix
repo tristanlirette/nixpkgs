@@ -11,15 +11,15 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "pantalaimon";
-  version = "0.10.5";
+  version = "0.10.6";
   pyproject = true;
 
   # pypi tarball miss tests
   src = fetchFromGitHub {
     owner = "matrix-org";
     repo = "pantalaimon";
-    tag = version;
-    hash = "sha256-yMhE3wKRbFHoL0vdFR8gMkNU7Su4FHbAwKQYADaaWpk=";
+    rev = version;
+    hash = "sha256-g+ZWarZnjlSOpD75yf53Upqj1qDlil7pdbfEsMAsjh0=";
   };
 
   build-system =
@@ -38,7 +38,6 @@ python3Packages.buildPythonApplication rec {
     with python3Packages;
     [
       aiohttp
-      appdirs
       attrs
       cachetools
       click
@@ -47,6 +46,7 @@ python3Packages.buildPythonApplication rec {
       logbook
       (matrix-nio.override { withOlm = true; })
       peewee
+      platformdirs
       prompt-toolkit
     ]
     ++ lib.optionals enableDbusUi optional-dependencies.ui;

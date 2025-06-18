@@ -17,13 +17,12 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "vlaci";
     repo = "pyperscan";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-uGZ0XFxnZHSLEWcwoHVd+xMulDRqEIrQ5Lf7886GdlM=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit src;
-    name = "${pname}-${version}";
+    inherit pname version src;
     hash = "sha256-9kKHLYD0tXMGJFhsCBgO/NpWB4J5QZh0qKIuI3PFn2c=";
   };
 

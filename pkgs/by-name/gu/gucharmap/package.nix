@@ -60,7 +60,7 @@ stdenv.mkDerivation (finalAttrs: {
     domain = "gitlab.gnome.org";
     owner = "GNOME";
     repo = "gucharmap";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-UaXgQIhAoI27iYWgZuZeO7Lv6J9pj06HPp0SZs/5abM=";
   };
 
@@ -117,7 +117,7 @@ stdenv.mkDerivation (finalAttrs: {
     mainProgram = "gucharmap";
     homepage = "https://gitlab.gnome.org/GNOME/gucharmap";
     license = licenses.gpl3Plus;
-    maintainers = teams.gnome.members;
+    teams = [ teams.gnome ];
     platforms = platforms.linux;
   };
 })

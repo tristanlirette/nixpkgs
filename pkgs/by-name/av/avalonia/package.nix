@@ -52,7 +52,7 @@ stdenvNoCC.mkDerivation (
       src = fetchFromGitHub {
         owner = "AvaloniaUI";
         repo = "Avalonia";
-        tag = version;
+        rev = version;
         fetchSubmodules = true;
         hash = "sha256-Du8DEsZKl7rnVH9YZKAWTCpEQ/5HrNlgacgK/46kx/o=";
       };
@@ -189,7 +189,7 @@ stdenvNoCC.mkDerivation (
         homepage = "https://avaloniaui.net/";
         license = [ lib.licenses.mit ];
         maintainers = with lib.maintainers; [ corngood ];
-        description = "A cross-platform UI framework for dotnet";
+        description = "Cross-platform UI framework for dotnet";
         sourceProvenance = with lib.sourceTypes; [
           fromSource
           binaryNativeCode # npm dependencies contain binaries

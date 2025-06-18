@@ -61,7 +61,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "bambulab";
     repo = "BambuStudio";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-LvAi3I5lnnumhOUagyej28uVy0Lgd3e19HNQXOUWSvQ=";
   };
 
@@ -189,16 +189,16 @@ stdenv.mkDerivation rec {
     mv $out/README.md $out/share/BambuStudio/README.md
   '';
 
-  meta = with lib; {
+  meta = {
     description = "PC Software for BambuLab's 3D printers";
     homepage = "https://github.com/bambulab/BambuStudio";
     changelog = "https://github.com/bambulab/BambuStudio/releases/tag/v${version}";
-    license = licenses.agpl3Plus;
-    maintainers = with maintainers; [
+    license = lib.licenses.agpl3Plus;
+    maintainers = with lib.maintainers; [
       zhaofengli
       dsluijk
     ];
     mainProgram = "bambu-studio";
-    platforms = platforms.linux;
+    platforms = lib.platforms.linux;
   };
 }

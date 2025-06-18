@@ -9,8 +9,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "LN-Zap";
-    repo = pname;
-    tag = "v${version}";
+    repo = "lndconnect";
+    rev = "v${version}";
     hash = "sha256-cuZkVeFUQq7+kQo/YjXCMPANUL5QooAWgegcoWo3M0c=";
   };
 

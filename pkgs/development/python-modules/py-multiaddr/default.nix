@@ -20,8 +20,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "multiformats";
-    repo = pname;
-    tag = "v${version}";
+    repo = "py-multiaddr";
+    rev = "v${version}";
     hash = "sha256-cGM7iYQPP+UOkbTxRhzuED0pkcydFCO8vpx9wTc0/HI=";
   };
 

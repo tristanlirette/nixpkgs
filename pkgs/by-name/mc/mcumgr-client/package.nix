@@ -6,7 +6,6 @@
   pkg-config,
   udev,
   stdenv,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -16,7 +15,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "vouch-opensource";
     repo = "mcumgr-client";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-P5ykIVdWAxuCblMe7kzjswEca/+MsqpizCGUHIpR4qc=";
   };
 
@@ -27,9 +26,7 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ pkg-config ];
 
-  buildInputs =
-    lib.optionals stdenv.hostPlatform.isLinux [ udev ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [ darwin.apple_sdk.frameworks.IOKit ];
+  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ udev ];
 
   meta = with lib; {
     description = "Client for mcumgr commands";

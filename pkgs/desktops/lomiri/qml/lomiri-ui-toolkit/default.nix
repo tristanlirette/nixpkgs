@@ -50,7 +50,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/lomiri-ui-toolkit";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-j2Fowwj+ArdfJacqBSWksPk+wXRoTpL/Jrgme2tUSC8=";
   };
 
@@ -241,7 +241,7 @@ stdenv.mkDerivation (finalAttrs: {
       gpl3Only
       cc-by-sa-30
     ];
-    maintainers = lib.teams.lomiri.members;
+    teams = [ lib.teams.lomiri ];
     platforms = lib.platforms.linux;
     pkgConfigModules = [
       "LomiriGestures"

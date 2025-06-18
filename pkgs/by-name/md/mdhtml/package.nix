@@ -11,8 +11,8 @@ buildGoModule rec {
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "Tomkoid";
-    repo = pname;
-    tag = version;
+    repo = "mdhtml";
+    rev = version;
     hash = "sha256-Fv5XpWA2ebqXdA+46gZQouuZ3XxH4WDj/W6xJ0ETg8E=";
   };
 

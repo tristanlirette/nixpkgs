@@ -10,8 +10,8 @@ rustPlatform.buildRustPackage rec {
 
   src = fetchFromGitHub {
     owner = "TankerHQ";
-    repo = pname;
-    tag = "v${version}";
+    repo = "ruplacer";
+    rev = "v${version}";
     sha256 = "sha256-Zvbb9pQpxbJZi0qcDU6f2jEgavl9cA7gIYU7NRXZ9fc=";
   };
 

@@ -12,7 +12,7 @@ pythonPackages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "pimusicbox";
     repo = pname;
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "1lzarazq67gciyn6r8cdms0f7j0ayyfwhpf28z93ydb280mfrrb9";
   };
 
@@ -22,11 +22,11 @@ pythonPackages.buildPythonApplication rec {
 
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     description = "Mopidy frontend extension and web client with additional features for Pi MusicBox";
     homepage = "https://github.com/pimusicbox/mopidy-musicbox-webclient";
     changelog = "https://github.com/pimusicbox/mopidy-musicbox-webclient/blob/v${version}/CHANGELOG.rst";
-    license = licenses.asl20;
-    maintainers = [ ];
+    license = lib.licenses.asl20;
+    maintainers = with lib.maintainers; [ ];
   };
 }

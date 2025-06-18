@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "troglobit";
     repo = "watchdogd";
-    tag = version;
+    rev = version;
     hash = "sha256-JNJj0CJGJXuIRpob2RXYqDRrU4Cn20PRxOjQ6TFsVYQ=";
   };
 
@@ -32,12 +32,12 @@ stdenv.mkDerivation rec {
 
   passthru.tests = { inherit (nixosTests) watchdogd; };
 
-  meta = with lib; {
+  meta = {
     description = "Advanced system & process supervisor for Linux";
     homepage = "https://troglobit.com/watchdogd.html";
     changelog = "https://github.com/troglobit/watchdogd/releases/tag/${version}";
-    license = licenses.isc;
-    platforms = platforms.linux;
-    maintainers = with maintainers; [ vifino ];
+    license = lib.licenses.isc;
+    platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [ vifino ];
   };
 }

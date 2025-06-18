@@ -14,7 +14,7 @@ buildKodiAddon rec {
   src = fetchFromGitHub {
     owner = "firsttris";
     repo = "plugin.video.sendtokodi";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-Ga+9Q7x8+sEmQmteHbSyCahZ/T/l28BAEM84w7bf7z8=";
   };
 
@@ -44,6 +44,7 @@ buildKodiAddon rec {
     homepage = "https://github.com/firsttris/plugin.video.sendtokodi";
     description = "Plays various stream sites on Kodi using yt-dlp";
     license = licenses.mit;
-    maintainers = teams.kodi.members ++ [ maintainers.pks ];
+    maintainers = [ maintainers.pks ];
+    teams = [ teams.kodi ];
   };
 }

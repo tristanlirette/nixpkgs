@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "jketterl";
     repo = pname;
-    tag = version;
+    rev = version;
     sha256 = "sha256-JzaVBFl3JsFNDm4gy1qOKA9uAjUjNeMiI39l5gfH0aE=";
   };
 
@@ -41,7 +41,7 @@ stdenv.mkDerivation rec {
     description = "Modular audio codec server";
     license = licenses.gpl3Only;
     platforms = platforms.unix;
-    maintainers = teams.c3d2.members;
+    teams = [ teams.c3d2 ];
     mainProgram = "codecserver";
   };
 }

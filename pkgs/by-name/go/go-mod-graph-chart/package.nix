@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "PaulXu-cn";
-    repo = pname;
-    tag = "v${version}";
+    repo = "go-mod-graph-chart";
+    rev = "v${version}";
     hash = "sha256-vitUZXQyAj72ed9Gukr/sAT/iWWMhwsxjZhf2a9CM7I=";
   };
 

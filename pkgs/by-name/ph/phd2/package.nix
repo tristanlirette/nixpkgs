@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "OpenPHDGuiding";
     repo = "phd2";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-GnT/tyk975caqESBSu4mdX5IWGi5O+RljLSd+CwoGWo=";
   };
 
@@ -50,12 +50,12 @@ stdenv.mkDerivation rec {
     mv $out/bin/.phd2.bin-wrapped $out/bin/.phd2-wrapped.bin
   '';
 
-  meta = with lib; {
+  meta = {
     homepage = "https://openphdguiding.org/";
     description = "Telescope auto-guidance application";
     changelog = "https://github.com/OpenPHDGuiding/phd2/releases/tag/v${version}";
-    license = licenses.bsd3;
-    maintainers = with maintainers; [ hjones2199 ];
-    platforms = platforms.linux;
+    license = lib.licenses.bsd3;
+    maintainers = with lib.maintainers; [ hjones2199 ];
+    platforms = lib.platforms.linux;
   };
 }

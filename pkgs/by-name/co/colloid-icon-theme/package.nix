@@ -14,7 +14,7 @@ let
   pname = "colloid-icon-theme";
 
 in
-lib.checkListOfEnum "${pname}: scheme variants"
+lib.checkListOfEnum "colloid-icon-theme: scheme variants"
   [
     "default"
     "nord"
@@ -26,7 +26,7 @@ lib.checkListOfEnum "${pname}: scheme variants"
   ]
   schemeVariants
   lib.checkListOfEnum
-  "${pname}: color variants"
+  "colloid-icon-theme: color variants"
   [
     "default"
     "purple"
@@ -48,8 +48,8 @@ lib.checkListOfEnum "${pname}: scheme variants"
 
     src = fetchFromGitHub {
       owner = "vinceliuice";
-      repo = pname;
-      tag = version;
+      repo = "colloid-icon-theme";
+      rev = version;
       hash = "sha256-x2SSaIkKm1415avO7R6TPkpghM30HmMdjMFUUyPWZsk=";
     };
 

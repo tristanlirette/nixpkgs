@@ -47,7 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "Syllo";
     repo = "nvtop";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-8iChT55L2NSnHg8tLIry0rgi/4966MffShE0ib+2ywc=";
   };
 
@@ -111,7 +111,6 @@ stdenv.mkDerivation (finalAttrs: {
     license = licenses.gpl3Only;
     platforms = if apple then platforms.darwin else platforms.linux;
     maintainers = with maintainers; [
-      willibutz
       gbtb
       anthonyroussel
       moni

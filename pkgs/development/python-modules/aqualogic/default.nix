@@ -15,8 +15,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "swilson";
-    repo = pname;
-    tag = version;
+    repo = "aqualogic";
+    rev = version;
     hash = "sha256-hBg02Wypd+MyqM2SUD53djhm5OMP2QAmsp8Stf+UT2c=";
   };
 

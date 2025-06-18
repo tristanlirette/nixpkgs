@@ -13,7 +13,7 @@ buildNimPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "disruptek";
     repo = "balls";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-CMYkMkekVI0C1WUds+KBbRfjMte42kBAB2ddtQp8d+k=";
   };
 
@@ -46,7 +46,7 @@ buildNimPackage (finalAttrs: {
     '';
 
   meta = finalAttrs.src.meta // {
-    description = "The testing framework with balls";
+    description = "Testing framework with balls";
     homepage = "https://github.com/disruptek/balls";
     mainProgram = "balls";
     license = lib.licenses.mit;

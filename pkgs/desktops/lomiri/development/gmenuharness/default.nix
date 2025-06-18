@@ -24,7 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/gmenuharness";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-MswB8cQvz3JvcJL2zj7szUOBzKRjxzJO7/x+87m7E7c=";
   };
 
@@ -88,7 +88,7 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Library to test GMenuModel structures";
     homepage = "https://gitlab.com/ubports/development/core/gmenuharness";
     license = licenses.gpl3Only;
-    maintainers = teams.lomiri.members;
+    teams = [ teams.lomiri ];
     platforms = platforms.unix;
     pkgConfigModules = [
       "libgmenuharness"

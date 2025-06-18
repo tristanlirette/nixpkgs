@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "OpenOrienteering";
     repo = "mapper";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-BQbryRV5diBkOtva9sYuLD8yo3IwFqrkz3qC+C6eEfE=";
   };
 
@@ -92,16 +92,16 @@ stdenv.mkDerivation rec {
       ln -s $out/Applications/Mapper.app/Contents/MacOS/Mapper $out/bin/Mapper
     '';
 
-  meta = with lib; {
+  meta = {
     homepage = "https://www.openorienteering.org/apps/mapper/";
     description = "Orienteering mapmaking program";
     changelog = "https://github.com/OpenOrienteering/mapper/releases/tag/v${version}";
-    license = licenses.gpl3Plus;
-    maintainers = with maintainers; [
+    license = lib.licenses.gpl3Plus;
+    maintainers = with lib.maintainers; [
       mpickering
       sikmir
     ];
-    platforms = with platforms; unix;
+    platforms = with lib.platforms; unix;
     mainProgram = "Mapper";
   };
 }

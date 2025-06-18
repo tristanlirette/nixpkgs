@@ -10,8 +10,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "rauchg";
-    repo = pname;
-    tag = version;
+    repo = "wifi-password";
+    rev = version;
     sha256 = "0sfvb40h7rz9jzp4l9iji3jg80paklqsbmnk5h7ipsv2xbsplp64";
   };
 

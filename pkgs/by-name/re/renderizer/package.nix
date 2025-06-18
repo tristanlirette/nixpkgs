@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "gomatic";
-    repo = pname;
-    tag = "v${version}";
+    repo = "renderizer";
+    rev = "v${version}";
     sha256 = "sha256-jl98LuEsGN40L9IfybJhLnbzoYP/XpwFVQnjrlmDL9A=";
   };
 

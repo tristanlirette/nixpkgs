@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-uNeRAsPbgC7IHHBIlczPXhnwZI65Le70D9MsbH+6Fwk=";
   };
 
@@ -53,6 +53,6 @@ stdenv.mkDerivation rec {
       cc-by-sa-40
     ];
     platforms = platforms.linux;
-    maintainers = teams.deepin.members;
+    teams = [ teams.deepin ];
   };
 }

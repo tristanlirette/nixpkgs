@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxmint";
     repo = "cjs";
-    tag = version;
+    rev = version;
     hash = "sha256-2lkIWroOo3hxu9/L/Ty7CADzVrZ0ohyHVmm65NoNlD4=";
   };
 
@@ -84,6 +84,6 @@ stdenv.mkDerivation rec {
     ];
 
     platforms = platforms.linux;
-    maintainers = teams.cinnamon.members;
+    teams = [ teams.cinnamon ];
   };
 }

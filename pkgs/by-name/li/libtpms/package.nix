@@ -15,9 +15,11 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "stefanberger";
     repo = "libtpms";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-YKs/XYJ8UItOtSinl28/G9XFVzobFd4ZDKtClQDLXFk=";
   };
+
+  hardeningDisable = [ "strictflexarrays3" ];
 
   nativeBuildInputs = [
     autoreconfHook

@@ -19,7 +19,7 @@ let
     src = fetchFromGitHub {
       owner = "google";
       repo = "flatbuffers";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-e+dNPNbCHYDXUS/W+hMqf/37fhVgEGzId6rhP3cToTE=";
     };
   });
@@ -60,6 +60,8 @@ stdenv.mkDerivation {
     libusb1
     flatbuffers_23_5_26
   ];
+
+  doInstallCheck = true;
 
   nativeBuildInputs = [ xxd ];
 

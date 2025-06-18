@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-bZxNOBtLjop0eYxpMeoomaWYvPcMyDfQfgGPK9m+ARo=";
   };
 
@@ -61,6 +61,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/dde-calendar";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.deepin.members;
+    teams = [ teams.deepin ];
   };
 }

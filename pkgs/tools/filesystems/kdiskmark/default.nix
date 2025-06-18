@@ -17,20 +17,20 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "jonmagon";
     repo = "kdiskmark";
-    tag = version;
+    rev = version;
     hash = "sha256-JueY7zw9PIo9ETi7pQLpw8FGRhNXYXeXEvTzZGz9lbw=";
     fetchSubmodules = true;
   };
 
   nativeBuildInputs = [
     cmake
+    extra-cmake-modules
     wrapQtAppsHook
   ];
 
   buildInputs = [
     qtbase
     qttools
-    extra-cmake-modules
     polkit-qt
   ];
 

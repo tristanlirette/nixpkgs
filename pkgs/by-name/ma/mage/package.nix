@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "magefile";
-    repo = pname;
-    tag = "v${version}";
+    repo = "mage";
+    rev = "v${version}";
     sha256 = "sha256-aZPv3+F4VMiThjR0nFP+mKQLI9zKj2jaOawClROnT34=";
   };
 

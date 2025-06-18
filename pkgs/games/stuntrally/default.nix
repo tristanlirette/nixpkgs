@@ -8,6 +8,7 @@
   mygui,
   ois,
   SDL2,
+  libX11,
   libvorbis,
   pkg-config,
   makeWrapper,
@@ -39,13 +40,13 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "stuntrally";
     repo = "stuntrally";
-    tag = version;
+    rev = version;
     hash = "sha256-0Eh9ilIHSh/Uz8TuPnXxLQfy7KF7qqNXUgBXQUCz9ys=";
   };
   tracks = fetchFromGitHub {
     owner = "stuntrally";
     repo = "tracks";
-    tag = version;
+    rev = version;
     hash = "sha256-fglm1FetFGHM/qGTtpxDb8+k2iAREn5DQR5GPujuLms=";
   };
 
@@ -72,6 +73,7 @@ stdenv.mkDerivation rec {
     stuntrally_mygui
     ois
     SDL2
+    libX11
     libvorbis
     enet
     libXcursor

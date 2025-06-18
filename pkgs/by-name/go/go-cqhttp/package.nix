@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "Mrs4s";
-    repo = pname;
-    tag = "v${version}";
+    repo = "go-cqhttp";
+    rev = "v${version}";
     hash = "sha256-mKenmsGdVg60zjVMTfbEtqtPcJdJo60Nz6IUQ9RB7j0=";
   };
 

@@ -1,7 +1,5 @@
 {
   lib,
-  stdenv,
-  darwin,
   rustPlatform,
   fetchFromGitHub,
   pkg-config,
@@ -20,7 +18,7 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "rust-lang";
     repo = "rustlings";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-VdIIcpyoCuid3MECVc9aKeIOUlxGlxcG7znqbqo9pjc=";
   };
 
@@ -37,10 +35,6 @@ rustPlatform.buildRustPackage {
     pkg-config
     makeWrapper
   ];
-
-  buildInputs = lib.optionals stdenv.hostPlatform.isDarwin (
-    with darwin.apple_sdk.frameworks; [ CoreServices ]
-  );
 
   postFixup = ''
     wrapProgram $out/bin/rustlings --suffix PATH : ${

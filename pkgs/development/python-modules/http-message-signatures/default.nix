@@ -19,8 +19,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "pyauth";
-    repo = pname;
-    tag = "v${version}";
+    repo = "http-message-signatures";
+    rev = "v${version}";
     hash = "sha256-Jsivw4lNA/2oqsOGGx8D4gUPftzuys877A9RXyapnSQ=";
   };
 

@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "corneliusweig";
-    repo = pname;
-    tag = "v${version}";
+    repo = "rakkess";
+    rev = "v${version}";
     sha256 = "sha256-igovWWk8GfNmOS/NbZWfv9kox6QLNIbM09jdvA/lL3A=";
   };
   vendorHash = "sha256-lVxJ4wFBhHc8JVpkmqphLYPE9Z8Cr6o+aAHvC1naqyE=";
@@ -22,7 +22,7 @@ buildGoModule rec {
     "-X github.com/corneliusweig/rakkess/internal/version.version=v${version}"
   ];
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/corneliusweig/rakkess";
     changelog = "https://github.com/corneliusweig/rakkess/releases/tag/v${version}";
     description = "Review Access - kubectl plugin to show an access matrix for k8s server resources";
@@ -35,7 +35,7 @@ buildGoModule rec {
       the current user and all server resources, similar to
       `kubectl auth can-i --list`.
     '';
-    license = licenses.asl20;
-    maintainers = with maintainers; [ jk ];
+    license = lib.licenses.asl20;
+    maintainers = with lib.maintainers; [ jk ];
   };
 }

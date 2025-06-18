@@ -11,8 +11,8 @@ buildPythonApplication rec {
 
   src = fetchFromGitLab {
     owner = "Chocimier";
-    repo = pname;
-    tag = "v${version}";
+    repo = "tuir";
+    rev = "v${version}";
     hash = "sha256-VYBtD3Ex6+iIRNvX6jF0b0iPvno41/58xCRydiyssvk=";
   };
 

@@ -2,7 +2,6 @@
   lib,
   _experimental-update-script-combinators,
   curl,
-  darwin,
   duktape,
   fetchFromGitHub,
   gi-docgen,
@@ -39,7 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "libproxy";
     repo = "libproxy";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-Z70TjLk5zulyYMAK+uMDhpsdvLa6m25pY8jahUA6ASE=";
   };
 
@@ -88,17 +87,10 @@ stdenv.mkDerivation (finalAttrs: {
       curl
       duktape
     ]
-    ++ (
-      if stdenv.hostPlatform.isDarwin then
-        (with darwin.apple_sdk.frameworks; [
-          Foundation
-        ])
-      else
-        [
-          glib
-          gsettings-desktop-schemas
-        ]
-    );
+    ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
+      glib
+      gsettings-desktop-schemas
+    ];
 
   mesonFlags =
     [

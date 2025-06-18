@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "utkusen";
-    repo = pname;
-    tag = "v${version}";
+    repo = "urlhunter";
+    rev = "v${version}";
     sha256 = "sha256-QRQLN8NFIIvlK+sHNj0MMs7tlBODMKHdWJFh/LwnysI=";
   };
 

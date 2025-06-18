@@ -10,6 +10,7 @@
   rfc3986,
   uritemplate,
   pytestCheckHook,
+  pytest-cov-stub,
   pytest-mock,
 }:
 
@@ -23,7 +24,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "cldf";
     repo = "csvw";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "1393xwqawaxsflbq62vks92vv4zch8p6dd1mdvdi7j4vvf0zljkg";
   };
 
@@ -37,13 +38,9 @@ buildPythonPackage rec {
 
   nativeCheckInputs = [
     pytestCheckHook
+    pytest-cov-stub
     pytest-mock
   ];
-
-  patchPhase = ''
-    substituteInPlace setup.cfg \
-      --replace "--cov" ""
-  '';
 
   disabledTests =
     [

@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "romkatv";
     repo = "gitstatus";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-b+9bwJ87VV6rbOPobkwMkDXGH34STjYPlt8wCRR5tEc=";
   };
 
@@ -128,7 +128,6 @@ stdenv.mkDerivation rec {
     license = licenses.gpl3Only;
     maintainers = with maintainers; [
       mmlb
-      hexa
       SuperSandro2000
     ];
     platforms = platforms.all;

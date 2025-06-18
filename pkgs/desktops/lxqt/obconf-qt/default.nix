@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "lxqt";
     repo = "obconf-qt";
-    tag = version;
+    rev = version;
     hash = "sha256-C7s312DeLiustPBBY4OdjYvN7X6noktLA8LuhlOaVRo=";
   };
 
@@ -54,6 +54,6 @@ stdenv.mkDerivation rec {
     mainProgram = "obconf-qt";
     license = lib.licenses.gpl2Plus;
     platforms = lib.platforms.unix;
-    maintainers = lib.teams.lxqt.members;
+    teams = [ lib.teams.lxqt ];
   };
 }

@@ -12,8 +12,8 @@ python3.pkgs.buildPythonApplication rec {
 
   src = fetchFromGitHub {
     owner = "stampery";
-    repo = pname;
-    tag = version;
+    repo = "mongoaudit";
+    rev = version;
     sha256 = "17k4vw5d3kr961axl49ywid4cf3n7zxvm885c4lv15w7s2al1425";
   };
 

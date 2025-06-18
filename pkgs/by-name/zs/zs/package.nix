@@ -13,7 +13,7 @@ buildGoModule rec {
     domain = "git.mills.io";
     owner = "prologic";
     repo = "zs";
-    tag = version;
+    rev = version;
     hash = "sha256-V8+p19kvVh64yCreNVp4RVdkJkjrq8Q5VbjaJWekZHY=";
   };
 
@@ -35,12 +35,12 @@ buildGoModule rec {
       --zsh <($out/bin/zs completion zsh)
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Extremely minimal static site generator written in Go";
     homepage = "https://git.mills.io/prologic/zs";
     changelog = "https://git.mills.io/prologic/zs/releases/tag/${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ adtya ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ adtya ];
     mainProgram = "zs";
   };
 }

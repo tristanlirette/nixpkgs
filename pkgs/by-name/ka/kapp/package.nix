@@ -9,13 +9,13 @@
 
 buildGoModule rec {
   pname = "kapp";
-  version = "0.64.1";
+  version = "0.64.2";
 
   src = fetchFromGitHub {
     owner = "carvel-dev";
     repo = "kapp";
-    tag = "v${version}";
-    hash = "sha256-vgb4VtMKYncO4TPlMj2HrgZvjoOsOc2cYy+EBDKnGcM=";
+    rev = "v${version}";
+    hash = "sha256-XIbKhJBGw+0TuRakZCBZ1d6MjNPpy252MgCDpPNEo3c=";
   };
 
   vendorHash = null;

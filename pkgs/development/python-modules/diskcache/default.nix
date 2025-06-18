@@ -3,6 +3,7 @@
   stdenv,
   buildPythonPackage,
   fetchFromGitHub,
+  pytest-cov-stub,
   pytest-django,
   pytest-xdist,
   pytestCheckHook,
@@ -19,19 +20,16 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "grantjenks";
     repo = "python-diskcache";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-1cDpdf+rLaG14TDd1wEHAiYXb69NFTFeOHD1Ib1oOVY=";
   };
 
   nativeCheckInputs = [
+    pytest-cov-stub
     pytest-django
     pytest-xdist
     pytestCheckHook
   ];
-
-  postPatch = ''
-    sed -i "/--cov/d" tox.ini
-  '';
 
   # Darwin sandbox causes most tests to fail
   doCheck = !stdenv.hostPlatform.isDarwin;

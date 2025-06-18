@@ -6,7 +6,6 @@
   openssl,
   sqlite,
   stdenv,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -16,7 +15,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "attriaayush";
     repo = "ghostie";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-lEjJLmBA3dlIVxc8E+UvR7u154QGeCfEbxdgUxAS3Cw=";
   };
 
@@ -27,14 +26,10 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    [
-      openssl
-      sqlite
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Cocoa
-    ];
+  buildInputs = [
+    openssl
+    sqlite
+  ];
 
   # 4 out of 5 tests are notification tests which do not work in nix builds
   doCheck = false;
@@ -43,12 +38,12 @@ rustPlatform.buildRustPackage rec {
     export HOME=$(mktemp -d)
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Github notifications in your terminal";
     homepage = "https://github.com/attriaayush/ghostie";
     changelog = "https://github.com/attriaayush/ghostie/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ matthiasbeyer ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ matthiasbeyer ];
     broken = stdenv.hostPlatform.isx86_64 && stdenv.hostPlatform.isDarwin;
     mainProgram = "ghostie";
   };

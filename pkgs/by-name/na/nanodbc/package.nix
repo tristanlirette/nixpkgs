@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "nanodbc";
     repo = "nanodbc";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-dVUOwA7LfLqcQq2nc6OAha0krmgTy5RUHupBVrNdo4g=";
   };
 
@@ -32,11 +32,11 @@ stdenv.mkDerivation rec {
     else
       [ "-DBUILD_SHARED_LIBS=ON" ];
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/nanodbc/nanodbc";
     changelog = "https://github.com/nanodbc/nanodbc/raw/v${version}/CHANGELOG.md";
     description = "Small C++ wrapper for the native C ODBC API";
-    license = licenses.mit;
-    maintainers = [ maintainers.bzizou ];
+    license = lib.licenses.mit;
+    maintainers = [ lib.maintainers.bzizou ];
   };
 }

@@ -13,8 +13,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "nwg-piotr";
-    repo = pname;
-    tag = "v${version}";
+    repo = "nwg-dock";
+    rev = "v${version}";
     sha256 = "sha256-Ymk4lpX8RAxWot7U+cFtu1eJd6VHP+JS1I2vF0V1T70=";
   };
 

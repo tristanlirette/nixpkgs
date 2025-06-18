@@ -12,9 +12,9 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     sha256 = "1p8hv4gsyqsdr0gafcq497n52pybiqmc22di8ai4nsj60fv0km45";
-    tag = "v${version}";
+    rev = "v${version}";
     owner = "kimgr";
-    repo = pname;
+    repo = "asn1ate";
   };
 
   propagatedBuildInputs = [ pyparsing ];

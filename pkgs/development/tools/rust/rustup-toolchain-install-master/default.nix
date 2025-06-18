@@ -9,7 +9,6 @@
   pkg-config,
   openssl,
   xz,
-  Security,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -19,7 +18,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "kennytm";
     repo = pname;
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-J25ER/g8Kylw/oTIEl4Gl8i1xmhR+4JM5M5EHpl1ras=";
   };
 
@@ -47,14 +46,10 @@ rustPlatform.buildRustPackage rec {
     lib.optionals stdenv.hostPlatform.isLinux [ patchelfPatch ];
 
   nativeBuildInputs = [ pkg-config ];
-  buildInputs =
-    [
-      openssl
-      xz
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      Security
-    ];
+  buildInputs = [
+    openssl
+    xz
+  ];
 
   # update Cargo.lock to work with openssl 3
   postPatch = ''

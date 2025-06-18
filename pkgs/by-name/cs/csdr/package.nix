@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "jketterl";
     repo = "csdr";
-    tag = version;
+    rev = version;
     sha256 = "sha256-LdVzeTTIvDQIXRdcz/vpQu/fUgtE8nx1kIEfoiwxrUg=";
   };
 
@@ -48,6 +48,6 @@ stdenv.mkDerivation rec {
     license = licenses.gpl3Only;
     platforms = platforms.unix;
     broken = stdenv.hostPlatform.isDarwin;
-    maintainers = teams.c3d2.members;
+    teams = [ teams.c3d2 ];
   };
 }

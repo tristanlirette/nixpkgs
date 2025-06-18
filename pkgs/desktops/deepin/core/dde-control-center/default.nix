@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-9v2UtLjQQ3OX69UxMknLlrQhorahDI4Z4EEHItBs7G0=";
   };
 
@@ -84,6 +84,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/dde-control-center";
     license = lib.licenses.gpl3Plus;
     platforms = lib.platforms.linux;
-    maintainers = lib.teams.deepin.members;
+    teams = [ lib.teams.deepin ];
   };
 }

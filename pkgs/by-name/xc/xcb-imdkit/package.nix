@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "fcitx";
     repo = "xcb-imdkit";
-    tag = version;
+    rev = version;
     hash = "sha256-QfuetGPY6u4OhFiE5/CoVEpdODWnd1PHWBtM3ymsZ98=";
   };
 
@@ -25,12 +25,12 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     cmake
+    extra-cmake-modules
     xorgproto
     uthash
   ];
 
   buildInputs = [
-    extra-cmake-modules
     xcbutil
     xcbutilkeysyms
   ];

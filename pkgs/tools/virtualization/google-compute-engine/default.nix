@@ -7,6 +7,7 @@
   util-linux,
   setuptools,
   distro,
+  udevCheckHook,
 }:
 
 buildPythonPackage rec {
@@ -16,7 +17,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "GoogleCloudPlatform";
     repo = "compute-image-packages";
-    tag = version;
+    rev = version;
     sha256 = "08cy0jd463kng6hwbd3nfldsp4dpd2lknlvdm88cq795wy0kh4wp";
   };
 
@@ -24,6 +25,10 @@ buildPythonPackage rec {
   propagatedBuildInputs = [
     setuptools
     distro
+  ];
+
+  nativeBuildInputs = [
+    udevCheckHook
   ];
 
   postPatch = ''
@@ -53,7 +58,6 @@ buildPythonPackage rec {
     patchShebangs $out/bin/*
   '';
 
-  doCheck = false;
   pythonImportsCheck = [ "google_compute_engine" ];
 
   meta = with lib; {

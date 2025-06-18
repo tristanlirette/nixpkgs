@@ -15,8 +15,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "saltstack";
-    repo = pname;
-    tag = "v${version}";
+    repo = "libnacl";
+    rev = "v${version}";
     hash = "sha256-phECLGDcBfDi/r2y0eGtqgIX/hvirtBqO8UUvEJ66zo=";
   };
 

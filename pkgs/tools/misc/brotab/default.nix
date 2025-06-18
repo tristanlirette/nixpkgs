@@ -2,10 +2,10 @@
   lib,
   fetchFromGitHub,
   fetchpatch,
-  python,
+  python3Packages,
 }:
 
-python.pkgs.buildPythonApplication rec {
+python3Packages.buildPythonApplication rec {
   pname = "brotab";
   version = "1.4.2";
   format = "setuptools";
@@ -13,7 +13,7 @@ python.pkgs.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "balta2ar";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-HKKjiW++FwjdorqquSCIdi1InE6KbMbFKZFYHBxzg8Q=";
   };
 
@@ -26,7 +26,7 @@ python.pkgs.buildPythonApplication rec {
     })
   ];
 
-  propagatedBuildInputs = with python.pkgs; [
+  propagatedBuildInputs = with python3Packages; [
     flask
     psutil
     requests
@@ -42,7 +42,7 @@ python.pkgs.buildPythonApplication rec {
 
   __darwinAllowLocalNetworking = true;
 
-  nativeCheckInputs = with python.pkgs; [
+  nativeCheckInputs = with python3Packages; [
     pytestCheckHook
   ];
 

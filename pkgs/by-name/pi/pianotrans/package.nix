@@ -12,8 +12,8 @@ python3.pkgs.buildPythonApplication rec {
 
   src = fetchFromGitHub {
     owner = "azuwis";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pianotrans";
+    rev = "v${version}";
     hash = "sha256-gRbyUQmPtGvx5QKAyrmeJl0stp7hwLBWwjSbJajihdE=";
   };
 

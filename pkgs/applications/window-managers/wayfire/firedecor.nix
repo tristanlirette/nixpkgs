@@ -24,7 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "mntmn";
     repo = "Firedecor";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-7or8HkmIZnLpXEZzUhJ3u8SIPfIQFgn32Ju/5OzK06Y=";
   };
 
@@ -60,7 +60,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/mntmn/Firedecor";
     description = "Advanced window decoration plugin for the Wayfire window manager";
     license = licenses.mit;
-    inherit (mate.mate-wayland-session.meta) maintainers;
+    inherit (mate.mate-wayland-session.meta) teams;
     inherit (wayfire.meta) platforms;
   };
 })

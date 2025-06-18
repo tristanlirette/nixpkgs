@@ -45,8 +45,6 @@
   libde265Support ? true,
   libde265,
   fftw,
-  ApplicationServices,
-  Foundation,
   testers,
 }:
 
@@ -77,7 +75,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "ImageMagick";
     repo = "ImageMagick6";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     sha256 = "sha256-AdlJaCJOrN+NkkzzzgELtgAr5iZ9dvlVYVc7tYiM+R8=";
   };
 
@@ -124,11 +122,7 @@ stdenv.mkDerivation (finalAttrs: {
     ++ lib.optional djvulibreSupport djvulibre
     ++ lib.optional openexrSupport openexr
     ++ lib.optional librsvgSupport librsvg
-    ++ lib.optional openjpegSupport openjpeg
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      ApplicationServices
-      Foundation
-    ];
+    ++ lib.optional openjpegSupport openjpeg;
 
   propagatedBuildInputs =
     [ fftw ]

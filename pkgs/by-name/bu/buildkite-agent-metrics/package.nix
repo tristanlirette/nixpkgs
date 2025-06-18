@@ -15,7 +15,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "buildkite";
     repo = "buildkite-agent-metrics";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-AVFQ3GP4YDQ6d9NSeol3Eobxzmoa9bRyCAKTsDbyZyQ=";
   };
 
@@ -30,6 +30,6 @@ buildGoModule rec {
     description = "Command-line tool (and Lambda) for collecting Buildkite agent metrics";
     homepage = "https://github.com/buildkite/buildkite-agent-metrics";
     license = licenses.mit;
-    maintainers = teams.determinatesystems.members;
+    teams = [ teams.determinatesystems ];
   };
 }

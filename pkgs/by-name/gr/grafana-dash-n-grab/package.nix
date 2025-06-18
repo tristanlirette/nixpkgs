@@ -9,7 +9,7 @@ buildGoModule rec {
   version = "0.7.2";
 
   src = fetchFromGitHub {
-    tag = "v${version}";
+    rev = "v${version}";
     owner = "esnet";
     repo = "gdg";
     sha256 = "sha256-0F4kdyQ4TXV2vb2IkPx7CisTmJAQjlSRtOAFhmZqaD8=";
@@ -28,11 +28,11 @@ buildGoModule rec {
   # you don't have grafana running.
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     description = "Grafana Dash-n-Grab (gdg) -- backup and restore Grafana dashboards, datasources, and other entities";
-    license = licenses.bsd3;
+    license = lib.licenses.bsd3;
     homepage = "https://github.com/esnet/gdg";
-    maintainers = with maintainers; teams.bitnomial.members;
+    teams = [ lib.teams.bitnomial ];
     mainProgram = "gdg";
     changelog = "https://github.com/esnet/gdg/releases/tag/v${version}";
   };

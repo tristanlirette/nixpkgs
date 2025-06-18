@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "opcr-io";
     repo = "policy";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-vTUlC/LQTQEpzd1AXgcJJBZXmbSuX8JACbM60KVuT9E=";
   };
   vendorHash = "sha256-3KBHK9CKn9h45eq0wAwLivm3Lj3COGYn/zGltonLP9k=";
@@ -38,7 +38,7 @@ buildGoModule rec {
     runHook postInstallCheck
   '';
 
-  meta = with lib; {
+  meta = {
     mainProgram = "policy";
     homepage = "https://www.openpolicyregistry.io/";
     changelog = "https://github.com/opcr-io/policy/releases/tag/v${version}";
@@ -47,8 +47,8 @@ buildGoModule rec {
       The policy CLI is a tool for building, versioning and publishing your authorization policies.
       It uses OCI standards to manage artifacts, and the Open Policy Agent (OPA) to compile and run.
     '';
-    license = licenses.asl20;
-    maintainers = with maintainers; [
+    license = lib.licenses.asl20;
+    maintainers = with lib.maintainers; [
       naphta
       jk
     ];

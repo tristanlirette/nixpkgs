@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "matiaskorhonen";
     repo = "paper-age";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-xoxrNNlpDFXuQwltZ52SkGe0z6+B4h1Jy4XRtvQDiAg=";
   };
 
@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/matiaskorhonen/paper-age";
     changelog = "https://github.com/matiaskorhonen/paper-age/blob/${src.rev}/CHANGELOG.md";
     license = licenses.mit;
-    maintainers = with maintainers; [ tomfitzhenry ];
+    maintainers = [ ];
     mainProgram = "paper-age";
   };
 }

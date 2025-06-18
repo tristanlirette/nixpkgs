@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "varnish";
     repo = "libvmod-digest";
-    tag = version;
+    rev = version;
     inherit sha256;
   };
 
@@ -47,6 +47,6 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description = "Digest and HMAC vmod";
     homepage = "https://github.com/varnish/libvmod-digest";
-    inherit (varnish.meta) license platforms maintainers;
+    inherit (varnish.meta) license platforms teams;
   };
 }

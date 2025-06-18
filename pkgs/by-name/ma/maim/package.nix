@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "naelstrof";
     repo = "maim";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-/tZqSJnKe8GiffSz9VIFKuxMktRld+hA4ZWP4TZQrlg=";
   };
 
@@ -64,7 +64,7 @@ stdenv.mkDerivation rec {
 
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     mainProgram = "maim";
     inherit (src.meta) homepage;
     description = "Command-line screenshot utility";
@@ -76,6 +76,6 @@ stdenv.mkDerivation rec {
     changelog = "https://github.com/naelstrof/maim/releases/tag/v${version}";
     platforms = lib.platforms.all;
     license = lib.licenses.gpl3Plus;
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [ ];
   };
 }

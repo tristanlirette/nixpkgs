@@ -16,8 +16,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "inveniosoftware";
-    repo = pname;
-    tag = "v${version}";
+    repo = "dictdiffer";
+    rev = "v${version}";
     hash = "sha256-lQyPs3lQWtsvNPuvvwJUTDzrFaOX5uwGuRHe3yWUheU=";
   };
 

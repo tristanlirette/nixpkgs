@@ -9,9 +9,9 @@
   openssl,
   sqlite,
   stdenv,
-  darwin,
   alsa-lib,
   xorg,
+  apple-sdk_12,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "screen-pipe";
@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "louis030195";
     repo = "screen-pipe";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-rWKRCqWFuPO84C52mMrrS4euD6XdJU8kqZsAz28+vWE=";
   };
 
@@ -49,22 +49,9 @@ rustPlatform.buildRustPackage rec {
       openssl
       sqlite
     ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin (
-      with darwin.apple_sdk_12_3.frameworks;
-      [
-        CoreAudio
-        AudioUnit
-        CoreFoundation
-        CoreGraphics
-        CoreMedia
-        IOKit
-        Metal
-        MetalPerformanceShaders
-        Security
-        ScreenCaptureKit
-        SystemConfiguration
-      ]
-    )
+    ++ lib.optionals stdenv.hostPlatform.isDarwin [
+      apple-sdk_12
+    ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
       alsa-lib
       xorg.libxcb

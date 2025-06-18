@@ -12,7 +12,6 @@
   cairo,
   groff,
   tcl,
-  darwin,
 }:
 
 perl.pkgs.toPerlModule (
@@ -23,7 +22,7 @@ perl.pkgs.toPerlModule (
     src = fetchFromGitHub {
       owner = "oetiker";
       repo = "rrdtool-1.x";
-      tag = "v${version}";
+      rev = "v${version}";
       hash = "sha256-CPbSu1mosNlfj2nqiNVH14a5C5njkfvJM8ix3X3aP8E=";
     };
 
@@ -49,7 +48,6 @@ perl.pkgs.toPerlModule (
       ]
       ++ lib.optionals stdenv.hostPlatform.isDarwin [
         tcl
-        darwin.apple_sdk.frameworks.ApplicationServices
       ];
 
     postInstall = ''

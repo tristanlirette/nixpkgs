@@ -11,8 +11,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "SkyTemple";
-    repo = pname;
-    tag = version;
+    repo = "skytemple-icons";
+    rev = version;
     sha256 = "0wagdvzks9irdl5lj8sfqkkvfwwmdpvjyzx6424shvpp5mk28dcv";
   };
 

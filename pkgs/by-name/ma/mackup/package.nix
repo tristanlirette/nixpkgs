@@ -12,7 +12,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "lra";
     repo = "mackup";
-    tag = version;
+    rev = "${version}";
     hash = "sha256-eWSBl8BTg2FLI21DQcnepBFPF08bfm0V8lYB4mMbAiw=";
   };
 
@@ -35,7 +35,7 @@ python3Packages.buildPythonApplication rec {
   disabledTests = [ "test_is_process_running" ];
 
   meta = {
-    description = "A tool to keep your application settings in sync (OS X/Linux)";
+    description = "Tool to keep your application settings in sync (OS X/Linux)";
     changelog = "https://github.com/lra/mackup/releases/tag/${version}";
     license = lib.licenses.agpl3Only;
     homepage = "https://github.com/lra/mackup";

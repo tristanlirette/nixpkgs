@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elementary";
     repo = "calendar";
-    tag = version;
+    rev = version;
     sha256 = "sha256-gBQfrRSaw3TKcsSAQh/hcTpBoEQstGdLbppoZ1/Z1q8=";
   };
 
@@ -65,7 +65,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/elementary/calendar";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.pantheon.members;
+    teams = [ teams.pantheon ];
     mainProgram = "io.elementary.calendar";
   };
 }

@@ -11,6 +11,7 @@
   gnugrep,
   gnused,
   nvme-cli,
+  udevCheckHook,
 }:
 
 stdenv.mkDerivation rec {
@@ -20,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "GoogleCloudPlatform";
     repo = "guest-configs";
-    tag = version;
+    rev = version;
     sha256 = "sha256-0SRu6p/DsHNNI20mkXJitt/Ee5S2ooiy5hNmD+ndecM=";
   };
 
@@ -34,7 +35,10 @@ stdenv.mkDerivation rec {
     iproute2
   ];
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [
+    makeWrapper
+    udevCheckHook
+  ];
 
   dontConfigure = true;
   dontBuild = true;
@@ -48,6 +52,8 @@ stdenv.mkDerivation rec {
       --subst-var-by logger "${util-linux}/bin/logger"
     patch -p1 < ./fix-paths.patch
   '';
+
+  doInstallCheck = true;
 
   installPhase = ''
     mkdir -p $out/{bin,etc,lib}

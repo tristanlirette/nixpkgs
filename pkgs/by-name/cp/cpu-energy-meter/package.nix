@@ -3,6 +3,7 @@
   stdenv,
   fetchFromGitHub,
   libcap,
+  udevCheckHook,
 }:
 stdenv.mkDerivation rec {
   pname = "cpu-energy-meter";
@@ -11,7 +12,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "sosy-lab";
     repo = "cpu-energy-meter";
-    tag = version;
+    rev = version;
     hash = "sha256-QW65Z8mRYLHcyLeOtNAHjwPNWAUP214wqIYclK+whFw=";
   };
 
@@ -22,6 +23,11 @@ stdenv.mkDerivation rec {
   '';
 
   buildInputs = [ libcap ];
+  nativeBuildInputs = [
+    udevCheckHook
+  ];
+
+  doInstallCheck = true;
 
   env.NIX_CFLAGS_COMPILE = "-fcommon";
 

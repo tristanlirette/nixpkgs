@@ -10,8 +10,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "kaniini";
-    repo = pname;
-    tag = "v${version}";
+    repo = "libucontext";
+    rev = "v${version}";
     hash = "sha256-fk3ZKkp3dsyeF6SOWSccr5MkKEwS4AAuosD/h+6wjSw=";
   };
 

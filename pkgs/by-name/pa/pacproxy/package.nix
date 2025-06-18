@@ -11,18 +11,18 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "williambailey";
     repo = "pacproxy";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-oDSptPihrDIiTCgcP4t2J3vJBNGMViyPAAmBv4ynLNU=";
   };
 
   vendorHash = "sha256-0Go+xwzaT1qt+cJfcPkC8ft3eB/OZCvOi2Pnn/A/rtQ=";
 
-  meta = with lib; {
+  meta = {
     description = "No-frills local HTTP proxy server powered by a proxy auto-config (PAC) file";
     homepage = "https://github.com/williambailey/pacproxy";
     changelog = "https://github.com/williambailey/pacproxy/releases/tag/v${version}";
-    license = licenses.asl20;
-    maintainers = with maintainers; [ terlar ];
+    license = lib.licenses.asl20;
+    maintainers = with lib.maintainers; [ terlar ];
     mainProgram = "pacproxy";
   };
 }

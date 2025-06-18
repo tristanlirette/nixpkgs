@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "liamg";
-    repo = pname;
-    tag = "v${version}";
+    repo = "extrude";
+    rev = "v${version}";
     hash = "sha256-7gCEBhnNU5CqC5n0KP4Dd/fmddPRwNqyMFXTrRrJjfU=";
   };
 

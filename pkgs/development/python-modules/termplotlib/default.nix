@@ -16,8 +16,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "nschloe";
-    repo = pname;
-    tag = "v${version}";
+    repo = "termplotlib";
+    rev = "v${version}";
     sha256 = "1qfrv2w7vb2bbjvd5lqfq57c23iqkry0pwmif1ha3asmz330rja1";
   };
 

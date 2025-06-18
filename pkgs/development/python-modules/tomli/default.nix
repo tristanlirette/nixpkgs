@@ -19,8 +19,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "hukkin";
-    repo = pname;
-    tag = version;
+    repo = "tomli";
+    rev = version;
     hash = "sha256-4MWp9pPiUZZkjvGXzw8/gDele743NBj8uG4jvK2ohUM=";
   };
 

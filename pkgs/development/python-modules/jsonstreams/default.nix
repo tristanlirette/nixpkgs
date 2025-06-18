@@ -14,8 +14,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "dcbaker";
-    repo = pname;
-    tag = version;
+    repo = "jsonstreams";
+    rev = version;
     sha256 = "0qw74wz9ngz9wiv89vmilbifsbvgs457yn1bxnzhrh7g4vs2wcav";
   };
 

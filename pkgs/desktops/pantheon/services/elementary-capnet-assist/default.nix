@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elementary";
     repo = "capnet-assist";
-    tag = version;
+    rev = version;
     sha256 = "sha256-u+JYJ5J5Cx27MrVlhh6AXAtpKGw7Kf1+MyJEEHqgod0=";
   };
 
@@ -53,7 +53,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/elementary/capnet-assist";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.pantheon.members;
+    teams = [ teams.pantheon ];
     mainProgram = "io.elementary.capnet-assist";
   };
 }

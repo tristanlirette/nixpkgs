@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "openvanilla";
     repo = "fcitx5-mcbopomofo";
-    tag = version;
+    rev = version;
     hash = "sha256-fHDNhZhSVgVuZLfRA3eJErm1gwhUZJw+emCXfeO5HVo=";
   };
 
@@ -31,7 +31,6 @@ stdenv.mkDerivation rec {
   ];
 
   buildInputs = [
-    extra-cmake-modules
     fcitx5
     fmt
     gtest

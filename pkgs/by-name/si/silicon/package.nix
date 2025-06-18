@@ -10,7 +10,6 @@
   libxcb,
   python3,
   libiconv,
-  darwin,
   fira-code,
   fontconfig,
   harfbuzz,
@@ -23,7 +22,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "Aloxaf";
     repo = "silicon";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-lwwbjSXW5uonJNZTAqTK14Ib4QDOD4puxY2CsiJk4/Q=";
   };
 
@@ -39,15 +38,9 @@ rustPlatform.buildRustPackage rec {
       harfbuzz
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [ libxcb ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin (
-      with darwin.apple_sdk.frameworks;
-      [
-        libiconv
-        AppKit
-        CoreText
-        Security
-      ]
-    );
+    ++ lib.optionals stdenv.hostPlatform.isDarwin [
+      libiconv
+    ];
 
   nativeBuildInputs = [
     cmake

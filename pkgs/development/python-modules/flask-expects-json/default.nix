@@ -14,8 +14,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "Fischerfredl";
-    repo = pname;
-    tag = version;
+    repo = "flask-expects-json";
+    rev = version;
     hash = "sha256-CUxuwqjjAb9Fy6xWtX1WtSANYaYr5//vY8k89KghYoQ=";
   };
 

@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
   version = "0.9";
 
   src = fetchFromGitHub {
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-SYM3zlzhp3NdyOjtXc+pOiWY4/WA/Ax+qAWe18ggq3g=";
     repo = "vis";
     owner = "martanne";
@@ -77,7 +77,7 @@ stdenv.mkDerivation rec {
   ];
 
   meta = with lib; {
-    description = "A vim like editor";
+    description = "Vim like editor";
     homepage = "https://github.com/martanne/vis";
     license = licenses.isc;
     maintainers = with maintainers; [ ramkromberg ];

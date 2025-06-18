@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "styx-static";
     repo = "styx";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-f6iA/nHpKnm3BALoQq8SzdcSzJLCFSferEf69SpgD2Y=";
   };
 
@@ -77,7 +77,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Nix based static site generator";
-    maintainers = with maintainers; [ ericsagnes ];
+    maintainers = with maintainers; [ ];
     homepage = "https://styx-static.github.io/styx-site/";
     downloadPage = "https://github.com/styx-static/styx/";
     platforms = platforms.all;

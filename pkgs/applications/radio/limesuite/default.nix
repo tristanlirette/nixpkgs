@@ -11,7 +11,6 @@
   libX11,
   gnuplot,
   fltk,
-  GLUT,
   withGui ? false,
 }:
 
@@ -22,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "myriadrf";
     repo = "LimeSuite";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-f1cXrkVCIc1MqTvlCUBFqzHLhIVueybVxipNZRlF2gE=";
   };
 
@@ -40,15 +39,14 @@ stdenv.mkDerivation rec {
       libusb1
       soapysdr
     ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      GLUT
-    ]
     ++ lib.optionals withGui [
       fltk
       libX11
       mesa_glu
       wxGTK32
     ];
+
+  doInstallCheck = true;
 
   postInstall = ''
     install -Dm444 -t $out/lib/udev/rules.d ../udev-rules/64-limesuite.rules

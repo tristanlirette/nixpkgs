@@ -11,7 +11,7 @@
 
 stdenv.mkDerivation rec {
   pname = "qgroundcontrol";
-  version = "4.4.4";
+  version = "4.4.5";
 
   propagatedBuildInputs = with libsForQt5; [
     qtbase
@@ -86,8 +86,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "mavlink";
     repo = "qgroundcontrol";
-    tag = "v${version}";
-    hash = "sha256-+BsI79p0XJ1nCjEtaCVgHbD+jseVGLQZOll79xZ5THo=";
+    rev = "v${version}";
+    hash = "sha256-wjrfwE97J+UzBPIARQ6cPadN6xIdqR8i+ZKbtiDproM=";
     fetchSubmodules = true;
   };
 

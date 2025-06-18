@@ -14,8 +14,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "FreeOpcUa";
-    repo = pname;
-    tag = version;
+    repo = "opcua-widgets";
+    rev = version;
     hash = "sha256-ABJlKYN5H/1k8ynvSTSoJBX12vTTyavuNUAmTJ84mn0=";
   };
 

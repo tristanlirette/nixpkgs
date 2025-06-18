@@ -9,7 +9,6 @@
   wayland-scanner,
   wayland,
   xorg,
-  darwin,
   nix-update-script,
   alsa-lib,
   openssl,
@@ -22,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Slackadays";
     repo = "clipboard";
-    tag = version;
+    rev = version;
     hash = "sha256-3SloqijgbX3XIwdO2VBOd61or7tnByi7w45dCBKTkm8=";
   };
 
@@ -44,9 +43,6 @@ stdenv.mkDerivation rec {
       wayland
       xorg.libX11
       alsa-lib
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.AppKit
     ];
 
   cmakeBuildType = "MinSizeRel";

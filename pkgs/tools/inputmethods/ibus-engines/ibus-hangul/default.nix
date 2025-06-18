@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "libhangul";
     repo = "ibus-hangul";
-    tag = version;
+    rev = version;
     hash = "sha256-x2oOW8eiEuwmdCGUo+r/KcsitfGccSyianwIEaOBS3M=";
   };
 
@@ -59,7 +59,7 @@ stdenv.mkDerivation rec {
     mainProgram = "ibus-setup-hangul";
     homepage = "https://github.com/libhangul/ibus-hangul";
     license = licenses.gpl2Plus;
-    maintainers = with maintainers; [ ericsagnes ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.linux;
   };
 }

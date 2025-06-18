@@ -16,7 +16,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "element-hq";
     repo = "dendrite";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-b/kybHF9WcP88kQuG7LB0/pgflYUeWNqEHfUyKfUCIU=";
   };
 
@@ -65,12 +65,12 @@ buildGoModule rec {
     ];
   };
 
-  meta = with lib; {
+  meta = {
     homepage = "https://element-hq.github.io/dendrite";
     description = "Second-generation Matrix homeserver written in Go";
     changelog = "https://github.com/element-hq/dendrite/releases/tag/v${version}";
-    license = licenses.agpl3Plus;
-    maintainers = teams.matrix.members;
-    platforms = platforms.unix;
+    license = lib.licenses.agpl3Plus;
+    teams = [ lib.teams.matrix ];
+    platforms = lib.platforms.unix;
   };
 }

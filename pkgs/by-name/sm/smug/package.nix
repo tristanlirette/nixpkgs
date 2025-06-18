@@ -7,15 +7,15 @@
 
 buildGoModule rec {
   pname = "smug";
-  version = "0.3.6";
+  version = "0.3.7";
 
   subPackages = [ "." ];
 
   src = fetchFromGitHub {
     owner = "ivaaaan";
     repo = "smug";
-    tag = "v${version}";
-    sha256 = "sha256-9So81tZwQa3rQYgVO+KjOlTVIzlm/e2K5C/qULZeA7U=";
+    rev = "v${version}";
+    sha256 = "sha256-c4etBWF2NGyHtMLZNISMMjOswCFbbYtpsFuagMW8zeE=";
   };
 
   vendorHash = "sha256-vaDUzVRmpmNn8/vUPeR1U5N6T4llFRIk9A1lum8uauU=";

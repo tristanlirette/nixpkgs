@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "sergev";
     repo = "dmrconfig";
-    tag = version;
+    rev = version;
     sha256 = "1qwix75z749628w583fwp7m7kxbj0k3g159sxb7vgqxbadqqz1ab";
   };
 
@@ -32,6 +32,7 @@ stdenv.mkDerivation rec {
     systemd
   ];
 
+  doInstallCheck = true;
   preConfigure = ''
     substituteInPlace Makefile \
       --replace /usr/local/bin/dmrconfig $out/bin/dmrconfig

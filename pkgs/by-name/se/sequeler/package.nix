@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Alecaddd";
     repo = "sequeler";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-MsHHTYERe0v+u3KnVtx+jmJTKORJTJ7bNfJMZHV9Ly4=";
   };
 
@@ -82,7 +82,7 @@ stdenv.mkDerivation rec {
     '';
     homepage = "https://github.com/Alecaddd/sequeler";
     license = licenses.gpl3;
-    maintainers = with maintainers; [ ] ++ teams.pantheon.members;
+    teams = [ teams.pantheon ];
     platforms = platforms.linux;
     mainProgram = "com.github.alecaddd.sequeler";
   };

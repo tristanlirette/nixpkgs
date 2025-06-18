@@ -13,6 +13,7 @@
   python3,
   espeak,
   udev,
+  udevCheckHook,
   extraScripts ? false,
 }:
 
@@ -23,11 +24,14 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "wb2osz";
     repo = "direwolf";
-    tag = version;
+    rev = version;
     hash = "sha256-Vbxc6a6CK+wrBfs15dtjfRa1LJDKKyHMrg8tqsF7EX4=";
   };
 
-  nativeBuildInputs = [ cmake ];
+  nativeBuildInputs = [
+    cmake
+    udevCheckHook
+  ];
 
   strictDeps = true;
 
@@ -70,6 +74,8 @@ stdenv.mkDerivation rec {
       substituteInPlace scripts/dwespeak.sh \
         --replace espeak ${espeak}/bin/espeak
     '';
+
+  doInstallCheck = true;
 
   meta = with lib; {
     description = "Soundcard Packet TNC, APRS Digipeater, IGate, APRStt gateway";

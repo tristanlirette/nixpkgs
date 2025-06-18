@@ -7,7 +7,7 @@
   fetchpatch2,
   alsa-lib,
   aubio,
-  boost,
+  boost186,
   cairomm,
   cppunit,
   curl,
@@ -66,7 +66,7 @@ stdenv.mkDerivation rec {
   # result in an empty archive. See https://tracker.ardour.org/view.php?id=7328 for more info.
   src = fetchgit {
     url = "git://git.ardour.org/ardour/ardour.git";
-    tag = version;
+    rev = version;
     hash = "sha256-cmYt6fGYuuVs6YhAXaO9AG6TrYLDVUaE1/iC67rt76I=";
   };
 
@@ -127,7 +127,7 @@ stdenv.mkDerivation rec {
     [
       alsa-lib
       aubio
-      boost
+      boost186
       cairomm
       cppunit
       curl

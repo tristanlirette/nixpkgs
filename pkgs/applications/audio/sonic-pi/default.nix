@@ -17,7 +17,7 @@
   crossguid,
   reproc,
   platform-folders,
-  ruby,
+  ruby_3_2,
   erlang,
   elixir,
   beamPackages,
@@ -40,6 +40,11 @@
   fmt,
 }:
 
+# Sonic Pi fails to build with Ruby 3.3.
+let
+  ruby = ruby_3_2;
+in
+
 stdenv.mkDerivation rec {
   pname = "sonic-pi";
   version = "4.5.1";
@@ -47,7 +52,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "sonic-pi-net";
     repo = pname;
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-JMextQY0jLShWmqRQoVAbqIzDhA1mOzI7vfsG7+jjX0=";
   };
 

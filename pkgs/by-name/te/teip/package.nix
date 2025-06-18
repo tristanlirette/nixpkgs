@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "greymd";
     repo = "teip";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-Lr4nlAM2mEKwF3HXso/6FQEKoQK43xxLMgOU7j7orYg=";
   };
 
@@ -38,12 +38,12 @@ rustPlatform.buildRustPackage rec {
       --zsh completion/zsh/_teip
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Tool to bypass a partial range of standard input to any command";
     mainProgram = "teip";
     homepage = "https://github.com/greymd/teip";
     changelog = "https://github.com/greymd/teip/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ figsoda ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ figsoda ];
   };
 }

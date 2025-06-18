@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "blackbinn";
-    repo = pname;
-    tag = version;
+    repo = "wprecon";
+    rev = version;
     hash = "sha256-23zJD3Nnkeko+J2FjPq5RA5dIjORMXvwt3wtAYiVlQs=";
   };
 
@@ -19,7 +19,7 @@ buildGoModule rec {
 
   postFixup = ''
     # Rename binary
-    mv $out/bin/cli $out/bin/${pname}
+    mv $out/bin/cli $out/bin/wprecon
   '';
 
   meta = with lib; {

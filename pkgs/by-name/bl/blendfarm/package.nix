@@ -50,7 +50,7 @@ buildDotnetModule rec {
   src = fetchFromGitHub {
     owner = "LogicReinc";
     repo = "LogicReinc.BlendFarm";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-2w2tdl5n0IFTuthY97NYMeyRe2r72jaKFfoNSjWQMM4=";
   };
 
@@ -131,7 +131,7 @@ buildDotnetModule rec {
     '';
 
   meta = with lib; {
-    description = "A open-source, cross-platform, stand-alone, Network Renderer for Blender";
+    description = "Open-source, cross-platform, stand-alone, Network Renderer for Blender";
     homepage = "https://github.com/LogicReinc/LogicReinc.BlendFarm";
     license = with licenses; [ gpl3Plus ];
     maintainers = with maintainers; [ gador ];

@@ -5,7 +5,6 @@
   zlib,
   blas,
   lapack,
-  darwin,
 }:
 
 stdenv.mkDerivation rec {
@@ -15,21 +14,18 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "chrchang";
     repo = "plink-ng";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "1zhffjbwpd50dxywccbnv1rxy9njwz73l4awc5j7i28rgj3davcq";
   };
 
   buildInputs =
-    [ zlib ]
-    ++ (
-      if stdenv.hostPlatform.isDarwin then
-        [ darwin.apple_sdk.frameworks.Accelerate ]
-      else
-        [
-          blas
-          lapack
-        ]
-    );
+    [
+      zlib
+    ]
+    ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
+      blas
+      lapack
+    ];
 
   preBuild = ''
     sed -i 's|zlib-1.2.8/zlib.h|zlib.h|g' *.c *.h

@@ -4,7 +4,6 @@
   fetchFromGitHub,
   pkg-config,
   stdenv,
-  darwin,
   alsa-lib,
 }:
 
@@ -15,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "glicol";
     repo = "glicol-cli";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-v90FfF4vP5UPy8VnQFvYMKiCrledgNMpWbJR59Cv6a0=";
   };
 
@@ -27,13 +26,9 @@ rustPlatform.buildRustPackage rec {
     rustPlatform.bindgenHook
   ];
 
-  buildInputs =
-    lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.AudioUnit
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isLinux [
-      alsa-lib
-    ];
+  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [
+    alsa-lib
+  ];
 
   meta = with lib; {
     description = "Cross-platform music live coding in terminal";

@@ -6,8 +6,6 @@
   installShellFiles,
   bzip2,
   openssl,
-  stdenv,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -17,7 +15,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "sagiegurari";
     repo = "cargo-make";
-    tag = version;
+    rev = version;
     hash = "sha256-hrUd4J15cDyd78BVVzi8jiDqJI1dE35WUdOo6Tq8gH8=";
   };
 
@@ -29,14 +27,10 @@ rustPlatform.buildRustPackage rec {
     installShellFiles
   ];
 
-  buildInputs =
-    [
-      bzip2
-      openssl
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.SystemConfiguration
-    ];
+  buildInputs = [
+    bzip2
+    openssl
+  ];
 
   postInstall = ''
     installShellCompletion extra/shell/*.bash
@@ -48,12 +42,12 @@ rustPlatform.buildRustPackage rec {
   #   https://travis-ci.org/sagiegurari/cargo-make
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     description = "Rust task runner and build tool";
     homepage = "https://github.com/sagiegurari/cargo-make";
     changelog = "https://github.com/sagiegurari/cargo-make/blob/${version}/CHANGELOG.md";
-    license = licenses.asl20;
-    maintainers = with maintainers; [
+    license = lib.licenses.asl20;
+    maintainers = with lib.maintainers; [
       figsoda
       xrelkd
     ];

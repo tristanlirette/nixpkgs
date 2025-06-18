@@ -12,7 +12,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "carlesso";
     repo = "i3minator";
-    tag = version;
+    rev = version;
     sha256 = "07dic5d2m0zw0psginpl43xn0mpxw7wilj49d02knz69f7c416lm";
   };
 
@@ -36,7 +36,7 @@ python3Packages.buildPythonApplication rec {
     '';
     homepage = "https://github.com/carlesso/i3minator";
     license = lib.licenses.wtfpl;
-    maintainers = with maintainers; [ domenkozar ];
+    maintainers = with maintainers; [ ];
     platforms = lib.platforms.linux;
   };
 

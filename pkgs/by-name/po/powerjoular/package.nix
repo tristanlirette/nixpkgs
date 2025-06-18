@@ -12,8 +12,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "joular";
-    repo = pname;
-    tag = version;
+    repo = "powerjoular";
+    rev = version;
     hash = "sha256-fJYcJKbZ6PoTJSfEDEKPOy+CDwDRsaeAn/2BW5r4p7k=";
   };
 

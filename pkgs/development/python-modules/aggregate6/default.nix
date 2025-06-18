@@ -16,7 +16,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "job";
     repo = "aggregate6";
-    tag = version;
+    rev = version;
     hash = "sha256-tBo9LSmEu/0KPSeg17dlh7ngUvP9GyW6b01qqpr5Bx0=";
   };
 
@@ -43,6 +43,7 @@ buildPythonPackage rec {
     mainProgram = "aggregate6";
     homepage = "https://github.com/job/aggregate6";
     license = with lib.licenses; [ bsd2 ];
-    maintainers = lib.teams.wdz.members ++ (with lib.maintainers; [ marcel ]);
+    maintainers = with lib.maintainers; [ marcel ];
+    teams = [ lib.teams.wdz ];
   };
 }

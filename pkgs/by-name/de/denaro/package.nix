@@ -20,7 +20,7 @@ buildDotnetModule rec {
   src = fetchFromGitHub {
     owner = "NickvisionApps";
     repo = "Denaro";
-    tag = version;
+    rev = version;
     hash = "sha256-fEhwup8SiYvKH2FtzruEFsj8axG5g3YJ917aqc8dn/8=";
   };
 
@@ -63,16 +63,16 @@ buildDotnetModule rec {
 
   passthru.updateScript = ./update.sh;
 
-  meta = with lib; {
+  meta = {
     description = "Personal finance manager for GNOME";
     homepage = "https://github.com/nlogozzo/NickvisionMoney";
     mainProgram = "NickvisionMoney.GNOME";
-    license = licenses.mit;
+    license = lib.licenses.mit;
     changelog = "https://github.com/nlogozzo/NickvisionMoney/releases/tag/${version}";
-    maintainers = with maintainers; [
+    maintainers = with lib.maintainers; [
       chuangzhu
       kashw2
     ];
-    platforms = platforms.linux;
+    platforms = lib.platforms.linux;
   };
 }

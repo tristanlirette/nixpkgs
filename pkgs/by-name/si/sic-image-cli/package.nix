@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "foresterre";
     repo = "sic";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-PFbHHO3m4mnV5s8DVev/iao9sC3FYht0whTHYzO25Yo=";
   };
 
@@ -34,15 +34,15 @@ rustPlatform.buildRustPackage rec {
     installShellCompletion --zsh _sic
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Accessible image processing and conversion from the terminal";
     homepage = "https://github.com/foresterre/sic";
     changelog = "https://github.com/foresterre/sic/blob/v${version}/CHANGELOG.md";
-    license = with licenses; [
+    license = with lib.licenses; [
       asl20 # or
       mit
     ];
-    maintainers = with maintainers; [ figsoda ];
+    maintainers = with lib.maintainers; [ figsoda ];
     mainProgram = "sic";
   };
 }

@@ -9,8 +9,8 @@ python3Packages.buildPythonApplication rec {
 
   src = fetchFromGitHub {
     owner = "janten";
-    repo = pname;
-    tag = "v${version}";
+    repo = "dpt-rp1-py";
+    rev = "v${version}";
     sha256 = "0zvf09b9rzpx5b0w81ziqd7v321hfhgsgvshdx23karj2hf75bvj";
   };
 

@@ -12,7 +12,7 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "CxxTest";
     repo = pname;
-    tag = version;
+    rev = version;
     sha256 = "19w92kipfhp5wvs47l0qpibn3x49sbmvkk91yxw6nwk6fafcdl17";
   };
 
@@ -43,7 +43,7 @@ buildPythonApplication rec {
   dontWrapPythonPrograms = true;
 
   meta = with lib; {
-    homepage = "http://github.com/CxxTest/cxxtest";
+    homepage = "https://github.com/CxxTest/cxxtest";
     description = "Unit testing framework for C++";
     mainProgram = "cxxtestgen";
     license = licenses.lgpl3;

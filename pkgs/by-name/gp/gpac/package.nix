@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "gpac";
     repo = "gpac";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-RADDqc5RxNV2EfRTzJP/yz66p0riyn81zvwU3r9xncM=";
   };
 
@@ -51,7 +51,6 @@ stdenv.mkDerivation rec {
     homepage = "https://gpac.wp.imt.fr";
     license = licenses.lgpl21;
     maintainers = with maintainers; [
-      bluescreen303
       mgdelacroix
     ];
     platforms = platforms.unix;

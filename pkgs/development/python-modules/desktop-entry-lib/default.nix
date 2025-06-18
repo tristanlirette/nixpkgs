@@ -17,8 +17,8 @@ buildPythonPackage rec {
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "JakobDev";
-    repo = pname;
-    tag = version;
+    repo = "desktop-entry-lib";
+    rev = version;
     hash = "sha256-+c+FuLv88wc4yVw3iyFFtfbocnWzTCIe2DS0SWoj+VI=";
   };
 

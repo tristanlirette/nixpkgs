@@ -15,7 +15,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/suru-icon-theme";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-rbhfcjca0vMBa0tJWGpXMRGGygZH1hmdQv/nLJWPS7s=";
   };
 
@@ -51,7 +51,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     homepage = "https://gitlab.com/ubports/development/core/suru-icon-theme";
     changelog = "https://gitlab.com/ubports/development/core/suru-icon-theme/-/blob/${finalAttrs.version}/ChangeLog";
     license = lib.licenses.cc-by-sa-30;
-    maintainers = lib.teams.lomiri.members;
+    teams = [ lib.teams.lomiri ];
     platforms = lib.platforms.all;
   };
 })

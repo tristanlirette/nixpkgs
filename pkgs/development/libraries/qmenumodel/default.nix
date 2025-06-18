@@ -23,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "AyatanaIndicators";
     repo = "qmenumodel";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-zbKAfq9R5fD2IqVYOAhy903QX1TDom9m6Ib2qpkFMak=";
   };
 
@@ -100,7 +100,7 @@ stdenv.mkDerivation (finalAttrs: {
     '';
     homepage = "https://github.com/AyatanaIndicators/qmenumodel";
     license = licenses.lgpl3Only;
-    maintainers = teams.lomiri.members;
+    teams = [ teams.lomiri ];
     platforms = platforms.linux;
     pkgConfigModules = [
       "qmenumodel"

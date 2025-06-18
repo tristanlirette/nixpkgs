@@ -7,6 +7,7 @@
   fetchFromGitHub,
   cairo,
   imagemagick,
+  nototools,
   pkg-config,
   pngquant,
   python3,
@@ -22,17 +23,9 @@ let
     name = "twemoji";
     owner = "jdecked";
     repo = "twemoji";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-FLOqXDpSFyClBlG5u3IRL0EKeu1mckCfRizJh++IWxo=";
   };
-
-  pythonEnv = python3.withPackages (
-    ps: with ps; [
-      fonttools
-      nototools
-    ]
-  );
-
 in
 stdenv.mkDerivation rec {
   pname = "twitter-color-emoji";
@@ -52,10 +45,11 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     cairo
+    python3.pkgs.fonttools
     imagemagick
+    nototools
     pkg-config
     pngquant
-    pythonEnv
     which
     zopfli
   ];

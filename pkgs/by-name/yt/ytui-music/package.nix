@@ -5,8 +5,6 @@
   pkg-config,
   openssl,
   sqlite,
-  stdenv,
-  darwin,
   mpv,
   yt-dlp,
   makeBinaryWrapper,
@@ -19,7 +17,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "sudipghimire533";
     repo = "ytui-music";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-f/23PVk4bpUCvcQ25iNI/UVXqiPBzPKWq6OohVF41p8=";
   };
 
@@ -36,16 +34,11 @@ rustPlatform.buildRustPackage rec {
     makeBinaryWrapper
   ];
 
-  buildInputs =
-    [
-      openssl
-      sqlite
-      mpv
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.CoreFoundation
-      darwin.apple_sdk.frameworks.Security
-    ];
+  buildInputs = [
+    openssl
+    sqlite
+    mpv
+  ];
 
   postInstall = ''
     wrapProgram $out/bin/ytui_music \

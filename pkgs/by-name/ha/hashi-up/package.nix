@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "jsiebens";
-    repo = pname;
-    tag = "v${version}";
+    repo = "hashi-up";
+    rev = "v${version}";
     sha256 = "sha256-PdZ8X2pJ5TfT0bJ4/P/XbMTv+yyL5/1AxIFHnL/qNcg=";
   };
 

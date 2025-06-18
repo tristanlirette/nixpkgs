@@ -28,7 +28,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "mborgerding";
     repo = "kissfft";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-ukikTVnmKomKXTo6zc+PhpZzEkzXN2imFwZOYlfR3Pk=";
   };
 
@@ -57,7 +57,7 @@ stdenv.mkDerivation (finalAttrs: {
     (lib.cmakeFeature "KISSFFT_DATATYPE" datatype)
     (lib.cmakeBool "KISSFFT_STATIC" enableStatic)
     # `test/testkiss.py` expects this…
-    (lib.cmakeFeature "KISSFFT_OPENMP" (if enableOpenmp then "ON" else "OFF"))
+    (lib.cmakeBool "KISSFFT_OPENMP" enableOpenmp)
   ];
 
   # Required for `test/testcpp.c`.

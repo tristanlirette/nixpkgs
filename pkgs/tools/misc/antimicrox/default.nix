@@ -9,6 +9,7 @@
   xorg,
   fetchFromGitHub,
   itstool,
+  udevCheckHook,
 }:
 
 mkDerivation rec {
@@ -18,7 +19,7 @@ mkDerivation rec {
   src = fetchFromGitHub {
     owner = "AntiMicroX";
     repo = pname;
-    tag = version;
+    rev = version;
     sha256 = "sha256-ZIHhgyOpabWkdFZoha/Hj/1d8/b6qVolE6dn0xAFZVw=";
   };
 
@@ -27,6 +28,7 @@ mkDerivation rec {
     extra-cmake-modules
     pkg-config
     itstool
+    udevCheckHook
   ];
   buildInputs = [
     SDL2
@@ -38,6 +40,8 @@ mkDerivation rec {
     substituteInPlace CMakeLists.txt \
         --replace "/usr/lib/udev/rules.d/" "$out/lib/udev/rules.d/"
   '';
+
+  doInstallCheck = true;
 
   meta = with lib; {
     description = "GUI for mapping keyboard and mouse controls to a gamepad";

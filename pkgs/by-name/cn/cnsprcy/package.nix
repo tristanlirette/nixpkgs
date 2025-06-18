@@ -22,9 +22,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-8hNuF5tD1PwdIJB0q3wxDOGDcppo0ac+zol3AHWGv0s=";
 
-  passthru.updateScript = lib.mkUpdateScript {
-    extraFetchers = [ fetchFromSourcehut ];
-  };
+  passthru.updateScript = ./update.sh;
 
   RUSTC_BOOTSTRAP = true;
   buildInputs = [ sqlite ];
@@ -33,13 +31,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
     description = "End to end encrypted connections between trusted devices";
     homepage = "https://git.sr.ht/~xaos/cnsprcy";
     license = lib.licenses.gpl3;
-    maintainers =
-      with lib.maintainers;
-      [
-        supinie
-        oluchitheanalyst
-      ]
-      ++ lib.teams.ngi.members;
+    maintainers = with lib.maintainers; [
+      supinie
+      oluchitheanalyst
+    ];
+    teams = [ lib.teams.ngi ];
     mainProgram = "cnspr";
     platforms = lib.platforms.linux;
   };

@@ -17,7 +17,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "siddhantgoel";
     repo = "streaming-form-data";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-Ntiad5GZtfRd+2uDPgbDzLBzErGFroffK6ZAmMcsfXA=";
   };
 
@@ -25,6 +25,12 @@ buildPythonPackage rec {
   # The only consumer of streaming-form-data is Moonraker, which doesn't use that code.
   # So, just drop the dependency to not have to deal with it.
   patches = [ ./drop-smart-open.patch ];
+
+  # The repo has a vendored copy of the cython output, which doesn't build on 3.13,
+  # so regenerate it with our cython, which does.
+  preBuild = ''
+    cython streaming_form_data/_parser.pyx
+  '';
 
   nativeBuildInputs = [ cython ];
 

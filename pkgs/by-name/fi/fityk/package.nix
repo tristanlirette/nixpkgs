@@ -4,7 +4,7 @@
   fetchFromGitHub,
   autoreconfHook,
   wxGTK32,
-  boost,
+  boost186,
   lua,
   zlib,
   bzip2,
@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "wojdyr";
     repo = "fityk";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-m2RaZMYT6JGwa3sOUVsBIzCdZetTbiygaInQWoJ4m1o=";
   };
 
@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
   ];
   buildInputs = [
     wxGTK32
-    boost
+    boost186
     lua
     zlib
     bzip2

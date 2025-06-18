@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "firecracker-microvm";
-    repo = pname;
-    tag = "v${version}";
+    repo = "firectl";
+    rev = "v${version}";
     hash = "sha256-3MNNgFRq4goWdHFyqWNMAl2K0eKfd03BF05i82FIzNE=";
   };
 

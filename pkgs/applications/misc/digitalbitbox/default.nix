@@ -17,11 +17,12 @@
   qtwebsockets,
   qtmultimedia,
   udevRule51 ? ''
-    ,   SUBSYSTEM=="usb", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="dbb%n", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402"
-    , '',
+    SUBSYSTEM=="usb", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="dbb%n", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402"
+  '',
   udevRule52 ? ''
-    ,   KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="dbbf%n"
-    , '',
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="dbbf%n"
+  '',
+  udevCheckHook,
   writeText,
 }:
 
@@ -55,7 +56,7 @@ mkDerivation rec {
   src = fetchFromGitHub {
     owner = "digitalbitbox";
     repo = "dbb-app";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "ig3+TdYv277D9GVnkRSX6nc6D6qruUOw/IQdQCK6FoA=";
   };
 
@@ -66,6 +67,7 @@ mkDerivation rec {
     makeWrapper
     pkg-config
     qttools
+    udevCheckHook
   ];
 
   buildInputs = [
@@ -120,6 +122,8 @@ mkDerivation rec {
   '';
 
   enableParallelBuilding = true;
+
+  doInstallCheck = true;
 
   meta = with lib; {
     description = "QT based application for the Digital Bitbox hardware wallet";

@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "magic-wormhole";
     repo = "magic-wormhole.rs";
-    tag = version;
+    rev = version;
     sha256 = "sha256-01u1DJNd/06q9dH/Y4E5kj5gb2CA7EKdoPtMhzCLtso=";
   };
 
@@ -31,12 +31,12 @@ rustPlatform.buildRustPackage rec {
       --zsh <($out/bin/wormhole-rs completion zsh)
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Rust implementation of Magic Wormhole, with new features and enhancements";
     homepage = "https://github.com/magic-wormhole/magic-wormhole.rs";
     changelog = "https://github.com/magic-wormhole/magic-wormhole.rs/raw/${version}/changelog.md";
-    license = licenses.eupl12;
-    maintainers = with maintainers; [
+    license = lib.licenses.eupl12;
+    maintainers = with lib.maintainers; [
       zeri
       piegames
     ];

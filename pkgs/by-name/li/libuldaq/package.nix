@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "mccdaq";
     repo = "uldaq";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-DA1mxu94z5xDpGK9OBwD02HXlOATv/slqZ4lz5GM7QM=";
   };
 
@@ -26,6 +26,8 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ autoreconfHook ];
 
   buildInputs = [ libusb1 ];
+
+  doInstallCheck = true;
 
   meta = with lib; {
     description = "Library to talk to uldaq devices";

@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "nikstur";
     repo = "userborn";
-    tag = version;
+    rev = version;
     hash = "sha256-Zh2u7we/MAIM7varuJA4AmEWeSMuA/C+0NSIUJN7zTs=";
   };
 
@@ -42,12 +42,12 @@ rustPlatform.buildRustPackage rec {
     };
   };
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/nikstur/userborn";
     description = "Declaratively bear (manage) Linux users and groups";
     changelog = "https://github.com/nikstur/userborn/blob/${version}/CHANGELOG.md";
-    license = licenses.mit;
-    platforms = platforms.unix;
+    license = lib.licenses.mit;
+    platforms = lib.platforms.unix;
     maintainers = with lib.maintainers; [ nikstur ];
     mainProgram = "userborn";
   };

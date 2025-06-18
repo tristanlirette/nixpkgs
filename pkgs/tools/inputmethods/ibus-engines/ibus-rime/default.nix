@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "rime";
     repo = "ibus-rime";
-    tag = version;
+    rev = version;
     sha256 = "sha256-6lqPdcIJmwHcr4G6BhIDMhEtEOpOPgWqfkKXqaDjUY0=";
   };
 
@@ -42,6 +42,12 @@ stdenv.mkDerivation rec {
   rimeDataDrv = symlinkJoin {
     name = "ibus-rime-data";
     paths = rimeDataPkgs;
+    postBuild = ''
+      mkdir -p $out/share/rime-data
+
+      # Ensure default.yaml exists
+      [ -e "$out/share/rime-data/default.yaml" ] || touch "$out/share/rime-data/default.yaml"
+    '';
   };
 
   postInstall = ''

@@ -15,8 +15,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "pysmt";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pysmt";
+    rev = "v${version}";
     hash = "sha256-HmEdCJOF04h0z5UPpfYa07b78EEBj5KyVAk6aNRFPEo=";
   };
 

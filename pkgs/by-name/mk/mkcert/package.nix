@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "FiloSottile";
-    repo = pname;
-    tag = "v${version}";
+    repo = "mkcert";
+    rev = "v${version}";
     sha256 = "sha256-FMAXjRL+kJ/hwGmaWBy8ecON+JCMgRytfpryeLWsSVc=";
   };
 

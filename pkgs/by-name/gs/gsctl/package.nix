@@ -12,8 +12,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "giantswarm";
-    repo = pname;
-    tag = version;
+    repo = "gsctl";
+    rev = version;
     sha256 = "sha256-eemPsrSFwgUR1Jz7283jjwMkoJR38QiaiilI9G0IQuo=";
   };
 

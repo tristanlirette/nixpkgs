@@ -10,7 +10,6 @@
   boehmgc,
   xorg,
   binaryen,
-  darwin,
 }:
 
 let
@@ -60,7 +59,7 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "vlang";
     repo = "v";
-    tag = version;
+    rev = version;
     hash = "sha256-V4f14TcuKW8unzlo6i/tE6MzSb3HAll478OU2LxiTPQ=";
   };
 
@@ -75,9 +74,6 @@ stdenv.mkDerivation {
   buildInputs =
     [
       binaryen
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Cocoa
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
       xorg.libX11

@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "containers";
     repo = "conmon";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-XsVWcJsUc0Fkn7qGRJDG5xrQAsJr6KN7zMy3AtPuMTo=";
   };
 
@@ -55,7 +55,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/containers/conmon";
     description = "OCI container runtime monitor";
     license = licenses.asl20;
-    maintainers = with maintainers; [ ] ++ teams.podman.members;
+    teams = [ teams.podman ];
     platforms = platforms.linux;
     mainProgram = "conmon";
   };

@@ -15,8 +15,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "containerd";
-    repo = pname;
-    tag = "v${version}";
+    repo = "nerdctl";
+    rev = "v${version}";
     hash = "sha256-GHFs8QvLcXu+DZ851TCLI7EVc9wMS5fRC4TYBXzyv3Q=";
   };
 

@@ -27,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
     domain = "gitlab.gnome.org";
     owner = "GNOME";
     repo = "gxml";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-/gaWuUytBsvAsC95ee6MtTW6g3ltGbkD+JWqrAjJLDc=";
   };
 
@@ -64,6 +64,7 @@ stdenv.mkDerivation (finalAttrs: {
     changelog = "https://gitlab.gnome.org/GNOME/gxml/-/blob/${finalAttrs.version}/NEWS?ref_type=tags";
     license = licenses.lgpl21Plus;
     platforms = platforms.linux;
-    maintainers = with maintainers; [ jmarmstrong1207 ] ++ teams.gnome.members;
+    maintainers = with maintainers; [ jmarmstrong1207 ];
+    teams = [ teams.gnome ];
   };
 })

@@ -20,8 +20,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "einarhauks";
-    repo = pname;
-    tag = version;
+    repo = "tesla-wall-connector";
+    rev = version;
     hash = "sha256-GblKXWV9h37E3bxNsx17hEe0uDm8ahzJUx8wiE+Vc38=";
   };
 

@@ -11,8 +11,8 @@ python3Packages.buildPythonApplication rec {
 
   src = fetchFromGitLab {
     owner = "TheEvilSkeleton";
-    repo = pname;
-    tag = "v${version}";
+    repo = "vkbasalt-cli";
+    rev = "v${version}";
     hash = "sha256-4MFqndnvwAsqyer9kMNuCZFP/Xdl7W//AyCe7n83328=";
   };
 

@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "charmbracelet";
     repo = "wishlist";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-53fojA+gdvpSVNjx6QncH16F8/x+lpY5SkNs7obW2XQ=";
   };
 
@@ -25,12 +25,12 @@ buildGoModule rec {
     "-X=main.Version=${version}"
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Single entrypoint for multiple SSH endpoints";
     homepage = "https://github.com/charmbracelet/wishlist";
     changelog = "https://github.com/charmbracelet/wishlist/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [
       caarlos0
       penguwin
     ];

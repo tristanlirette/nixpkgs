@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "SeaDve";
     repo = "Mousai";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-lib2rPUTKudzbZQIGZxxxzvWNlbLkLdWtb9h7+C05QE=";
   };
 
@@ -73,7 +73,8 @@ stdenv.mkDerivation rec {
     mainProgram = "mousai";
     homepage = "https://github.com/SeaDve/Mousai";
     license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ dotlambda ] ++ lib.teams.gnome-circle.members;
+    maintainers = with maintainers; [ dotlambda ];
+    teams = [ teams.gnome-circle ];
     platforms = platforms.linux;
   };
 }

@@ -4,7 +4,6 @@
   fetchFromGitHub,
   stdenv,
   pkg-config,
-  darwin,
   xorg,
 }:
 
@@ -15,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "bloznelis";
     repo = "kbt";
-    tag = version;
+    rev = version;
     hash = "sha256-ROCZDa5eyGF9yE+zdZ4snzdz8+jk+H6ZnqsnCe8JtJw=";
   };
 
@@ -26,13 +25,9 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.AppKit
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isLinux [
-      xorg.libX11
-    ];
+  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [
+    xorg.libX11
+  ];
 
   meta = with lib; {
     description = "Keyboard tester in terminal";

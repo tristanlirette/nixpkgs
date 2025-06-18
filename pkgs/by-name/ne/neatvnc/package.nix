@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "any1";
     repo = "neatvnc";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-D9dwD5i9mScc5vn0mUxe7+0cxMI65F7LyivXn9J0aic=";
   };
 
@@ -49,7 +49,7 @@ stdenv.mkDerivation rec {
 
   doCheck = true;
 
-  meta = with lib; {
+  meta = {
     description = "VNC server library";
     longDescription = ''
       This is a liberally licensed VNC server library that's intended to be
@@ -60,8 +60,8 @@ stdenv.mkDerivation rec {
     '';
     homepage = "https://github.com/any1/neatvnc";
     changelog = "https://github.com/any1/neatvnc/releases/tag/v${version}";
-    license = licenses.isc;
-    platforms = platforms.linux;
-    maintainers = with maintainers; [ nickcao ];
+    license = lib.licenses.isc;
+    platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [ nickcao ];
   };
 }

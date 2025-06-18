@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Biont";
     repo = "sway-launcher-desktop";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-lv1MLPJsJJjm6RLzZXWEz1JO/4EXTQ8wj225Di+98G4=";
   };
 
@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
       }
   '';
 
-  meta = with lib; {
+  meta = {
     description = "TUI Application launcher with Desktop Entry support";
     mainProgram = "sway-launcher-desktop";
     longDescription = ''
@@ -50,8 +50,8 @@ stdenv.mkDerivation rec {
     '';
     homepage = "https://github.com/Biont/sway-launcher-desktop";
     changelog = "https://github.com/Biont/sway-launcher-desktop/releases/tag/v${version}";
-    license = licenses.gpl3;
-    platforms = platforms.linux;
-    maintainers = [ maintainers.pyrox0 ];
+    license = lib.licenses.gpl3;
+    platforms = lib.platforms.linux;
+    maintainers = [ lib.maintainers.pyrox0 ];
   };
 }

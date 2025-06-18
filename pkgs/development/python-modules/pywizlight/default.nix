@@ -17,8 +17,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "sbidy";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pywizlight";
+    rev = "v${version}";
     hash = "sha256-JT0Ud17U9etByaDVu9+hcadymze1rfj+mEK6nqksuWc=";
   };
 

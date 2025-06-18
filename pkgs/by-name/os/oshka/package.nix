@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "k1LoW";
-    repo = pname;
-    tag = "v${version}";
+    repo = "oshka";
+    rev = "v${version}";
     sha256 = "sha256-fpWhqFK5h/U7DCC/SyhAlMyCMhjZHRLMlwakvlhOd3w=";
   };
 

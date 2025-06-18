@@ -18,8 +18,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "jborean93";
-    repo = pname;
-    tag = "v${version}";
+    repo = "requests-credssp";
+    rev = "v${version}";
     hash = "sha256-HHLEmQ+mNjMjpR6J+emrKFM+2PiYq32o7Gnoo0gUrNA=";
   };
 

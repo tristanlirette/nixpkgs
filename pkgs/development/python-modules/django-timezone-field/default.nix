@@ -21,8 +21,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "mfogel";
-    repo = pname;
-    tag = version;
+    repo = "django-timezone-field";
+    rev = version;
     hash = "sha256-q06TuYkBA4z6tJdT3an6Z8o1i/o85XbYa1JYZBHC8lI=";
   };
 

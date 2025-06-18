@@ -1,11 +1,9 @@
 {
   lib,
-  stdenv,
   fetchFromGitHub,
   buildDunePackage,
   pkg-config,
   gsl,
-  darwin,
   dune-configurator,
 }:
 
@@ -18,7 +16,7 @@ buildDunePackage rec {
   src = fetchFromGitHub {
     owner = "mmottl";
     repo = "gsl-ocaml";
-    tag = version;
+    rev = version;
     hash = "sha256-h1jO2RheBBzxiBgig2yEPk4YyBaZxStt5f+KNZqHdBo=";
   };
 
@@ -26,9 +24,6 @@ buildDunePackage rec {
   buildInputs = [
     dune-configurator
     gsl
-  ];
-  propagatedBuildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
-    darwin.apple_sdk.frameworks.Accelerate
   ];
 
   meta = with lib; {

@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "thatmattlove";
     repo = "oui";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-RLm8V2fLFvOwjnnq16ZmhwVdtgXPaehan7JTX3Xz30w=";
   };
 
@@ -21,7 +21,7 @@ buildGoModule rec {
     description = "MAC Address CLI Toolkit";
     homepage = "https://github.com/thatmattlove/oui";
     license = with licenses; [ bsd3 ];
-    maintainers = teams.wdz.members;
+    teams = [ teams.wdz ];
     mainProgram = "oui";
   };
 }

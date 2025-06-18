@@ -8,6 +8,7 @@
   wrapGAppsHook3,
   writeText,
   xvfb-run,
+  udevCheckHook,
 }:
 
 python3Packages.buildPythonApplication rec {
@@ -18,7 +19,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     repo = "streamdeck-linux-gui";
     owner = "streamdeck-linux-gui";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-KpsW3EycYRYU5YOg7NNGv5eeZbS9MAikj0Ke2ybPzAU=";
   };
 
@@ -35,6 +36,7 @@ python3Packages.buildPythonApplication rec {
     copyDesktopItems
     qt6.wrapQtAppsHook
     wrapGAppsHook3
+    udevCheckHook
   ];
 
   propagatedBuildInputs =
@@ -68,7 +70,7 @@ python3Packages.buildPythonApplication rec {
     export STREAMDECK_UI_LOG_FILE=$(pwd)/.streamdeck_ui.log
     xvfb-run pytest tests
 
-    runHook preCheck
+    runHook postCheck
   '';
 
   postInstall =

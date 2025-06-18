@@ -3,8 +3,6 @@
   stdenv,
   fetchFromGitLab,
   libvirt,
-  AppKit,
-  Foundation,
   autoreconfHook,
   pkg-config,
   ocaml,
@@ -23,7 +21,7 @@ lib.throwIfNot (lib.versionAtLeast ocaml.version "4.02")
     src = fetchFromGitLab {
       owner = "libvirt";
       repo = "libvirt-ocaml";
-      tag = "v${version}";
+      rev = "v${version}";
       sha256 = "0xpkdmknk74yqxgw8z2w8b7ss8hpx92xnab5fsqg2byyj55gzf2k";
     };
 
@@ -35,11 +33,6 @@ lib.throwIfNot (lib.versionAtLeast ocaml.version "4.02")
       findlib
       perl
       ocaml
-    ];
-
-    buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
-      Foundation
-      AppKit
     ];
 
     strictDeps = true;

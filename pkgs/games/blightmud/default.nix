@@ -8,16 +8,7 @@
   openssl,
   withTTS ? false,
   speechd-minimal,
-  darwin,
 }:
-let
-  inherit (darwin.apple_sdk.frameworks)
-    CoreAudio
-    AudioUnit
-    AVFoundation
-    AppKit
-    ;
-in
 rustPlatform.buildRustPackage rec {
   pname = "blightmud";
   version = "5.3.1";
@@ -25,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = pname;
     repo = pname;
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-9GUul5EoejcnCQqq1oX+seBtxttYIUhgcexaZk+7chk=";
   };
 
@@ -42,15 +33,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs =
     [ openssl ]
     ++ lib.optionals (withTTS && stdenv.hostPlatform.isLinux) [ speechd-minimal ]
-    ++ lib.optionals stdenv.hostPlatform.isLinux [ alsa-lib ]
-    ++ lib.optionals (withTTS && stdenv.hostPlatform.isDarwin) [
-      AVFoundation
-      AppKit
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      CoreAudio
-      AudioUnit
-    ];
+    ++ lib.optionals stdenv.hostPlatform.isLinux [ alsa-lib ];
 
   checkFlags =
     let

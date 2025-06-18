@@ -24,7 +24,7 @@
 
 stdenv.mkDerivation rec {
   pname = "libheif";
-  version = "1.18.2";
+  version = "1.19.8";
 
   outputs = [
     "bin"
@@ -36,8 +36,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "strukturag";
     repo = "libheif";
-    tag = "v${version}";
-    hash = "sha256-Z21E2b4E9jGtwR1RpFMAbGsWFw6jXn++WexlzdoyZzE=";
+    rev = "v${version}";
+    hash = "sha256-p+VkIJrX/aN2ohSiDmev+6fbS9Lc7Jh14YwW5vLIjJw=";
   };
 
   nativeBuildInputs = [
@@ -81,6 +81,6 @@ stdenv.mkDerivation rec {
     description = "ISO/IEC 23008-12:2017 HEIF image file format decoder and encoder";
     license = lib.licenses.lgpl3Plus;
     platforms = lib.platforms.unix;
-    maintainers = with lib.maintainers; [ ];
+    maintainers = with lib.maintainers; [ kuflierl ];
   };
 }

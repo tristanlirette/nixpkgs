@@ -26,7 +26,7 @@
 
 stdenv.mkDerivation rec {
   pname = "elementary-files";
-  version = "7.1.1";
+  version = "7.1.3";
 
   outputs = [
     "out"
@@ -36,8 +36,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elementary";
     repo = "files";
-    tag = version;
-    hash = "sha256-GJ+OYe2DJ9VIMkwobQJxD1bGoV8k6ALkx9RpT3Cazis=";
+    rev = version;
+    hash = "sha256-GeHaDZGOdvc7dXA3AE4Gt9u3RVgkU7d3FxAC3uXsgUs=";
   };
 
   nativeBuildInputs = [
@@ -74,7 +74,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/elementary/files";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.pantheon.members;
+    teams = [ teams.pantheon ];
     mainProgram = "io.elementary.files";
   };
 }

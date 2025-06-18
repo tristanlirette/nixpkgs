@@ -7,7 +7,6 @@
   fetchFromGitHub,
   installShellFiles,
   stdenv,
-  Security,
   libiconv,
   protobuf,
 }:
@@ -19,7 +18,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "tremor-rs";
     repo = "tremor-runtime";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-DoFqHKTu4CvgDYPT4vbwNvSZ/lNTdAF+wlHOOIBJKUw=";
   };
 
@@ -36,7 +35,6 @@ rustPlatform.buildRustPackage rec {
   buildInputs =
     [ openssl ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      Security
       libiconv
     ];
 

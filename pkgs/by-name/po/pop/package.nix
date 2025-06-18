@@ -12,7 +12,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "charmbracelet";
     repo = "pop";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-ZGJkpa1EIw3tt1Ww2HFFoYsnnmnSAiv86XEB5TPf4/k=";
   };
 
@@ -39,12 +39,12 @@ buildGoModule rec {
       --zsh <($out/bin/pop completion zsh)
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Send emails from your terminal";
     homepage = "https://github.com/charmbracelet/pop";
     changelog = "https://github.com/charmbracelet/pop/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [
       caarlos0
       maaslalani
     ];

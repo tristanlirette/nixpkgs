@@ -7,7 +7,7 @@
 }:
 
 let
-  version = "0.14.0";
+  version = "0.14.0+pie";
 in
 buildPecl {
   inherit version;
@@ -16,8 +16,8 @@ buildPecl {
   src = fetchFromGitHub {
     owner = "kjdev";
     repo = "php-ext-zstd";
-    tag = version;
-    hash = "sha256-XB8GatrL2gQbTiZp6eJCFu8yRAOcrQbcJCaKol3or8Q=";
+    rev = version;
+    hash = "sha256-BfxYPc7Y9VKjm/RiyO+/thpqNJFGMdD5xK07EZMb+E8=";
   };
 
   nativeBuildInputs = [ pkg-config ];

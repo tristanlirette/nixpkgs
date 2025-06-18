@@ -14,8 +14,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "mapbox";
-    repo = pname;
-    tag = version;
+    repo = "mercantile";
+    rev = version;
     hash = "sha256-DiDXO2XnD3We6NhP81z7aIHzHrHDi/nkqy98OT9986w=";
   };
 

@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-APuBVgewr701wzfTRwaQIg/ERFIhabEs5Jd6+GvD04k=";
   };
 
@@ -90,6 +90,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/dtkcore";
     license = licenses.lgpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.deepin.members;
+    teams = [ teams.deepin ];
   };
 }

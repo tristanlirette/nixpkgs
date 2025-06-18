@@ -1,7 +1,5 @@
 {
   lib,
-  stdenv,
-  darwin,
   rustPlatform,
   buildNpmPackage,
   fetchFromGitHub,
@@ -13,7 +11,7 @@ let
   src = fetchFromGitHub {
     owner = "frectonz";
     repo = "sql-studio";
-    tag = version;
+    rev = version;
     hash = "sha256-ZWGV4DYf+85LIGVDc8hcWSEJsM6UisuCB2Wd2kiw/sk=";
   };
 
@@ -37,8 +35,6 @@ rustPlatform.buildRustPackage {
   preBuild = ''
     cp -pr --reflink=auto -- ${ui} ui/dist
   '';
-
-  buildInputs = lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Foundation ];
 
   meta = {
     description = "SQL Database Explorer [SQLite, libSQL, PostgreSQL, MySQL/MariaDB, ClickHouse, Microsoft SQL Server]";

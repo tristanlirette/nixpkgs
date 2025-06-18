@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-KUwX7oilV562WDxkBhTQhwz2lgcQIYwkmRRglWj0zh8=";
   };
 
@@ -36,6 +36,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/dde-application-manager";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.deepin.members;
+    teams = [ teams.deepin ];
   };
 }

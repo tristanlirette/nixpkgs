@@ -5,6 +5,7 @@
   fetchpatch,
   cmake,
   hidapi,
+  udevCheckHook,
 }:
 
 stdenv.mkDerivation rec {
@@ -14,7 +15,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Sapd";
     repo = "HeadsetControl";
-    tag = version;
+    rev = version;
     sha256 = "sha256-N1c94iAJgCPhGNDCGjMINg0AL2wPX5gVIsJ+pzn/l9Y=";
   };
 
@@ -27,11 +28,14 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     cmake
+    udevCheckHook
   ];
 
   buildInputs = [
     hidapi
   ];
+
+  doInstallCheck = true;
 
   meta = with lib; {
     description = "Sidetone and Battery status for Logitech G930, G533, G633, G933 SteelSeries Arctis 7/PRO 2019 and Corsair VOID (Pro)";

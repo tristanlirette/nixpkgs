@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elementary";
     repo = "screenshot";
-    tag = version;
+    rev = version;
     hash = "sha256-qhXTOdxMpiCPJR0Gp65itr6Em9e6OzMn3m/OyS7YfcA=";
   };
 
@@ -51,7 +51,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/elementary/screenshot";
     license = licenses.lgpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.pantheon.members;
+    teams = [ teams.pantheon ];
     mainProgram = "io.elementary.screenshot";
   };
 }

@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = "deepin-anything";
-    tag = version;
+    rev = version;
     hash = "sha256-OYPsUXMjuU6gG+EzyYl640+2/59n8D5V906CVGwn6Bo=";
   };
 
@@ -50,6 +50,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/deepin-anything";
     license = lib.licenses.gpl3Plus;
     platforms = lib.platforms.linux;
-    maintainers = lib.teams.deepin.members;
+    teams = [ lib.teams.deepin ];
   };
 }

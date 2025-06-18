@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "fontforge";
     repo = "libuninameslist";
-    tag = version;
+    rev = version;
     hash = "sha256-Pi30c3To57AzY59i39JVG2IUkGnq7CEAQkqJ1f5AZhw=";
   };
 
@@ -20,12 +20,12 @@ stdenv.mkDerivation rec {
     autoreconfHook
   ];
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/fontforge/libuninameslist/";
     changelog = "https://github.com/fontforge/libuninameslist/blob/${version}/ChangeLog";
     description = "Library of Unicode names and annotation data";
-    license = licenses.bsd3;
-    maintainers = with maintainers; [ erictapen ];
-    platforms = platforms.all;
+    license = lib.licenses.bsd3;
+    maintainers = with lib.maintainers; [ erictapen ];
+    platforms = lib.platforms.all;
   };
 }

@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "kevinburke";
-    repo = pname;
-    tag = "v${version}";
+    repo = "go-bindata";
+    rev = "v${version}";
     hash = "sha256-3/1RqJrv1fsPKsZpurp2dHsMg8FJBcFlI/pwwCf5H6E=";
   };
 
@@ -24,12 +24,12 @@ buildGoModule rec {
     "-w"
   ];
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/kevinburke/go-bindata";
     changelog = "https://github.com/kevinburke/go-bindata/blob/v${version}/CHANGELOG.md";
     description = "Small utility which generates Go code from any file, useful for embedding binary data in a Go program";
     mainProgram = "go-bindata";
-    maintainers = [ ];
-    license = licenses.cc0;
+    maintainers = with lib.maintainers; [ ];
+    license = lib.licenses.cc0;
   };
 }

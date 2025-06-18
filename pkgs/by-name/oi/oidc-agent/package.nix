@@ -19,8 +19,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "indigo-dc";
-    repo = pname;
-    tag = "v${version}";
+    repo = "oidc-agent";
+    rev = "v${version}";
     hash = "sha256-Vj/YoZpbiV8psU70i3SIKJM/qPQYuy96ogEhT8cG7RU=";
   };
 

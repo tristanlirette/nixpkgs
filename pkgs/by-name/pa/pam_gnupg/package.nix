@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "cruegge";
     repo = "pam-gnupg";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-6I9a841qohA42lhOgZf/hharnjkthuB8lRptPDxUgMI=";
   };
 
@@ -37,6 +37,6 @@ stdenv.mkDerivation rec {
     '';
     homepage = "https://github.com/cruegge/pam-gnupg";
     license = licenses.gpl3;
-    maintainers = with maintainers; [ mtreca ];
+    maintainers = with maintainers; [ ];
   };
 }

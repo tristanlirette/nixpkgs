@@ -17,7 +17,7 @@ buildNpmPackage rec {
   src = fetchFromGitHub {
     owner = "elm-land";
     repo = "elm-land";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-PFyiVTH2Cek377YZwaCmvDToQCaxWQvJrQkRhyNI2Wg=";
   };
 
@@ -59,11 +59,10 @@ buildNpmPackage rec {
   '';
 
   meta = {
-    description = "A production-ready framework for building Elm applications";
+    description = "Production-ready framework for building Elm applications";
     homepage = "https://github.com/elm-land/elm-land";
     license = lib.licenses.bsd3;
     maintainers = with lib.maintainers; [
-      domenkozar
       zupo
     ];
     mainProgram = "elm-land";

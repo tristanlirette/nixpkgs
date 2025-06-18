@@ -13,8 +13,6 @@
   libvorbis,
   libopus,
   soxr,
-  IOKit,
-  AudioToolbox,
   aixlog,
   popl,
   pulseaudioSupport ? false,
@@ -30,7 +28,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "badaix";
     repo = "snapcast";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-EJgpZz4PnXfge0rkVH1F7cah+i9AvDJVSUVqL7qChDM=";
   };
 
@@ -55,11 +53,7 @@ stdenv.mkDerivation rec {
       openssl
     ]
     ++ lib.optional pulseaudioSupport libpulseaudio
-    ++ lib.optional stdenv.hostPlatform.isLinux alsa-lib
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      IOKit
-      AudioToolbox
-    ];
+    ++ lib.optional stdenv.hostPlatform.isLinux alsa-lib;
 
   TARGET = lib.optionalString stdenv.hostPlatform.isDarwin "MACOS";
 

@@ -18,7 +18,7 @@ buildPecl {
   src = fetchFromGitHub {
     owner = "swoole";
     repo = "swoole-src";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-mCJj0vLpJinxK/EfPq+CeVWnoxouqClOKYbrgj7GNDc=";
   };
 
@@ -32,6 +32,6 @@ buildPecl {
     description = "Coroutine-based concurrency library for PHP";
     homepage = "https://www.swoole.com";
     license = lib.licenses.asl20;
-    maintainers = lib.teams.php.members;
+    teams = [ lib.teams.php ];
   };
 }

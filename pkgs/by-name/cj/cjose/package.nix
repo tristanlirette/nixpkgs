@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "zmartzone";
     repo = "cjose";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-vDvCxMpgCdteGvNxy2HCNRaxbhxOuTadL0nM2wkFHtk=";
   };
 
@@ -46,12 +46,12 @@ stdenv.mkDerivation rec {
     "--with-openssl=${openssl.dev}"
   ];
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/zmartzone/cjose";
     changelog = "https://github.com/zmartzone/cjose/blob/${version}/CHANGELOG.md";
     description = "C library for Javascript Object Signing and Encryption. This is a maintained fork of the original project";
-    license = licenses.mit;
-    maintainers = with maintainers; [ midchildan ];
-    platforms = platforms.all;
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ midchildan ];
+    platforms = lib.platforms.all;
   };
 }

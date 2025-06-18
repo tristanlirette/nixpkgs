@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "awslabs";
     repo = "coldsnap";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-tlQ4PDrYnnbsxXRbrIoF08aSy7VP+iXgTKf0A8MITpo=";
   };
   useFetchCargoVendor = true;
@@ -27,7 +27,7 @@ rustPlatform.buildRustPackage rec {
     description = "Command line interface for Amazon EBS snapshots";
     changelog = "https://github.com/awslabs/coldsnap/blob/${src.rev}/CHANGELOG.md";
     license = licenses.asl20;
-    maintainers = teams.determinatesystems.members;
+    teams = [ teams.determinatesystems ];
     mainProgram = "coldsnap";
   };
 }

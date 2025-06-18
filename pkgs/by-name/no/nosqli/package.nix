@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "Charlie-belmer";
-    repo = pname;
-    tag = "v${version}";
+    repo = "nosqli";
+    rev = "v${version}";
     sha256 = "sha256-CgD9b5eHDK/8QhQmrqT09Jf9snn9WItNMtTNbJFT2sI=";
   };
 

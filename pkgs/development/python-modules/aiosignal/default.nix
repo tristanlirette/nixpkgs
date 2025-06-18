@@ -18,8 +18,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "aio-libs";
-    repo = pname;
-    tag = "v${version}";
+    repo = "aiosignal";
+    rev = "v${version}";
     hash = "sha256-CvNarJpSq8EKnt+PuSerMK/ZVbxL9rp7rQ4dkWykG1M=";
   };
 

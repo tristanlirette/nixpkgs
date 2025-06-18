@@ -21,7 +21,7 @@ let
       src = fetchFromGitHub {
         owner = "digitalocean";
         repo = "prometheus-client-c";
-        tag = "v${version}";
+        rev = "v${version}";
         sha256 = "0g69s24xwrv5974acshrhnp6i8rpby8c6bhz15m3d8kpgjw3cm8f";
       };
 
@@ -67,14 +67,5 @@ rec {
     pname = "libprom";
     subdir = "prom";
     description = "Prometheus Client in C";
-  };
-  libpromhttp = build {
-    pname = "libpromhttp";
-    subdir = "promhttp";
-    buildInputs = [
-      libmicrohttpd
-      libprom
-    ];
-    description = "Prometheus HTTP Endpoint in C";
   };
 }

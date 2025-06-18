@@ -13,8 +13,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "jiegec";
-    repo = pname;
-    tag = "v${version}";
+    repo = "jtag-remote-server";
+    rev = "v${version}";
     hash = "sha256-qtgO0BO2hvWi/E2RzGTTuQynKbh7/OLeoLcm60dqro8=";
   };
 

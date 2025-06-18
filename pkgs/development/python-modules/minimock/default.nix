@@ -15,8 +15,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "lowks";
-    repo = pname;
-    tag = "v${version}";
+    repo = "minimock";
+    rev = "v${version}";
     hash = "sha256-Ut3iKc7Sr28uGgWCV3K3CS+gBta2icvbUPMjjo4fflU=";
   };
 

@@ -18,8 +18,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "ods";
-    repo = pname;
-    tag = version;
+    repo = "pytest-logdog";
+    rev = version;
     hash = "sha256-Tmoq+KAGzn0MMj29rukDfAc4LSIwC8DoMTuBAppV32I=";
   };
 

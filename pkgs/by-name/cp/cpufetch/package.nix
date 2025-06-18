@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Dr-Noob";
     repo = "cpufetch";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-sE3i2rw8W362BExFEImjw/t17qX8D4/0Ty8jG63bjbk=";
   };
 
@@ -31,12 +31,12 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Simplistic yet fancy CPU architecture fetching tool";
-    license = licenses.gpl2Only;
+    license = lib.licenses.gpl2Only;
     homepage = "https://github.com/Dr-Noob/cpufetch";
     changelog = "https://github.com/Dr-Noob/cpufetch/releases/tag/v${version}";
-    maintainers = with maintainers; [ devhell ];
+    maintainers = with lib.maintainers; [ devhell ];
     mainProgram = "cpufetch";
   };
 }

@@ -17,8 +17,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "mrcagney";
-    repo = pname;
-    tag = version;
+    repo = "kml2geojson";
+    rev = version;
     hash = "sha256-iJEcXpvy+Y3MkxAF2Q1Tkcx8GxUVjeVzv6gl134zdiI=";
   };
 

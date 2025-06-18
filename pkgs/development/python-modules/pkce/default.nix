@@ -12,8 +12,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "RomeoDespres";
-    repo = pname;
-    tag = version;
+    repo = "pkce";
+    rev = version;
     hash = "sha256-dOHCu0pDXk9LM4Yobaz8GAfVpBd8rXlty+Wfhx+WPME=";
   };
 

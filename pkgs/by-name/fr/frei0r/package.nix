@@ -6,7 +6,6 @@
   cairo,
   cmake,
   opencv,
-  pcre,
   pkg-config,
   cudaSupport ? config.cudaSupport,
   cudaPackages,
@@ -19,7 +18,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "dyne";
     repo = "frei0r";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-uKYCJD88TnrJTTnzCCietNt01QPeFW+hhnjcBNKUWsY=";
   };
 
@@ -31,7 +30,6 @@ stdenv.mkDerivation rec {
     [
       cairo
       opencv
-      pcre
     ]
     ++ lib.optionals cudaSupport [
       cudaPackages.cuda_cudart

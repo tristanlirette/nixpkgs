@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "CrunchyData";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pg_featureserv";
+    rev = "v${version}";
     sha256 = "sha256-GsloUZFgrOrJc23vKv+8iSeyIEKblaukPSCpZGRtSL4=";
   };
 
@@ -48,6 +48,6 @@ buildGoModule rec {
     mainProgram = "pg_featureserv";
     homepage = "https://github.com/CrunchyData/pg_featureserv";
     license = licenses.asl20;
-    maintainers = teams.geospatial.members;
+    teams = [ teams.geospatial ];
   };
 }

@@ -10,8 +10,8 @@ python3Packages.buildPythonApplication rec {
 
   src = fetchFromGitHub {
     owner = "spantaleev";
-    repo = pname;
-    tag = version;
+    repo = "sftpman";
+    rev = version;
     hash = "sha256-YxqN4+u0nYUWehbyRhjddIo2sythH3E0fiPSyrUlWhM=";
   };
 

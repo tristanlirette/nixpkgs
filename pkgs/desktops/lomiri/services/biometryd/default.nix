@@ -29,7 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/biometryd";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-derU7pKdNf6pwhskaW7gCLcU9ixBG3U0EI/qtANmmTs=";
   };
 
@@ -113,7 +113,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://gitlab.com/ubports/development/core/biometryd";
     changelog = "https://gitlab.com/ubports/development/core/biometryd/-/${finalAttrs.version}/ChangeLog";
     license = licenses.lgpl3Only;
-    maintainers = teams.lomiri.members;
+    teams = [ teams.lomiri ];
     mainProgram = "biometryd";
     platforms = platforms.linux;
     pkgConfigModules = [

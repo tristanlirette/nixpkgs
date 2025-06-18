@@ -33,8 +33,8 @@ lib.checkListOfEnum "${pname}: color variants"
 
     src = fetchFromGitHub {
       owner = "vinceliuice";
-      repo = pname;
-      tag = version;
+      repo = "vimix-icon-theme";
+      rev = version;
       hash = "sha256-HNwEqp6G9nZDIJo9b6FD4d5NSXUx523enENM0NVwviA=";
     };
 

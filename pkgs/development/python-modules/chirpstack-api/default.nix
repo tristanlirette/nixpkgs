@@ -16,8 +16,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "brocaar";
-    repo = pname;
-    tag = "v${version}";
+    repo = "chirpstack-api";
+    rev = "v${version}";
     hash = "sha256-69encHMk0eXE2Av87ysKvxoiXog5o68qCUlOx/lgHFU=";
   };
 

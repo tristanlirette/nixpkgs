@@ -6,12 +6,13 @@
 
 python3Packages.buildPythonPackage rec {
   pname = "yams";
+  # nixpkgs-update: no auto update
   version = "0.7.3";
 
   src = fetchFromGitHub {
     owner = "Berulacks";
     repo = "yams";
-    tag = version;
+    rev = version;
     sha256 = "1zkhcys9i0s6jkaz24an690rvnkv1r84jxpaa84sf46abi59ijh8";
   };
 

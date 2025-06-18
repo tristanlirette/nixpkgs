@@ -24,17 +24,19 @@ clangStdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     cmake
+    ninja
+    re2c
   ];
   buildInputs = [
-    re2c
     z3
     hiredis
     llvm_18
-    ninja
   ];
+  strictDeps = true;
 
   postPatch = ''
     substituteInPlace CMakeLists.txt \
+      --replace-fail '-Werror' "" \
       --replace-fail 'find_package(Git REQUIRED)' ""
   '';
 
@@ -64,7 +66,8 @@ clangStdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/AliveToolkit/alive2";
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
-    maintainers = with lib.maintainers; [ shogo ] ++ lib.teams.ngi.members;
+    maintainers = with lib.maintainers; [ shogo ];
+    teams = [ lib.teams.ngi ];
     mainProgram = "alive";
   };
 })

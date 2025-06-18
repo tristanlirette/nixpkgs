@@ -2,7 +2,6 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  zsh,
 }:
 
 # To make use of this derivation, use the `programs.zsh.enableSyntaxHighlighting` option
@@ -14,12 +13,11 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "zsh-users";
     repo = "zsh-syntax-highlighting";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-iJdWopZwHpSyYl5/FQXEW7gl/SrKaYDEtTH9cGP7iPo=";
   };
 
   strictDeps = true;
-  buildInputs = [ zsh ];
 
   installFlags = [ "PREFIX=$(out)" ];
 

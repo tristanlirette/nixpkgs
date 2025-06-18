@@ -36,7 +36,7 @@ clangStdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "capnproto";
     repo = "capnproto";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-gxkko7LFyJNlxpTS+CWOd/p9x/778/kNIXfpDGiKM2A=";
   };
 
@@ -75,6 +75,6 @@ clangStdenv.mkDerivation rec {
     '';
     license = licenses.mit;
     platforms = platforms.all;
-    maintainers = lib.teams.lix.members;
+    teams = [ lib.teams.lix ];
   };
 }

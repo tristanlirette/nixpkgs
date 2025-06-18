@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "rebar";
     repo = "rebar";
-    tag = version;
+    rev = version;
     sha256 = "sha256-okvG7X2uHtZ1p+HUoFOmslrWvYjk0QWBAvAMAW2E40c=";
   };
 
@@ -41,6 +41,6 @@ stdenv.mkDerivation rec {
 
     platforms = lib.platforms.unix;
     license = lib.licenses.asl20;
-    maintainers = lib.teams.beam.members;
+    teams = [ lib.teams.beam ];
   };
 }

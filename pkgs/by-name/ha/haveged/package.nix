@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "jirka-h";
     repo = "haveged";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-tq4OXLlyC6exJEZ80H1gQQRBgYGbu+3kGz99RxsyauI=";
   };
 
@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
 
   doCheck = true;
 
-  meta = with lib; {
+  meta = {
     description = "Simple entropy daemon";
     mainProgram = "haveged";
     longDescription = ''
@@ -40,9 +40,9 @@ stdenv.mkDerivation rec {
     '';
     homepage = "https://github.com/jirka-h/haveged";
     changelog = "https://raw.githubusercontent.com/jirka-h/haveged/v${version}/ChangeLog";
-    license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ domenkozar ];
-    platforms = platforms.unix;
-    badPlatforms = platforms.darwin; # fails to build since v1.9.15
+    license = lib.licenses.gpl3Plus;
+    maintainers = with lib.maintainers; [ ];
+    platforms = lib.platforms.unix;
+    badPlatforms = lib.platforms.darwin; # fails to build since v1.9.15
   };
 }

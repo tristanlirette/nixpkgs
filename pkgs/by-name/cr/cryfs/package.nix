@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "cryfs";
     repo = "cryfs";
-    tag = version;
+    rev = version;
     hash = "sha256-OkJhLg+YzS3kDhlpUQe9A+OiVBPG/iKs6OU7aKFJ5wY=";
   };
 
@@ -90,16 +90,16 @@ stdenv.mkDerivation rec {
     runHook postCheck
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Cryptographic filesystem for the cloud";
     homepage = "https://www.cryfs.org/";
     changelog = "https://github.com/cryfs/cryfs/raw/${version}/ChangeLog.txt";
-    license = licenses.lgpl3Only;
-    maintainers = with maintainers; [
+    license = lib.licenses.lgpl3Only;
+    maintainers = with lib.maintainers; [
       peterhoeg
       c0bw3b
       sigmasquadron
     ];
-    platforms = platforms.unix;
+    platforms = lib.platforms.unix;
   };
 }

@@ -7,14 +7,13 @@
   curl,
   libgit2,
   openssl,
-  darwin,
 }:
 let
   version = "0.16.1";
   src = fetchFromGitHub {
     owner = "google";
     repo = "cargo-raze";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-dn1MrF+FYBG+vD5AfXCwmzskmKK/TXArnMWW2BAfFFQ=";
   };
 in
@@ -37,7 +36,7 @@ rustPlatform.buildRustPackage {
     libgit2
     openssl
     curl
-  ] ++ lib.optional stdenv.hostPlatform.isDarwin darwin.apple_sdk.frameworks.Security;
+  ];
 
   preCheck = lib.optionalString stdenv.hostPlatform.isDarwin ''
     # Darwin issue: Os { code: 24, kind: Uncategorized, message: "Too many open files" }

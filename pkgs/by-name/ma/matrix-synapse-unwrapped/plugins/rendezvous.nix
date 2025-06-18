@@ -14,7 +14,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "matrix-org";
     repo = "rust-http-rendezvous-server";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-minwa+7HLTNSBtBtt5pnoHsFnNEh834nsVw80+FIQi8=";
   };
 
@@ -23,8 +23,12 @@ buildPythonPackage rec {
   '';
 
   cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit src postPatch;
-    name = "${pname}-${version}";
+    inherit
+      pname
+      version
+      src
+      postPatch
+      ;
     hash = "sha256-CDUyH08s96xUy0VhK+4ym0w9IgAq9P1UjUipVjlpl9c=";
   };
 

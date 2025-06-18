@@ -13,8 +13,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "99designs";
-    repo = pname;
-    tag = "v${version}";
+    repo = "aws-vault";
+    rev = "v${version}";
     hash = "sha256-Qs4vxFgehWQYYECBGBSU8YI/BHLwOQUO5wBlNEUzD7c=";
   };
 
@@ -53,7 +53,7 @@ buildGoModule rec {
   '';
 
   meta = with lib; {
-    description = "A vault for securely storing and accessing AWS credentials in development environments";
+    description = "Vault for securely storing and accessing AWS credentials in development environments";
     mainProgram = "aws-vault";
     homepage = "https://github.com/99designs/aws-vault";
     license = licenses.mit;

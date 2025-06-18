@@ -5,6 +5,7 @@
   go-md2man,
   coreutils,
   replaceVars,
+  udevCheckHook,
 }:
 
 stdenv.mkDerivation rec {
@@ -14,7 +15,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitLab {
     owner = "cameronnemo";
     repo = "brillo";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-+BUyM3FFnsk87NFaD9FBwdLqf6wsNhX+FDB7nqhgAmM=";
   };
 
@@ -26,12 +27,17 @@ stdenv.mkDerivation rec {
     })
   ];
 
-  nativeBuildInputs = [ go-md2man ];
+  nativeBuildInputs = [
+    go-md2man
+    udevCheckHook
+  ];
 
   makeFlags = [
     "PREFIX=$(out)"
     "AADIR=$(out)/etc/apparmor.d"
   ];
+
+  doInstallCheck = true;
 
   installTargets = [ "install-dist" ];
 

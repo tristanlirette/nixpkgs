@@ -14,7 +14,7 @@ buildPecl rec {
   src = fetchFromGitHub {
     owner = "websupport-sk";
     repo = "pecl-memcache";
-    tag = version;
+    rev = version;
     hash = "sha256-77GvQ59XUpIZmdYZP6IhtjdkYwXKuNBSG+LBScz2BtI=";
   };
 
@@ -29,6 +29,7 @@ buildPecl rec {
     description = "PHP extension for interfacing with memcached";
     license = licenses.php301;
     homepage = "https://github.com/websupport-sk/pecl-memcache";
-    maintainers = teams.php.members ++ [ maintainers.krzaczek ];
+    maintainers = [ maintainers.krzaczek ];
+    teams = [ teams.php ];
   };
 }

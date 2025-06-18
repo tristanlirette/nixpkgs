@@ -22,7 +22,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/hfd-service";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-PvZPdisqpKl9OSuQXIJW1y6EJ5moesJiEAQjpQjzyWQ=";
   };
 
@@ -73,7 +73,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://gitlab.com/ubports/development/core/hfd-service";
     changelog = "https://gitlab.com/ubports/development/core/hfd-service/-/blob/${finalAttrs.version}/ChangeLog";
     license = licenses.lgpl3Only;
-    maintainers = teams.lomiri.members;
+    teams = [ teams.lomiri ];
     platforms = platforms.linux;
   };
 })

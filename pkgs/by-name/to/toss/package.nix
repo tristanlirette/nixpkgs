@@ -9,8 +9,8 @@ stdenv.mkDerivation rec {
   version = "1.1";
   src = fetchFromGitHub {
     owner = "zerotier";
-    repo = pname;
-    tag = version;
+    repo = "toss";
+    rev = version;
     sha256 = "05ql0d8wbdhnmh3dw8ch5bi6clfb9h8v21lq2a74iy02slya2y0r";
   };
   preInstall = "export DESTDIR=$out/bin";

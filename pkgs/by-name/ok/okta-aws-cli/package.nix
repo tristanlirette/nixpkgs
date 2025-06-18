@@ -6,15 +6,15 @@
 
 buildGoModule rec {
   pname = "okta-aws-cli";
-  version = "2.4.1";
+  version = "2.5.0";
 
   subPackages = [ "cmd/okta-aws-cli" ];
 
   src = fetchFromGitHub {
     owner = "okta";
     repo = "okta-aws-cli";
-    tag = "v${version}";
-    sha256 = "sha256-4S7pXPdHUgMNg+3bCsalEH9m9Hl15mX9IEl2eBqIWqA=";
+    rev = "v${version}";
+    sha256 = "sha256-IGecHT/JVKsaHG9OtPTOlu+ZCDbnqf1h3s4SI7+8oT8=";
   };
 
   vendorHash = "sha256-MnK0zCwPOTzsPrkULEYwnmIBmVrPiwK2yDr3tqVHHRY=";

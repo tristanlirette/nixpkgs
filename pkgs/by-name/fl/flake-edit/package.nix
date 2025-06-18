@@ -4,10 +4,8 @@
   fetchFromGitHub,
   pkg-config,
   openssl,
-  stdenv,
   installShellFiles,
   nix-update-script,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -17,7 +15,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "a-kenji";
     repo = "flake-edit";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-7n8WANm9AijZYI5nlnevLI+aZtV55teroeQIEld7tkE=";
   };
 
@@ -29,12 +27,7 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    [ openssl ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-      darwin.apple_sdk.frameworks.SystemConfiguration
-    ];
+  buildInputs = [ openssl ];
 
   env.ASSET_DIR = "target/assets";
 

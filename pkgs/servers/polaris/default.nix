@@ -1,11 +1,9 @@
 {
   lib,
-  stdenv,
   fetchFromGitHub,
   rustPlatform,
   nix-update-script,
   polaris-web,
-  darwin,
   nixosTests,
 }:
 
@@ -16,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "agersant";
     repo = "polaris";
-    tag = version;
+    rev = version;
     hash = "sha256-2GHYIlEzRS7KXahdrxMjyIcPCNw8gXJw5/4ZpB/zT3Y=";
 
     # The polaris version upstream in Cargo.lock is "0.0.0".
@@ -33,10 +31,6 @@ rustPlatform.buildRustPackage rec {
 
   useFetchCargoVendor = true;
   cargoHash = "sha256-bVXz/rSfkmdQlAa3B4zamZebpRBOkch6zNOFiyEQBbY=";
-
-  buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
-    darwin.Security
-  ];
 
   # Compile-time environment variables for where to find assets needed at runtime
   env = {

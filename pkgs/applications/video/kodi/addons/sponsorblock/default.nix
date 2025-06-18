@@ -13,7 +13,7 @@ buildKodiAddon rec {
   src = fetchFromGitHub {
     owner = "siku2";
     repo = namespace;
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-IBgh2kdPgCy+HHrR7UZxTgjF1LR77ABGlUp3PgaobNM=";
   };
 
@@ -30,6 +30,6 @@ buildKodiAddon rec {
     homepage = "https://github.com/siku2/script.service.sponsorblock";
     description = "Port of SponsorBlock for Invidious and YouTube Plugin";
     license = licenses.mit;
-    maintainers = teams.kodi.members;
+    teams = [ teams.kodi ];
   };
 }

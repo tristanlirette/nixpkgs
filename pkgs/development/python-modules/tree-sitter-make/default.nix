@@ -16,13 +16,12 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "tree-sitter-grammars";
     repo = "tree-sitter-make";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-WiuhAp9JZKLd0wKCui9MV7AYFOW9dCbUp+kkVl1OEz0=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit src;
-    name = "${pname}-${version}";
+    inherit pname version src;
     hash = "sha256-75jtur5rmG4zpNXSE3OpPVR+/lf4SICsh+kgzIKfbd4=";
   };
 

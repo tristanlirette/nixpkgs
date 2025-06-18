@@ -18,7 +18,7 @@ buildPecl {
   src = fetchFromGitHub {
     owner = "openswoole";
     repo = "swoole-src";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-1Bq/relLhjPRROikpCzSzzrelxW3AiMA5G17Ln2lg34=";
   };
 
@@ -34,7 +34,7 @@ buildPecl {
       It offers a range of multi-threaded I/O modules (HTTP Server, WebSockets, TaskWorkers, Process Pools) out of the box and support for popular PHP clients like PDO for MySQL, and CURL.
       You can use the sync or async, Coroutine API to write whole applications or create thousands of light weight Coroutines within one Linux process.
     '';
-    maintainers = teams.php.members;
+    teams = [ teams.php ];
     broken = lib.versionOlder php.version "8.2";
   };
 }

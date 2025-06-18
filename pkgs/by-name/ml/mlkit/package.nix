@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "melsman";
     repo = "mlkit";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-0nAQHBcQgGdcWd4SFhDon7I0zi5U+YRTdGvG78tri6A=";
   };
 
@@ -42,12 +42,12 @@ stdenv.mkDerivation rec {
     runHook postCheck
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Standard ML Compiler and Toolkit";
     homepage = "https://elsman.com/mlkit/";
     changelog = "https://github.com/melsman/mlkit/blob/v${version}/NEWS.md";
-    license = licenses.gpl2Plus;
-    platforms = platforms.unix;
-    maintainers = with maintainers; [ athas ];
+    license = lib.licenses.gpl2Plus;
+    platforms = lib.platforms.unix;
+    maintainers = with lib.maintainers; [ athas ];
   };
 }

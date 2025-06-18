@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "LAStools";
     repo = "LAStools";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-IyZjM8YvIVB0VPNuEhmHHw7EuKw5RanB2qhCnBD1fRY=";
   };
 
@@ -34,7 +34,8 @@ stdenv.mkDerivation rec {
     description = "Software for rapid LiDAR processing";
     homepage = "http://lastools.org/";
     license = licenses.unfree;
-    maintainers = with maintainers; teams.geospatial.members ++ [ stephenwithph ];
+    maintainers = with maintainers; [ stephenwithph ];
+    teams = [ teams.geospatial ];
     platforms = platforms.unix;
   };
 }

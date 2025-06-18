@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/lomiri-session";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-XduE3tPUjw/wIjFCACasxtN33KO4bDLWrpl7pZcYaAA=";
   };
 
@@ -89,7 +89,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     changelog = "https://gitlab.com/ubports/development/core/lomiri-session/-/blob/${finalAttrs.version}/ChangeLog";
     license = licenses.gpl3Only;
     mainProgram = "lomiri-session";
-    maintainers = teams.lomiri.members;
+    teams = [ teams.lomiri ];
     platforms = platforms.linux;
   };
 })

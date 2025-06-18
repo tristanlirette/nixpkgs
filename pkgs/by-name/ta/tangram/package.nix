@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "sonnyp";
     repo = "Tangram";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-OtQN8Iigu92iKa7CAaslIpbS0bqJ9Vus++inrgV/eeM=";
     fetchSubmodules = true;
   };
@@ -94,12 +94,10 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/sonnyp/Tangram";
     license = licenses.gpl3Only;
     platforms = platforms.linux;
-    maintainers =
-      with maintainers;
-      [
-        austinbutler
-        chuangzhu
-      ]
-      ++ lib.teams.gnome-circle.members;
+    maintainers = with maintainers; [
+      austinbutler
+      chuangzhu
+    ];
+    teams = [ lib.teams.gnome-circle ];
   };
 }

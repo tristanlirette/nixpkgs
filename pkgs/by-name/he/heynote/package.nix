@@ -7,11 +7,11 @@
 }:
 let
   pname = "heynote";
-  version = "2.1.3";
+  version = "2.2.2";
 
   src = fetchurl {
     url = "https://github.com/heyman/heynote/releases/download/v${version}/Heynote_${version}_x86_64.AppImage";
-    sha256 = "sha256-O8loDE2GzXQofh3iNQeP5OAWh7i0QCSxl4I++ERcjbU=";
+    sha256 = "sha256-DFJ7j8eFElbsU7EiIZuH9DdkuBVmmDQ66tkRDYBApCc=";
   };
 
   appimageContents = appimageTools.extractType2 {

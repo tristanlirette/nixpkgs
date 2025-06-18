@@ -11,9 +11,14 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "silentbicycle";
     repo = "theft";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "1n2mkawfl2bpd4pwy3mdzxwlqjjvb5bdrr2x2gldlyqdwbk7qjhd";
   };
+
+  postPatch = ''
+    substituteInPlace Makefile \
+      --replace "ar -rcs" "${stdenv.cc.targetPrefix}ar -rcs"
+  '';
 
   preConfigure = "patchShebangs ./scripts/mk_bits_lut";
 

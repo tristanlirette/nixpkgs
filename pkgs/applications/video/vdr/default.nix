@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
 
   src = fetchgit {
     url = "git://git.tvdr.de/vdr.git";
-    tag = version;
+    rev = version;
     hash = "sha256-0Metur3+fQhomf+ClY9zXijNsr5wWkaqnzjUNXjsjss=";
   };
 
@@ -82,7 +82,7 @@ stdenv.mkDerivation rec {
   ];
 
   meta = with lib; {
-    homepage = "http://www.tvdr.de/";
+    homepage = "https://www.tvdr.de/";
     description = "Video Disc Recorder";
     maintainers = [ maintainers.ck3d ];
     platforms = platforms.linux;

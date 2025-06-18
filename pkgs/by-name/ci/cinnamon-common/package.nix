@@ -81,7 +81,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxmint";
     repo = "cinnamon";
-    tag = version;
+    rev = version;
     hash = "sha256-WBdzlourYf2oEXUMbzNcNNsc8lBo6ujAy/K1Y6nGOjU=";
   };
 
@@ -221,6 +221,6 @@ stdenv.mkDerivation rec {
     description = "Cinnamon desktop environment";
     license = [ licenses.gpl2 ];
     platforms = platforms.linux;
-    maintainers = teams.cinnamon.members;
+    teams = [ teams.cinnamon ];
   };
 }

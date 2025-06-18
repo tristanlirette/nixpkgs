@@ -6,15 +6,15 @@
 
 buildGoModule rec {
   pname = "go-md2man";
-  version = "2.0.6";
+  version = "2.0.7";
 
   vendorHash = "sha256-aMLL/tmRLyGze3RSB9dKnoTv5ZK1eRtgV8fkajWEbU0=";
 
   src = fetchFromGitHub {
-    tag = "v${version}";
+    rev = "v${version}";
     owner = "cpuguy83";
     repo = "go-md2man";
-    sha256 = "sha256-wJnHgp+NPchXkR71ARLMjo4VryzgGkz2tYWPsC+3eFo=";
+    sha256 = "sha256-DKqGvdidl6J4lPhIk3okhU4k6MvtSr+hJ9huU/JTai0=";
   };
 
   meta = with lib; {

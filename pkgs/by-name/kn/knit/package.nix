@@ -11,7 +11,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "zyedidia";
     repo = "knit";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-zxwEJnQZpOEJhV7jx2ClS3XmMfGBiq8AHR26TOIBJVw=";
   };
 
@@ -27,12 +27,12 @@ buildGoModule rec {
     "-X github.com/zyedidia/knit/info.Version=${version}"
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Simple and flexible build tool using Lua, similar to make/mk";
     mainProgram = "knit";
     homepage = "https://github.com/zyedidia/knit";
     changelog = "https://github.com/zyedidia/knit/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ DrSensor ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ DrSensor ];
   };
 }

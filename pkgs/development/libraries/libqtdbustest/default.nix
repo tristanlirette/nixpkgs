@@ -22,7 +22,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/libqtdbustest";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-yqqyKxsbqiVTrkas79YoPMi28dKFNntiE7+dx1v+Qh4=";
   };
 
@@ -97,7 +97,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://launchpad.net/libqtdbustest";
     license = licenses.lgpl3Only;
     platforms = platforms.unix;
-    maintainers = teams.lomiri.members;
+    teams = [ teams.lomiri ];
     mainProgram = "qdbus-simple-test-runner";
     pkgConfigModules = [
       "libqtdbustest-1"

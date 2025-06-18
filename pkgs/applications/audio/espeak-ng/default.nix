@@ -17,9 +17,6 @@
   pcaudiolib,
   sonicSupport ? true,
   sonic,
-  CoreAudio,
-  AudioToolbox,
-  AudioUnit,
   alsa-plugins,
   makeWrapper,
 }:
@@ -31,7 +28,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "espeak-ng";
     repo = "espeak-ng";
-    tag = version;
+    rev = version;
     hash = "sha256-aAJ+k+kkOS6k835mEW7BvgAIYGhUHxf7Q4P5cKO8XTk=";
   };
 
@@ -63,12 +60,7 @@ stdenv.mkDerivation rec {
   buildInputs =
     lib.optional mbrolaSupport mbrola
     ++ lib.optional pcaudiolibSupport pcaudiolib
-    ++ lib.optional sonicSupport sonic
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      CoreAudio
-      AudioToolbox
-      AudioUnit
-    ];
+    ++ lib.optional sonicSupport sonic;
 
   # touch ChangeLog to avoid below error on darwin:
   # Makefile.am: error: required file './ChangeLog.md' not found

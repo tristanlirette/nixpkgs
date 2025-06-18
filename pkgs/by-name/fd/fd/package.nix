@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "sharkdp";
     repo = "fd";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-B+lOohoPH7UkRxRNTzSVt0SDrqEwh4hIvBF3uWliDEI=";
   };
 
@@ -50,7 +50,7 @@ rustPlatform.buildRustPackage rec {
     package = fd;
   };
 
-  meta = with lib; {
+  meta = {
     description = "Simple, fast and user-friendly alternative to find";
     longDescription = ''
       `fd` is a simple, fast and user-friendly alternative to `find`.
@@ -60,11 +60,11 @@ rustPlatform.buildRustPackage rec {
     '';
     homepage = "https://github.com/sharkdp/fd";
     changelog = "https://github.com/sharkdp/fd/blob/v${version}/CHANGELOG.md";
-    license = with licenses; [
+    license = with lib.licenses; [
       asl20 # or
       mit
     ];
-    maintainers = with maintainers; [
+    maintainers = with lib.maintainers; [
       dywedir
       figsoda
       globin

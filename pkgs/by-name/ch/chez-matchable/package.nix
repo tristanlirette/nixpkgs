@@ -7,6 +7,7 @@
 
 stdenv.mkDerivation rec {
   pname = "chez-matchable";
+  # nixpkgs-update: no auto update
   version = "0.2";
 
   src = fetchFromGitHub {

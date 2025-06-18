@@ -11,7 +11,7 @@ buildKodiAddon rec {
   src = fetchFromGitHub {
     owner = "nilzen";
     repo = "xbmc-" + pname;
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-CZtBUqFaKtMmKcpfBQp0Mb8sVvpCTkqcpfdYe41YSJs=";
   };
 
@@ -26,7 +26,7 @@ buildKodiAddon rec {
     '';
     platforms = platforms.all;
     license = licenses.gpl3Plus;
-    maintainers = teams.kodi.members;
+    teams = [ teams.kodi ];
 
     broken = true; # no release for kodi 21
   };

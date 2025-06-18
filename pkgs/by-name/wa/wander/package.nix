@@ -11,8 +11,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "robinovitch61";
-    repo = pname;
-    tag = "v${version}";
+    repo = "wander";
+    rev = "v${version}";
     sha256 = "sha256-1+bKdIAWdg/+5FBDbtvjDV0xpZ5jot3y6F+KuLO9WVk=";
   };
 
@@ -36,7 +36,7 @@ buildGoModule rec {
     description = "Terminal app/TUI for HashiCorp Nomad";
     license = licenses.mit;
     homepage = "https://github.com/robinovitch61/wander";
-    maintainers = teams.c3d2.members;
+    teams = [ teams.c3d2 ];
     mainProgram = "wander";
   };
 }

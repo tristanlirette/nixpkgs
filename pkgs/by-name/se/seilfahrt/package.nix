@@ -12,7 +12,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "Nerdbergev";
     repo = "seilfahrt";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-pn3EsYPhggViL067nk6UhmIULGsf8IYm/dXSDudiZRA=";
   };
 
@@ -20,12 +20,12 @@ buildGoModule rec {
 
   buildInputs = [ pandoc ];
 
-  meta = with lib; {
+  meta = {
     description = "Tool to create a wiki page from a HedgeDoc";
     homepage = "https://github.com/Nerdbergev/seilfahrt";
     changelog = "https://github.com/Nerdbergev/seilfahrt/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ xgwq ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ xgwq ];
     mainProgram = "seilfahrt";
   };
 }

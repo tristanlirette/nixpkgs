@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "linuxdeepin";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-r2WVyy1lqcBJIQnRsPWlBFWQtSeZkq98J1S4dkipCys=";
   };
 
@@ -46,6 +46,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/linuxdeepin/dde-polkit-agent";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.deepin.members;
+    teams = [ teams.deepin ];
   };
 }

@@ -3,6 +3,7 @@
   rustPlatform,
   fetchFromGitea,
   pkg-config,
+  udevCheckHook,
   xz,
 }:
 
@@ -14,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     domain = "codeberg.org";
     owner = "ral";
     repo = "rwedid";
-    tag = version;
+    rev = version;
     hash = "sha256-lbZD/QLCgkD5OQZdn6oCjry9edMcJ+q9qGF7IbY36U4=";
   };
 
@@ -23,11 +24,14 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [
     pkg-config
+    udevCheckHook
   ];
 
   buildInputs = [
     xz
   ];
+
+  doInstallCheck = true;
 
   postInstall = ''
     mkdir -p $out/etc/udev/rules.d

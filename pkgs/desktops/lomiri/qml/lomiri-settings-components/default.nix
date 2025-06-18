@@ -18,7 +18,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     owner = "ubports";
     repo = "development/core/lomiri-settings-components";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-H7G3dzzitdyahB/MwgtfRBpo+qMOhmQSzN4EGYculks=";
   };
 
@@ -64,7 +64,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://gitlab.com/ubports/development/core/lomiri-settings-components";
     changelog = "https://gitlab.com/ubports/development/core/lomiri-settings-components/-/blob/${finalAttrs.version}/ChangeLog";
     license = licenses.lgpl3Only;
-    maintainers = teams.lomiri.members;
+    teams = [ teams.lomiri ];
     platforms = platforms.linux;
   };
 })

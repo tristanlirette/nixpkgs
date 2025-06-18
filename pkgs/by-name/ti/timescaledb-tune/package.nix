@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "timescale";
-    repo = pname;
-    tag = "v${version}";
+    repo = "timescaledb-tune";
+    rev = "v${version}";
     sha256 = "sha256-SW+JCH+oxAHAmgPO7XmSVFFug7NOvslblMViG+oooAo=";
   };
 

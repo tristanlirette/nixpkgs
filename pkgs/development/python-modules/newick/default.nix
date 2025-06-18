@@ -5,6 +5,7 @@
   setuptools-scm,
   pythonOlder,
   pytestCheckHook,
+  pytest-cov-stub,
 }:
 
 buildPythonPackage rec {
@@ -16,18 +17,16 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "dlce-eva";
     repo = "python-newick";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-TxyR6RYvy2oIcDNZnHrExtPYGspyWOtZqNy488OmWwk=";
   };
 
   nativeBuildInputs = [ setuptools-scm ];
 
-  postPatch = ''
-    # remove coverage arguments to pytest
-    sed -i '/--cov/d' setup.cfg
-  '';
-
-  nativeCheckInputs = [ pytestCheckHook ];
+  nativeCheckInputs = [
+    pytestCheckHook
+    pytest-cov-stub
+  ];
 
   pythonImportsCheck = [ "newick" ];
 

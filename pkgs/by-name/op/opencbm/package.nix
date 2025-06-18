@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "OpenCBM";
     repo = "OpenCBM";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-5lj5F79Gbhrvi9dxKGobdyDyBLGcptAtxx9SANhLrKw=";
   };
 
@@ -36,6 +36,8 @@ stdenv.mkDerivation rec {
     libusb1
     ncurses
   ];
+
+  doInstallCheck = true;
 
   meta = with lib; {
     description = "Kernel driver and development library to control serial CBM devices";

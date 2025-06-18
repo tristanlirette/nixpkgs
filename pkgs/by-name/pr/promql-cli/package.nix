@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "nalbury";
-    repo = pname;
-    tag = "v${version}";
+    repo = "promql-cli";
+    rev = "v${version}";
     hash = "sha256-EV63fdG+GF+kVLH2TxHPhRcUU5xBvkW5bhHC1lEoj84=";
   };
 

@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "unknownbrackets";
     repo = "maxcso";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-6LjR1ZMZsi6toz9swPzNmSAlrUykwvVdYi1mR8Ctq5U=";
   };
 
@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     homepage = "https://github.com/unknownbrackets/maxcso";
-    description = "A fast ISO to CSO compression program for use with PSP and PS2 emulators, which uses multiple algorithms for best compression ratio";
+    description = "Fast ISO to CSO compression program for use with PSP and PS2 emulators, which uses multiple algorithms for best compression ratio";
     maintainers = with maintainers; [ david-sawatzke ];
     platforms = platforms.linux ++ platforms.darwin;
     license = licenses.isc;

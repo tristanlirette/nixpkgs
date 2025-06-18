@@ -17,8 +17,8 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "brettbode";
-    repo = pname;
-    tag = "v${version}";
+    repo = "wxmacmolplt";
+    rev = "v${version}";
     hash = "sha256-gFGstyq9bMmBaIS4QE6N3EIC9GxRvyJYUr8DUvwRQBc=";
   };
 

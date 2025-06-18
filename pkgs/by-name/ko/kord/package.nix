@@ -1,7 +1,6 @@
 {
   lib,
   stdenv,
-  darwin,
   fetchFromGitHub,
   fetchpatch,
   rustPlatform,
@@ -19,7 +18,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "twitchax";
     repo = "kord";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-CeMh6yB4fGoxtGLbkQe4OMMvBM0jesyP+8JtU5kCP84=";
   };
 
@@ -41,9 +40,7 @@ rustPlatform.buildRustPackage rec {
     lib.optionals stdenv.hostPlatform.isLinux [ pkg-config ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [ rustPlatform.bindgenHook ];
 
-  buildInputs =
-    lib.optionals stdenv.hostPlatform.isLinux [ alsa-lib ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [ darwin.apple_sdk.frameworks.AudioUnit ];
+  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ alsa-lib ];
 
   meta = with lib; {
     description = "Music theory binary and library for Rust";

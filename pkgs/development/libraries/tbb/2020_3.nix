@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "oneapi-src";
     repo = "oneTBB";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "prO2O5hd+Wz5iA0vfrqmyHFr0Ptzk64so5KpSpvuKmU=";
   };
 
@@ -124,6 +124,7 @@ stdenv.mkDerivation rec {
     '';
     platforms = platforms.unix;
     maintainers = with maintainers; [
+      silvanshade
       thoughtpolice
       tmarkus
     ];

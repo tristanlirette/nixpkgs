@@ -3,6 +3,7 @@
   fetchFromGitHub,
   stdenv,
   makeWrapper,
+  gitUpdater,
   cdrtools,
   curl,
   gawk,
@@ -62,7 +63,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "quickemu-project";
     repo = "quickemu";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-sCoCcN6950pH33bRZsLoLc1oSs5Qfpj9Bbywn/uA6Bc=";
   };
 
@@ -98,7 +99,10 @@ stdenv.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
-  passthru.tests = testers.testVersion { package = finalAttrs.finalPackage; };
+  passthru = {
+    tests = testers.testVersion { package = finalAttrs.finalPackage; };
+    updateScript = gitUpdater { };
+  };
 
   meta = {
     description = "Quickly create and run optimised Windows, macOS and Linux virtual machines";

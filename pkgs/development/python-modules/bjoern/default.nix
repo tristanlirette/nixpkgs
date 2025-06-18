@@ -14,8 +14,8 @@ buildPythonPackage rec {
   # tests are not published to pypi anymore
   src = fetchFromGitHub {
     owner = "jonashaag";
-    repo = pname;
-    tag = version;
+    repo = "bjoern";
+    rev = version;
     hash = "sha256-d7u/lEh2Zr5NYWYu4Zr7kgyeOIQuHQLYrZeiZMHbpio=";
     fetchSubmodules = true; # fetch http-parser and statsd-c-client submodules
   };

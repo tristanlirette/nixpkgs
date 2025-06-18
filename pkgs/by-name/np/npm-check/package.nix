@@ -11,7 +11,7 @@ buildNpmPackage rec {
   src = fetchFromGitHub {
     owner = "dylang";
     repo = "npm-check";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-F7bMvGqOxJzoaw25VR6D90UNwT8HxZ4PZhhQEvQFDn4=";
   };
 
@@ -21,12 +21,12 @@ buildNpmPackage rec {
 
   dontNpmBuild = true;
 
-  meta = with lib; {
+  meta = {
     description = "Check for outdated, incorrect, and unused dependencies";
     mainProgram = "npm-check";
     homepage = "https://github.com/dylang/npm-check";
     changelog = "https://github.com/dylang/npm-check/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = [ maintainers.thomasjm ];
+    license = lib.licenses.mit;
+    maintainers = [ lib.maintainers.thomasjm ];
   };
 }

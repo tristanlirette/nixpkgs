@@ -16,8 +16,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "robmarkcole";
-    repo = pname;
-    tag = "v${version}";
+    repo = "simplehound";
+    rev = "v${version}";
     sha256 = "1b5m3xjmk0l6ynf0yvarplsfsslgklalfcib7sikxg3v5hiv9qwh";
   };
 

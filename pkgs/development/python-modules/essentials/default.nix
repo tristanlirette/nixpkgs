@@ -3,6 +3,7 @@
   fetchFromGitHub,
   setuptools,
   pytestCheckHook,
+  stdenv,
   lib,
 }:
 buildPythonPackage rec {
@@ -13,13 +14,19 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "Neoteroi";
     repo = "essentials";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-WMHjBVkeSoQ4Naj1U7Bg9j2hcoErH1dx00BPKiom9T4=";
   };
 
   nativeBuildInputs = [ setuptools ];
 
   nativeCheckInputs = [ pytestCheckHook ];
+
+  disabledTests = lib.optionals stdenv.hostPlatform.isDarwin [
+    # time.sleep(0.01) can be up to 0.05s on darwin
+    "test_stopwatch"
+    "test_stopwatch_with_context_manager"
+  ];
 
   pythonImportsCheck = [ "essentials" ];
 

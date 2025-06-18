@@ -9,8 +9,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "ekkinox";
-    repo = pname;
-    tag = version;
+    repo = "yai";
+    rev = version;
     sha256 = "sha256-MoblXLfptlIYJbXQTpbc8GBo2a3Zgxdvwra8IUEGiZs==";
   };
 

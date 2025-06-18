@@ -33,13 +33,12 @@ let
       src = fetchFromGitHub {
         owner = "wasmerio";
         repo = "wasmer-python";
-        tag = version;
+        rev = version;
         hash = "sha256-Iu28LMDNmtL2r7gJV5Vbb8HZj18dlkHe+mw/Y1L8YKE=";
       };
 
       cargoDeps = rustPlatform.fetchCargoVendor {
-        inherit src;
-        name = "${pname}-${version}";
+        inherit pname version src;
         hash = cargoHash;
       };
 

@@ -14,8 +14,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "HashPals";
-    repo = pname;
-    tag = version;
+    repo = "name-that-hash";
+    rev = version;
     hash = "sha256-zOb4BS3zG1x8GLXAooqqvMOw0fNbw35JuRWOdGP26/8=";
   };
 

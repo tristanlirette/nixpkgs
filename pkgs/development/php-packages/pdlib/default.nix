@@ -15,7 +15,7 @@ buildPecl {
   src = fetchFromGitHub {
     owner = "goodspb";
     repo = "pdlib";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-AKZ3F2XzEQCeZkacSXBinxeGQrHBmqjP7mDGQ3RBAiE=";
   };
 
@@ -26,6 +26,6 @@ buildPecl {
     description = "PHP extension for Dlib";
     license = with licenses; [ mit ];
     homepage = "https://github.com/goodspb/pdlib";
-    maintainers = lib.teams.php.members;
+    teams = [ lib.teams.php ];
   };
 }

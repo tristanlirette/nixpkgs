@@ -18,7 +18,7 @@ perlPackages.buildPerlPackage rec {
   src = fetchFromGitHub {
     owner = "fusioninventory";
     repo = "fusioninventory-agent";
-    tag = version;
+    rev = version;
     sha256 = "1hbp5a9m03n6a80xc8z640zs71qhqk4ifafr6fp0vvzzvq097ip2";
   };
 
@@ -97,7 +97,7 @@ perlPackages.buildPerlPackage rec {
   outputs = [ "out" ];
 
   meta = with lib; {
-    homepage = "http://www.fusioninventory.org";
+    homepage = "https://www.fusioninventory.org";
     description = "FusionInventory unified Agent for UNIX, Linux, Windows and MacOSX";
     license = lib.licenses.gpl2Only;
     maintainers = [ maintainers.phile314 ];

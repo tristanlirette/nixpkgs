@@ -15,8 +15,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "manicmaniac";
-    repo = pname;
-    tag = version;
+    repo = "arc4";
+    rev = version;
     hash = "sha256-DlZIygf5v3ZNY2XFmrKOA15ccMo3Rv0kf6hZJ0CskeQ=";
   };
 

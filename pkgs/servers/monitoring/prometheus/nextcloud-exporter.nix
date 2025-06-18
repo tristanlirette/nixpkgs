@@ -12,7 +12,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "xperimental";
     repo = "nextcloud-exporter";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-lK5a63ZokFlm5S3k1a0MGBm+vAAqQV/5ERjJ0zZ4Yno=";
   };
 
@@ -24,7 +24,7 @@ buildGoModule rec {
     description = "Prometheus exporter for Nextcloud servers";
     homepage = "https://github.com/xperimental/nextcloud-exporter";
     license = licenses.mit;
-    maintainers = with maintainers; [ willibutz ];
+    maintainers = [ ];
     mainProgram = "nextcloud-exporter";
   };
 }

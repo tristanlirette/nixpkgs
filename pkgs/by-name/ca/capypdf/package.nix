@@ -15,7 +15,7 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "capypdf";
-  version = "0.15.0";
+  version = "0.16.0";
 
   outputs = [
     "out"
@@ -25,8 +25,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "jpakkane";
     repo = "capypdf";
-    tag = finalAttrs.version;
-    hash = "sha256-aaZHIBXOdKysxAk/011b9Di/QHH5vgF+/g3tWPn6d/k=";
+    rev = finalAttrs.version;
+    hash = "sha256-FqXb0e16sADJVdXCbWJcAs/5+xpGAXIwXR0bgGEuHRE=";
   };
 
   nativeBuildInputs = [

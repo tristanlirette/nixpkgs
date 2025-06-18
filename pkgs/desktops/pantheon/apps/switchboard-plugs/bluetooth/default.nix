@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elementary";
     repo = pname;
-    tag = version;
+    rev = version;
     sha256 = "sha256-NefWnkI7K6I1JY3UG9wUbB/yF3R8tUdPb4tAafiTR3o=";
   };
 
@@ -55,7 +55,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/elementary/switchboard-plug-bluetooth";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = teams.pantheon.members;
+    teams = [ teams.pantheon ];
   };
 
 }

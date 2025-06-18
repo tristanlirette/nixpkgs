@@ -12,11 +12,15 @@ buildNpmPackage rec {
   src = fetchFromGitHub {
     owner = "thlorenz";
     repo = "doctoc";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-LYVxW8bZ4M87CmBvPyp4y0IeL9UFawwAKnUWHEWB5Gs=";
   };
 
   npmDepsHash = "sha256-TbAnFpiN/v6xjQQznL/B180f0W48HPRqW21cO9XZhYA=";
+
+  postInstall = ''
+    find $out/lib/node_modules -xtype l -delete
+  '';
 
   dontNpmBuild = true;
 

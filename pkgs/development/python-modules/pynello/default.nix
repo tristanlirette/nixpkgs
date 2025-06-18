@@ -17,8 +17,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "pschmitt";
-    repo = pname;
-    tag = version;
+    repo = "pynello";
+    rev = version;
     hash = "sha256-sUy37sEPEMyFYFVBzFVdcg31nZAyC+Ricm4LqxmjuQQ=";
   };
 

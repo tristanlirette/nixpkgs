@@ -1,7 +1,6 @@
 {
   lib,
   cmake,
-  darwin,
   fetchFromGitHub,
   libopus,
   openssl,
@@ -17,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "harlanc";
     repo = "xiu";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-EjyvCwqcPkOe69YnDiAExtBNPhsqqGa95ao+bn6wcyA=";
   };
 
@@ -35,19 +34,16 @@ rustPlatform.buildRustPackage rec {
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
       openssl
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.SystemConfiguration
     ];
 
   OPENSSL_NO_VENDOR = 1;
 
-  meta = with lib; {
+  meta = {
     description = "Simple, high performance and secure live media server in pure Rust (RTMP[cluster]/RTSP/WebRTC[whip/whep]/HTTP-FLV/HLS";
     homepage = "https://github.com/harlanc/xiu";
     changelog = "https://github.com/harlanc/xiu/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ cafkafk ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ cafkafk ];
     mainProgram = "xiu";
   };
 }

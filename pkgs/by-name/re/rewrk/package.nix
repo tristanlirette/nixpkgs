@@ -2,8 +2,6 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
-  stdenv,
-  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -13,7 +11,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "lnx-search";
     repo = "rewrk";
-    tag = version;
+    rev = version;
     hash = "sha256-Bqr5kmIIx+12hW4jpINcv0GBJBbMAkd4di/hZSXlT18=";
   };
 
@@ -23,16 +21,12 @@ rustPlatform.buildRustPackage rec {
     ln -s ${./Cargo.lock} Cargo.lock
   '';
 
-  buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
-    darwin.apple_sdk.frameworks.Security
-  ];
-
-  meta = with lib; {
+  meta = {
     description = "More modern http framework benchmarker supporting HTTP/1 and HTTP/2 benchmarks";
     homepage = "https://github.com/lnx-search/rewrk";
     changelog = "https://github.com/lnx-search/rewrk/releases/tag/${version}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ figsoda ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ figsoda ];
     mainProgram = "rewrk";
   };
 }

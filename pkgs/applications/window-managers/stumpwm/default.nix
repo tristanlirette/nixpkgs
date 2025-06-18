@@ -14,7 +14,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "stumpwm";
     repo = "stumpwm";
-    tag = finalAttrs.version;
+    rev = "${finalAttrs.version}";
     hash = "sha256-Ba2HcAmNcZvnqU0jpLTxsBe8L+4aHbO/oM4Bp/IYEC0=";
   };
 
@@ -35,7 +35,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://stumpwm.github.io/";
     license = lib.licenses.gpl2Plus;
     mainProgram = "stumpwm";
-    maintainers = lib.teams.lisp.members;
+    teams = [ lib.teams.lisp ];
     platforms = lib.platforms.unix;
   };
 })

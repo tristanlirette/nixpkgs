@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "helsinki-systems";
     repo = "libspf2";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-tkCHP3B1sBb0+scHBjX5lCvaeSrZryfaGKye02LFlYs=";
   };
 
@@ -40,7 +40,8 @@ stdenv.mkDerivation rec {
       lgpl21Plus
       bsd2
     ];
-    maintainers = with maintainers; [ euxane ] ++ teams.helsinki-systems.members;
+    maintainers = with maintainers; [ euxane ];
+    teams = [ teams.helsinki-systems ];
     platforms = platforms.all;
   };
 }

@@ -15,8 +15,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "appknox";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pyaxmlparser";
+    rev = "v${version}";
     hash = "sha256-NtAsO/I1jDEv676yhAgLguQnB/kHdAqPoLt2QFWbvmw=";
   };
 

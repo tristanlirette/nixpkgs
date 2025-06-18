@@ -67,6 +67,10 @@ stdenv.mkDerivation rec {
     "--disable-htmldoc"
   ];
 
+  # Fix build on GCC 14 (see https://github.com/fvwmorg/fvwm/pull/100)
+  # Will never be accepted as an upstream patch as FVWM2 is EOL
+  env.NIX_CFLAGS_COMPILE = "-Wno-error=int-conversion -Wno-error=incompatible-pointer-types";
+
   postFixup = ''
     wrapPythonPrograms
   '';

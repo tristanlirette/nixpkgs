@@ -4,7 +4,6 @@
   fetchFromGitHub,
   nix-update-script,
   rustPlatform,
-  darwin,
   which,
   installShellFiles,
 }:
@@ -16,16 +15,12 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "SuperCuber";
     repo = "dotter";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-7YExvmuliTL9oagXNUtZ7ZOPyELcS+igK1tXdhG0kQk=";
   };
 
   useFetchCargoVendor = true;
   cargoHash = "sha256-UBZZu8D1fbNOn2obviP+/Qw+E/OoNKRA4NXzqCqghGs=";
-
-  buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
-    darwin.apple_sdk.frameworks.CoreServices
-  ];
 
   nativeCheckInputs = [
     which

@@ -23,7 +23,7 @@ let
   src = fetchFromGitHub {
     owner = "plausible";
     repo = "analytics";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-4gwK/AxzhsU0vgvKgIXrOyQLCgZMeZyKjj7PWbUmJ+8=";
     postFetch = ''
       ${lib.getExe npm-lockfile-fix} $out/assets/package-lock.json
@@ -180,7 +180,7 @@ beamPackages.mixRelease rec {
     changelog = "https://github.com/plausible/analytics/blob/${src.rev}/CHANGELOG.md";
     description = " Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics";
     mainProgram = "plausible";
-    maintainers = teams.cyberus.members;
+    teams = [ teams.cyberus ];
     platforms = platforms.unix;
   };
 }

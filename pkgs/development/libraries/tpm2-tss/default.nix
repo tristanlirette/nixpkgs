@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "tpm2-software";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-BP28utEUI9g1VNv3lCXuiKrDtEImFQxxZfIjLiE3Wr8=";
   };
 
@@ -137,6 +137,8 @@ stdenv.mkDerivation rec {
       # uchar.h required
       "--disable-fapi"
       "--disable-policy"
+      # uses fallocate
+      "--disable-tcti-libtpms"
     ];
 
   postInstall = ''

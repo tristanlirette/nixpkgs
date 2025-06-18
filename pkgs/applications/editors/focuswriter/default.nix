@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  fetchpatch,
   pkg-config,
   cmake,
   hunspell,
@@ -20,9 +21,18 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "gottcode";
     repo = "focuswriter";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-oivhrDF3HikbEtS1cOlHwmQYNYf3IkX+gQGW0V55IWU=";
   };
+
+  patches = [
+    # Fix build, remove at next version bump
+    # https://github.com/gottcode/focuswriter/pull/208
+    (fetchpatch {
+      url = "https://github.com/gottcode/focuswriter/commit/dd74ed4559a141653a06e7984c1251b992925775.diff";
+      hash = "sha256-1bxa91xnkF1MIQlA8JgwPHW/A80ThbVVdVtusmzd22I=";
+    })
+  ];
 
   nativeBuildInputs = [
     pkg-config

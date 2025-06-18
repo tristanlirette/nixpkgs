@@ -6,7 +6,6 @@
   php,
   fetchFromGitHub,
   pcre2,
-  darwin,
 }:
 
 buildPecl rec {
@@ -16,15 +15,13 @@ buildPecl rec {
   src = fetchFromGitHub {
     owner = "jvoisin";
     repo = "snuffleupagus";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-W+EQXjvmDHih5YW/SjRcEdUELePUPKrNWB8vW9dLK/g=";
   };
 
   buildInputs =
     [ pcre2 ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk_11_0.frameworks.CoreFoundation
-      darwin.apple_sdk_11_0.Libsystem
       libiconv
     ];
 
@@ -42,6 +39,7 @@ buildPecl rec {
     description = "Security module for php7 and php8 - Killing bugclasses and virtual-patching the rest!";
     homepage = "https://github.com/jvoisin/snuffleupagus";
     license = lib.licenses.lgpl3Only;
-    maintainers = lib.teams.php.members ++ [ lib.maintainers.zupo ];
+    maintainers = [ lib.maintainers.zupo ];
+    teams = [ lib.teams.php ];
   };
 }

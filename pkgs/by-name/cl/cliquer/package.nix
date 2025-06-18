@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "dimpase";
     repo = "autocliquer";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "00gcmrhi2fjn8b246w5a3b0pl7p6haxy5wjvd9kcqib1xanz59z4";
   };
 
@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
     homepage = "https://users.aalto.fi/~pat/cliquer.html";
     downloadPage = src.meta.homepage; # autocliquer
     license = licenses.gpl2Plus;
-    maintainers = teams.sage.members;
+    teams = [ teams.sage ];
     mainProgram = "cl";
     platforms = platforms.unix;
   };

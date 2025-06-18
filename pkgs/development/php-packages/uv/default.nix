@@ -12,7 +12,7 @@ buildPecl rec {
   src = fetchFromGitHub {
     owner = "amphp";
     repo = "ext-uv";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-RYb7rszHbdTLfBi66o9hVkFwX+7RlcxH5PAw5frjpFg=";
   };
 
@@ -22,7 +22,7 @@ buildPecl rec {
     description = "Interface to libuv for php";
     license = licenses.php301;
     homepage = "https://github.com/amphp/ext-uv";
-    maintainers = teams.php.members;
+    teams = [ teams.php ];
     platforms = platforms.linux;
   };
 }

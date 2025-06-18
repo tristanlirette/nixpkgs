@@ -11,7 +11,7 @@ buildNpmPackage rec {
   src = fetchFromGitHub {
     owner = "netbirdio";
     repo = "dashboard";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-PY/jK96FK6Y0++Ie4Yg/7GrGoLtLcgCSzXIkqySxe2M=";
   };
 
@@ -30,6 +30,6 @@ buildNpmPackage rec {
     description = "NetBird Management Service Web UI Panel";
     homepage = "https://github.com/netbirdio/dashboard";
     license = licenses.bsd3;
-    maintainers = with maintainers; [ vrifox ];
+    maintainers = with maintainers; [ ];
   };
 }

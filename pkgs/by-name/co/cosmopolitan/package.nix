@@ -16,7 +16,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "jart";
     repo = "cosmopolitan";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-DTL1dXH+LhaxWpiCrsNjV74Bw5+kPbhEAA2Z1NKiPDk=";
   };
 
@@ -90,7 +90,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://justine.lol/cosmopolitan/";
     description = "Your build-once run-anywhere c library";
     license = lib.licenses.isc;
-    maintainers = lib.teams.cosmopolitan.members;
+    teams = [ lib.teams.cosmopolitan ];
     platforms = lib.platforms.x86_64;
     badPlatforms = lib.platforms.darwin;
   };

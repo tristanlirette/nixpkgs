@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "sergiou87";
     repo = "open-supaplex";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-hP8dJlLXE5J/oxPhRkrrBl1Y5e9MYbJKi8OApFM3+GU=";
   };
 
@@ -84,7 +84,7 @@ stdenv.mkDerivation rec {
   ];
 
   meta = {
-    description = "A decompilation of Supaplex in C and SDL";
+    description = "Decompilation of Supaplex in C and SDL";
     homepage = "https://github.com/sergiou87/open-supaplex";
     changelog = "https://github.com/sergiou87/open-supaplex/blob/master/changelog/v${version}.txt";
     license = lib.licenses.gpl3Only;

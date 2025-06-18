@@ -17,8 +17,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "go-shiori";
-    repo = pname;
-    tag = "v${version}";
+    repo = "shiori";
+    rev = "v${version}";
     sha256 = "sha256-T4EFwvejLgNkcykPjSHU8WXJwqSqYPFaAD+9JX+uiJU=";
   };
 

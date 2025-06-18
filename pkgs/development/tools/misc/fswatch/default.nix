@@ -8,7 +8,6 @@
   libtool,
   makeWrapper,
   texinfo,
-  CoreServices,
 }:
 
 stdenv.mkDerivation rec {
@@ -18,14 +17,14 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "emcrisostomo";
     repo = "fswatch";
-    tag = version;
+    rev = version;
     sha256 = "sha256-C/NHDhhRTQppu8xRWe9fy1+KIutyoRbkkabUtGlJ1fE=";
   };
 
   nativeBuildInputs = [
     autoreconfHook
     makeWrapper
-  ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ CoreServices ];
+  ];
   buildInputs = [
     gettext
     libtool

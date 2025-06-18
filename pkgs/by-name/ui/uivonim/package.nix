@@ -12,8 +12,8 @@ buildNpmPackage rec {
 
   src = fetchFromGitHub {
     owner = "smolck";
-    repo = pname;
-    tag = "v${version}";
+    repo = "uivonim";
+    rev = "v${version}";
     hash = "sha256-TcsKjRwiCTRQLxolRuJ7nRTGxFC0V2Q8LQC5p9iXaaY=";
   };
 

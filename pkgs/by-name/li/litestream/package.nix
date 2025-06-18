@@ -10,8 +10,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "benbjohnson";
-    repo = pname;
-    tag = "v${version}";
+    repo = "litestream";
+    rev = "v${version}";
     sha256 = "sha256-p858gK+ICKDQ+/LUiBaxF/kfrZzQAXnYMZDFU8kNCJ4=";
   };
 

@@ -12,7 +12,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "jlu5";
     repo = "icoextract";
-    tag = version;
+    rev = version;
     hash = "sha256-McVG8966NCEpzc9biawLvUgbQUtterkIud/9GwOeltI=";
   };
 
@@ -35,12 +35,12 @@ python3Packages.buildPythonApplication rec {
     install -Dm644 exe-thumbnailer.thumbnailer -t $out/share/thumbnailers
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Extract icons from Windows PE files";
     homepage = "https://github.com/jlu5/icoextract";
     changelog = "https://github.com/jlu5/icoextract/blob/${version}/CHANGELOG.md";
-    license = licenses.mit;
-    maintainers = with maintainers; [
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [
       bryanasdev000
       donovanglover
     ];

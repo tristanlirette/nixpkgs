@@ -3,10 +3,6 @@
   fetchFromGitHub,
   mkDerivation,
   stdenv,
-  Cocoa,
-  CoreAudio,
-  CoreFoundation,
-  MediaPlayer,
   SDL2,
   cmake,
   libGL,
@@ -33,7 +29,7 @@ mkDerivation rec {
   src = fetchFromGitHub {
     owner = "jellyfin";
     repo = "jellyfin-media-player";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-IXinyenadnW+a+anQ9e61h+N8vG2r77JPboHm5dN4Iw=";
   };
 
@@ -59,12 +55,6 @@ mkDerivation rec {
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
       qtwayland
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      Cocoa
-      CoreAudio
-      CoreFoundation
-      MediaPlayer
     ];
 
   nativeBuildInputs = [

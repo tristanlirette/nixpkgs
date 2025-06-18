@@ -49,8 +49,8 @@ lib.checkListOfEnum "${pname}: theme variants"
 
     src = fetchFromGitHub {
       owner = "vinceliuice";
-      repo = pname;
-      tag = version;
+      repo = "vimix-gtk-themes";
+      rev = version;
       sha256 = "RbAdoix+UWKiLB+04YiPa0UwzO1fFLy56IG1MipmE+E=";
     };
 

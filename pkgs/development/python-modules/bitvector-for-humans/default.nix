@@ -14,7 +14,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "JnyJny";
     repo = "bitvector";
-    tag = version;
+    rev = version;
     hash = "sha256-GVTRD83tq/Hea53US4drOD5ruoYCLTVd24aZOSdDsSo=";
   };
 
@@ -36,6 +36,6 @@ buildPythonPackage rec {
     homepage = "https://github.com/JnyJny/bitvector";
     description = "This simple bit vector implementation aims to make addressing single bits a little less fiddly.";
     license = licenses.asl20;
-    maintainers = teams.helsinki-systems.members;
+    teams = [ teams.helsinki-systems ];
   };
 }

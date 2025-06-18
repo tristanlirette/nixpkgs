@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "davidsmorais";
     repo = "kuro";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-9Z/r5T5ZI5aBghHmwiJcft/x/wTRzDlbIupujN2RFfU=";
   };
 
@@ -82,7 +82,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     changelog = "https://github.com/davidsmorais/kuro/releases/tag/${src.rev}";
-    description = "An unofficial, featureful, open source, community-driven, free Microsoft To-Do app";
+    description = "Unofficial, featureful, open source, community-driven, free Microsoft To-Do app";
     homepage = "https://github.com/davidsmorais/kuro";
     license = licenses.mit;
     mainProgram = "kuro";

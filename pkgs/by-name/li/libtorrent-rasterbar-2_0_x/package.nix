@@ -8,7 +8,6 @@
   openssl,
   python3,
   ncurses,
-  darwin,
 }:
 
 let
@@ -28,7 +27,7 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "arvidn";
     repo = "libtorrent";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-iph42iFEwP+lCWNPiOJJOejISFF6iwkGLY9Qg8J4tyo=";
     fetchSubmodules = true;
   };
@@ -41,7 +40,7 @@ stdenv.mkDerivation {
     zlib
     python3
     ncurses
-  ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ darwin.apple_sdk.frameworks.SystemConfiguration ];
+  ];
 
   patches = [
     # provide distutils alternative for python 3.12

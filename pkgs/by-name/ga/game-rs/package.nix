@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "amanse";
     repo = "game-rs";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-FuZl2yNre5jNSfHqF3tjiGwg5mRKbYer2FOPpLy0OrA=";
   };
 
@@ -23,12 +23,12 @@ rustPlatform.buildRustPackage rec {
 
   propagatedBuildInputs = [ steam-run ];
 
-  meta = with lib; {
+  meta = {
     description = "Minimal CLI game launcher for linux";
     homepage = "https://github.com/amanse/game-rs";
     changelog = "https://github.com/Amanse/game-rs/releases/tag/v${version}";
-    license = with licenses; [ mit ];
-    maintainers = with maintainers; [ amanse ];
-    platforms = platforms.linux;
+    license = with lib.licenses; [ mit ];
+    maintainers = with lib.maintainers; [ amanse ];
+    platforms = lib.platforms.linux;
   };
 }

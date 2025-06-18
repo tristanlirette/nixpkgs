@@ -15,8 +15,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "dmulholl";
-    repo = pname;
-    tag = version;
+    repo = "ibis";
+    rev = version;
     hash = "sha256-EPz9zHnxR75WoRaiHKJNiCRWFwU1TBpC4uHz62jUOqM=";
   };
 

@@ -14,8 +14,8 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     owner = "NaturalHistoryMuseum";
-    repo = pname;
-    tag = "v${version}";
+    repo = "pylibdmtx";
+    rev = "v${version}";
     hash = "sha256-vNWzhO4V0mj4eItZ0Z5UG9RBCqprIcgMGNyIe1+mXWY=";
   };
 

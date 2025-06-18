@@ -5,8 +5,8 @@
   openssl,
   pkg-config,
   libiconv,
-  darwin,
   rustPlatform,
+  libz,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "mccurdyc";
     repo = "gitrs";
-    tag = version;
+    rev = version;
     hash = "sha256-+43XJroPNWmdUC6FDL84rZWrJm5fzuUXfpDkAMyVQQg=";
   };
 
@@ -31,8 +31,7 @@ rustPlatform.buildRustPackage rec {
     [ openssl.dev ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
       libiconv
-      darwin.apple_sdk.frameworks.Security
-      darwin.apple_sdk.frameworks.SystemConfiguration
+      libz
     ];
 
   meta = with lib; {

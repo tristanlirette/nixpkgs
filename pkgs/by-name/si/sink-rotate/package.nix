@@ -7,7 +7,7 @@
   makeWrapper,
 }:
 let
-  version = "2.2.0";
+  version = "2.3.0";
 in
 rustPlatform.buildRustPackage {
   pname = "sink-rotate";
@@ -16,12 +16,12 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "mightyiam";
     repo = "sink-rotate";
-    tag = "v${version}";
-    hash = "sha256-ZHbisG9pdctkwfD1S3kxMZhBqPw0Ni5Q9qQG4RssnSw=";
+    rev = "v${version}";
+    hash = "sha256-gGmnji7KqmCxUaeXOGMnHMI6b8AJ6Np+xVjibqgGSKM=";
   };
 
   useFetchCargoVendor = true;
-  cargoHash = "sha256-OYFRiPAhiGbA7aNy3c4I0Tc39BNmFuP68YoBviMfbak=";
+  cargoHash = "sha256-7/EyDBWANoL5m9mx93LKMKD8hgcc3VgvrcLD6oTBXN8=";
 
   nativeBuildInputs = [ makeWrapper ];
 

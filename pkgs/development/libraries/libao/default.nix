@@ -8,9 +8,6 @@
   libpulseaudio,
   alsa-lib,
   libcap,
-  CoreAudio,
-  CoreServices,
-  AudioUnit,
   usePulseAudio,
 }:
 
@@ -22,7 +19,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "xiph";
     repo = "libao";
-    tag = version;
+    rev = version;
     sha256 = "0svgk4sc9kdhcsfyvbvgm5vpbg3sfr6z5rliflrw49v3x2i4vxq5";
   };
 
@@ -53,11 +50,6 @@ stdenv.mkDerivation rec {
     ++ lib.optionals stdenv.hostPlatform.isLinux [
       alsa-lib
       libcap
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      CoreAudio
-      CoreServices
-      AudioUnit
     ];
 
   nativeBuildInputs = [

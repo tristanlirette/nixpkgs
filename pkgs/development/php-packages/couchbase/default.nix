@@ -17,7 +17,7 @@ buildPecl {
   src = fetchFromGitHub {
     owner = "couchbase";
     repo = "php-couchbase";
-    tag = "v${version}";
+    rev = "v${version}";
     sha256 = "sha256-JpzLR4NcyShl2VTivj+15iAsTTsZmdMIdZYc3dLCbIA=";
   };
 
@@ -39,7 +39,7 @@ buildPecl {
     description = "Couchbase Server PHP extension";
     license = licenses.asl20;
     homepage = "https://docs.couchbase.com/php-sdk/current/project-docs/sdk-release-notes.html";
-    maintainers = teams.php.members;
+    teams = [ teams.php ];
     broken = lib.versionAtLeast php.version "8.3";
   };
 }

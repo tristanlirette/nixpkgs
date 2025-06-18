@@ -15,8 +15,8 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "docker";
-    repo = pname;
-    tag = "v${version}";
+    repo = "docker-credential-helpers";
+    rev = "v${version}";
     sha256 = "sha256-5KrBiihpWY04PjI9M7NRS5fRu+ochzqRLvX+ZBj/wq8=";
   };
 

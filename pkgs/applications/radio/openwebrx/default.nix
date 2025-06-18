@@ -29,7 +29,7 @@ let
     src = fetchFromGitHub {
       owner = "jketterl";
       repo = pname;
-      tag = version;
+      rev = version;
       sha256 = "1j80zclg1cl5clqd00qqa16prz7cyc32bvxqz2mh540cirygq24w";
     };
 
@@ -42,7 +42,7 @@ let
       homepage = "https://github.com/jketterl/js8py";
       description = "Library to decode the output of the js8 binary of JS8Call";
       license = licenses.gpl3Only;
-      maintainers = teams.c3d2.members;
+      teams = [ teams.c3d2 ];
     };
   };
 
@@ -53,7 +53,7 @@ let
     src = fetchFromGitHub {
       owner = "jketterl";
       repo = pname;
-      tag = version;
+      rev = version;
       sha256 = "sha256-1H0TJ8QN3b6Lof5TWvyokhCeN+dN7ITwzRvEo2X8OWc=";
     };
 
@@ -75,7 +75,7 @@ let
       description = "Set of connectors that are used by OpenWebRX to interface with SDR hardware";
       license = licenses.gpl3Only;
       platforms = platforms.unix;
-      maintainers = teams.c3d2.members;
+      teams = [ teams.c3d2 ];
     };
   };
 
@@ -87,7 +87,7 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "jketterl";
     repo = pname;
-    tag = version;
+    rev = version;
     hash = "sha256-i3Znp5Sxs/KtJazHh2v9/2P+3cEocWB5wIpF7E4pK9s=";
   };
 
@@ -120,6 +120,6 @@ buildPythonApplication rec {
     description = "Simple DSP library and command-line tool for Software Defined Radio";
     mainProgram = "openwebrx";
     license = licenses.gpl3Only;
-    maintainers = teams.c3d2.members;
+    teams = [ teams.c3d2 ];
   };
 }
